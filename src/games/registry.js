@@ -1,6 +1,6 @@
 import { mountInteractiveGlobeGame } from "./interactiveGlobeGame.js";
 import { mountInteractiveMapGame } from "./interactiveMapGame.js";
-import { mountFlagMapGame } from "./flagMapGame.js";
+import { mountCountryMapGame, mountFlagMapGame } from "./flagMapGame.js";
 import { mountDataStudioGame } from "./dataStudioGame.js";
 import { mountGlobeStudioGame } from "./globeStudioGame.js";
 
@@ -14,6 +14,11 @@ export const categories = [
     id: "flags",
     title: "Flags",
     description: "Identify countries from their flags in map-based challenges."
+  },
+  {
+    id: "countries",
+    title: "Countries",
+    description: "Find named countries on the map."
   },
   {
     id: "developer",
@@ -42,10 +47,11 @@ export const games = [
   },
   {
     id: "countries-of-the-world",
-    category: "quiz",
-    title: "Countries of the Earth",
-    description: "A fast country-name guessing game ready to plug into the shared map modules.",
-    enabled: false
+    category: "countries",
+    title: "Country Map Challenge",
+    description: "Use the flag and country name to locate the country on the map.",
+    enabled: true,
+    mount: mountCountryMapGame
   },
   {
     id: "mercator-map",

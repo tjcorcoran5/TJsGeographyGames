@@ -5,21 +5,39 @@ const MAX_ZOOM = 45;
 const MAIN_GEO_TYPES = new Set(["Sovereign country", "Country", "Disputed"]);
 
 export async function mountFlagMapGame(stage) {
+  return mountMapPromptGame(stage, {
+    ariaLabel: "Flag map game",
+    promptMode: "flag",
+    intro: "Select the country that matches this flag.",
+    hint: "Scroll to zoom. Drag to pan. Click the country matching the flag."
+  });
+}
+
+export async function mountCountryMapGame(stage) {
+  return mountMapPromptGame(stage, {
+    ariaLabel: "Country map game",
+    promptMode: "country",
+    intro: "Select the named country on the map.",
+    hint: "Scroll to zoom. Drag to pan. Click the named country."
+  });
+}
+
+async function mountMapPromptGame(stage, config) {
   stage.innerHTML = `
     <section class="map-game flag-map-game">
       <div class="map-canvas" data-map-canvas>
-        <svg class="world-map-svg" viewBox="0 0 ${VIEWBOX.width} ${VIEWBOX.height}" role="img" aria-label="Flag map game"></svg>
+        <svg class="world-map-svg" viewBox="0 0 ${VIEWBOX.width} ${VIEWBOX.height}" role="img" aria-label="${config.ariaLabel}"></svg>
       </div>
       <aside class="flag-game-panel">
         <div class="flag-game-score"><span data-score>0</span> / <span data-total>0</span></div>
         <div class="flag-game-card">
           <div class="flag-game-frame"><img data-flag alt="" /></div>
           <h2 data-prompt>Loading...</h2>
-          <p data-feedback>Select the country that matches this flag.</p>
+          <p data-feedback>${config.intro}</p>
         </div>
         <button class="text-button" type="button" data-skip>Skip</button>
       </aside>
-      <div class="globe-hint">Scroll to zoom. Drag to pan. Click the country matching the flag.</div>
+      <div class="globe-hint">${config.hint}</div>
     </section>
   `;
 
@@ -29,16 +47,17 @@ export async function mountFlagMapGame(stage) {
     fetch("./assets/country-outlines.geo.json").then((response) => response.json())
   ]);
 
-  const game = new FlagMapGame(stage, geoJson, buildQuestionPool(allCountries, mainCountries, geoJson));
+  const game = new FlagMapGame(stage, geoJson, buildQuestionPool(allCountries, mainCountries, geoJson), config);
   game.mount();
   return () => game.dispose();
 }
 
 class FlagMapGame {
-  constructor(stage, geoJson, countries) {
+  constructor(stage, geoJson, countries, config) {
     this.stage = stage;
     this.geoJson = geoJson;
     this.countries = shuffle(countries.filter((country) => country.flag));
+    this.config = config;
     this.remaining = [...this.countries];
     this.correct = new Set();
     this.current = null;
@@ -129,8 +148,9 @@ class FlagMapGame {
     this.els.flag.src = this.current.flag;
     this.els.flag.alt = `${this.current.name} flag`;
     fitFlagImage(this.els.flag);
-    this.els.prompt.textContent = "Which country uses this flag?";
-    this.els.feedback.textContent = "Select the matching country on the map.";
+    this.els.prompt.textContent = this.config.promptMode === "country" ? this.current.name : "Which country uses this flag?";
+    this.els.feedback.textContent =
+      this.config.promptMode === "country" ? "Select this country on the map." : "Select the matching country on the map.";
   }
 
   handleCountryClick(path) {
