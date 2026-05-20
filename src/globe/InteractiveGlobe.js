@@ -67,6 +67,11 @@ export class InteractiveGlobe {
     this.globe.add(countries);
   }
 
+  async loadBakedMesh(bakedMesh) {
+    const countries = this.drawBakedMesh(bakedMesh);
+    this.globe.add(countries);
+  }
+
   start() {
     this.resizeObserver.observe(this.container);
     this.renderer.domElement.addEventListener("pointerdown", this.onPointerDown);
@@ -136,6 +141,50 @@ export class InteractiveGlobe {
       if (feature.geometry.type === "MultiPolygon") {
         feature.geometry.coordinates.forEach(processPolygon);
       }
+
+      if (countryGroup.children.length) group.add(countryGroup);
+    });
+
+    return group;
+  }
+
+  drawBakedMesh(bakedMesh) {
+    const group = new THREE.Group();
+    const outlineMaterial = new THREE.LineBasicMaterial({
+      color: bakedMesh.style?.outlineColor ?? 0x17211c,
+      transparent: true,
+      opacity: bakedMesh.style?.outlineOpacity ?? 0.45
+    });
+
+    bakedMesh.countries.forEach((country) => {
+      const countryGroup = new THREE.Group();
+      countryGroup.userData.feature = { properties: country.properties };
+      countryGroup.userData.baseColor = country.color;
+      countryGroup.userData.pickSize = country.pickSize;
+
+      const fillMaterial = new THREE.MeshStandardMaterial({
+        color: country.color,
+        roughness: 1,
+        metalness: 0
+      });
+
+      country.meshes.forEach((meshData) => {
+        const geometry = new THREE.BufferGeometry();
+        geometry.setAttribute("position", new THREE.Float32BufferAttribute(meshData.positions, 3));
+        geometry.setIndex(meshData.indices);
+        geometry.computeVertexNormals();
+        const mesh = new THREE.Mesh(geometry, fillMaterial);
+        mesh.userData.countryGroup = countryGroup;
+        countryGroup.add(mesh);
+      });
+
+      country.outlines.forEach((positions) => {
+        const geometry = new THREE.BufferGeometry();
+        geometry.setAttribute("position", new THREE.Float32BufferAttribute(positions, 3));
+        const line = new THREE.Line(geometry, outlineMaterial);
+        line.userData.countryGroup = countryGroup;
+        countryGroup.add(line);
+      });
 
       if (countryGroup.children.length) group.add(countryGroup);
     });

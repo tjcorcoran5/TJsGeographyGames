@@ -1,4 +1,4 @@
-import { findCountryMatch, loadRemoteCountries } from "../data/countryData.js";
+import { findCountryMatch, loadCompiledCountries, loadRemoteCountries } from "../data/countryData.js";
 
 export async function mountDataStudioGame(stage) {
   stage.innerHTML = `
@@ -6,6 +6,7 @@ export async function mountDataStudioGame(stage) {
       <div class="studio-toolbar">
         <button class="text-button primary" type="button" data-action="sync-rest">Sync REST Countries</button>
         <button class="text-button" type="button" data-action="sync-geo">Load GeoJSON</button>
+        <button class="text-button" type="button" data-action="load-compiled">Load Compiled Dataset</button>
         <button class="text-button" type="button" data-action="compile">Compile Dataset</button>
         <button class="text-button" type="button" data-action="save">Save to Project</button>
         <span class="studio-status" data-status>Ready</span>
@@ -57,6 +58,7 @@ export async function mountDataStudioGame(stage) {
 
   stage.querySelector("[data-action='sync-rest']").addEventListener("click", () => syncRest(state, els));
   stage.querySelector("[data-action='sync-geo']").addEventListener("click", () => syncGeo(state, els));
+  stage.querySelector("[data-action='load-compiled']").addEventListener("click", () => loadCompiledDataset(state, els));
   stage.querySelector("[data-action='compile']").addEventListener("click", () => compileDataset(state, els));
   stage.querySelector("[data-action='save']").addEventListener("click", () => saveDataset(state, els));
   els.search.addEventListener("input", () => renderCountryList(state, els));
@@ -68,6 +70,8 @@ async function syncRest(state, els) {
   setStatus(els, "Syncing REST Countries...");
   state.restCountries = await loadRemoteCountries();
   els.restCount.textContent = `${state.restCountries.length} records`;
+  applyRecognitionFlagsFromRest(state);
+  renderEditor(state, els);
   setStatus(els, "REST Countries synced.");
 }
 
@@ -78,6 +82,43 @@ async function syncGeo(state, els) {
   state.geoFeatures = geoJson.features || [];
   els.geoCount.textContent = `${state.geoFeatures.length} features`;
   setStatus(els, "GeoJSON loaded.");
+}
+
+async function loadCompiledDataset(state, els) {
+  setStatus(els, "Loading assets/country-data.json...");
+
+  try {
+    state.compiledCountries = await loadCompiledCountries();
+  } catch (error) {
+    setStatus(els, "No compiled dataset found yet. Compile and save one first.");
+    return;
+  }
+
+  state.compiledCountries.sort((a, b) => a.name.localeCompare(b.name));
+  applyRecognitionFlagsFromRest(state);
+  state.selectedCode = state.compiledCountries[0]?.id || null;
+  state.dirty = false;
+  els.compiledCount.textContent = `${state.compiledCountries.length} countries`;
+  renderCountryList(state, els);
+  renderEditor(state, els);
+  setStatus(els, "Compiled dataset loaded.");
+}
+
+function applyRecognitionFlagsFromRest(state) {
+  if (!state.restCountries.length || !state.compiledCountries.length) return;
+
+  const restByCode = new Map(state.restCountries.map((country) => [country.code, country]));
+  state.compiledCountries = state.compiledCountries.map((country) => {
+    const match = restByCode.get(country.code);
+    if (!match) return country;
+
+    return {
+      ...country,
+      unMember: typeof country.unMember === "boolean" ? country.unMember : match.unMember,
+      isMainRecognizedCountry:
+        typeof country.isMainRecognizedCountry === "boolean" ? country.isMainRecognizedCountry : match.isMainRecognizedCountry
+    };
+  });
 }
 
 function compileDataset(state, els) {
@@ -99,6 +140,8 @@ function compileDataset(state, els) {
       cca2: match?.cca2 || properties.iso_a2 || "",
       capital: match?.capital || [],
       population: match?.population ?? properties.pop_est ?? null,
+      unMember: Boolean(match?.unMember),
+      isMainRecognizedCountry: Boolean(match?.isMainRecognizedCountry),
       area: match?.area ?? null,
       region: match?.region || properties.continent || "",
       subregion: match?.subregion || properties.subregion || "",
@@ -181,6 +224,7 @@ function renderEditor(state, els) {
       <label>Official name<input name="officialName" value="${escapeAttribute(country.officialName)}" /></label>
       <label>Capital<input name="capital" value="${escapeAttribute(country.capital.join(", "))}" /></label>
       <label>Population<input name="population" type="number" value="${country.population ?? ""}" /></label>
+      <label class="checkbox-field"><input name="isMainRecognizedCountry" type="checkbox" ${country.isMainRecognizedCountry ? "checked" : ""} /> Main recognized country</label>
       <label>Region<input name="region" value="${escapeAttribute(country.region)}" /></label>
       <label>Subregion<input name="subregion" value="${escapeAttribute(country.subregion)}" /></label>
       <label>Alternative spellings<textarea name="altSpellings">${country.altSpellings.join("\n")}</textarea></label>
@@ -195,6 +239,7 @@ function renderEditor(state, els) {
     country.officialName = form.elements.officialName.value.trim();
     country.capital = splitList(form.elements.capital.value);
     country.population = form.elements.population.value ? Number(form.elements.population.value) : null;
+    country.isMainRecognizedCountry = form.elements.isMainRecognizedCountry.checked;
     country.region = form.elements.region.value.trim();
     country.subregion = form.elements.subregion.value.trim();
     country.altSpellings = splitList(form.elements.altSpellings.value);

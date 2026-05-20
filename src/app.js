@@ -1,5 +1,5 @@
 import { createTopbar } from "./components/shell.js";
-import { games } from "./games/registry.js";
+import { categories, games } from "./games/registry.js";
 
 const app = document.querySelector("#app");
 let currentCleanup = null;
@@ -23,13 +23,55 @@ function renderHub() {
   main.innerHTML = `
     <section class="hub-heading">
       <h1>Geography Games</h1>
-      <p>Choose a mode, explore the world, and keep one shared country dataset underneath every game.</p>
+      <p>Choose a section, then open a map, globe, quiz, or development tool.</p>
     </section>
-    <section class="game-grid" aria-label="Available geography games"></section>
+    <section class="game-grid" aria-label="Geography game sections"></section>
   `;
 
   const grid = main.querySelector(".game-grid");
-  games.filter(shouldShowGame).forEach((game) => {
+  categories.filter(shouldShowCategory).forEach((category) => {
+    const card = document.createElement("button");
+    card.type = "button";
+    card.className = "game-card available";
+    card.innerHTML = `
+      <span class="badge">${category.developerOnly ? "Developer" : "Section"}</span>
+      <span>
+        <h2>${category.title}</h2>
+        <p>${category.description}</p>
+      </span>
+    `;
+    card.addEventListener("click", () => renderCategory(category.id));
+
+    grid.append(card);
+  });
+
+  shell.append(main);
+  setView(shell);
+}
+
+function renderCategory(categoryId) {
+  const category = categories.find((candidate) => candidate.id === categoryId);
+  if (!category || !shouldShowCategory(category)) {
+    renderHub();
+    return;
+  }
+
+  const shell = document.createElement("div");
+  shell.className = "app-shell";
+  shell.append(createTopbar({ title: category.title, showHome: true, onHome: renderHub }));
+
+  const main = document.createElement("main");
+  main.className = "hub";
+  main.innerHTML = `
+    <section class="hub-heading">
+      <h1>${category.title}</h1>
+      <p>${category.description}</p>
+    </section>
+    <section class="game-grid" aria-label="${category.title} apps"></section>
+  `;
+
+  const grid = main.querySelector(".game-grid");
+  games.filter((game) => game.category === categoryId && shouldShowGame(game)).forEach((game) => {
     const card = document.createElement("button");
     card.type = "button";
     card.className = `game-card ${game.enabled ? "available" : "disabled"}`;
@@ -53,8 +95,17 @@ function renderHub() {
   setView(shell);
 }
 
+function shouldShowCategory(category) {
+  if (!category.developerOnly) return true;
+  return isDevMode();
+}
+
 function shouldShowGame(game) {
   if (!game.developerOnly) return true;
+  return isDevMode();
+}
+
+function isDevMode() {
   return location.hostname === "localhost" || location.hostname === "127.0.0.1" || new URLSearchParams(location.search).has("dev");
 }
 
@@ -67,7 +118,7 @@ async function renderGame(gameId) {
 
   const screen = document.createElement("div");
   screen.className = "game-screen";
-  screen.append(createTopbar({ title: game.title, showHome: true, onHome: renderHub }));
+  screen.append(createTopbar({ title: game.title, showHome: true, onHome: () => renderCategory(game.category) }));
 
   const stage = document.createElement("main");
   stage.className = "game-stage";

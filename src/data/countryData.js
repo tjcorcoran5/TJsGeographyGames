@@ -1,15 +1,16 @@
 let countriesPromise;
+const MAIN_RECOGNIZED_EXTRA_CODES = new Set(["PSE", "VAT", "TWN", "XKX", "KOS"]);
+const MAIN_RECOGNIZED_EXTRA_NAMES = new Set(["Palestine", "Vatican City", "Taiwan", "Kosovo"]);
 
-export async function loadCountries({ onlyUN = false } = {}) {
-  if (!countriesPromise) {
+export async function loadCountries({ onlyUN = false, onlyMainRecognized = false, refresh = false } = {}) {
+  if (!countriesPromise || refresh) {
     countriesPromise = loadCompiledCountries().catch(() => loadRestCountries());
   }
 
-  const countries = await countriesPromise;
-  if (!onlyUN) return countries;
+  const countries = (await countriesPromise).map(withCountryListFlags);
+  if (!onlyUN && !onlyMainRecognized) return countries;
 
-  const extraPlayable = new Set(["Palestine", "Vatican City", "Taiwan", "Kosovo"]);
-  return countries.filter((country) => country.unMember || extraPlayable.has(country.name));
+  return countries.filter((country) => country.isMainRecognizedCountry);
 }
 
 export async function loadCompiledCountries() {
@@ -70,7 +71,8 @@ export function findCountryMatch(properties, countries) {
     properties.formal_en
   ]
     .filter(Boolean)
-    .map(normalizeKey);
+    .map(normalizeKey)
+    .filter(isUsableMatchKey);
 
   return countries.find((country) => {
     const keys = [
@@ -79,7 +81,9 @@ export function findCountryMatch(properties, countries) {
       country.name,
       country.officialName,
       ...country.altSpellings
-    ].map(normalizeKey);
+    ]
+      .map(normalizeKey)
+      .filter(isUsableMatchKey);
 
     return keys.some((key) => candidates.includes(key));
   });
@@ -96,6 +100,7 @@ function normalizeCountry(country) {
     flag: country.flags?.svg || country.flags?.png,
     flagAlt: country.flags?.alt,
     unMember: Boolean(country.unMember),
+    isMainRecognizedCountry: isMainRecognizedCountry(country),
     population: country.population,
     altSpellings: country.altSpellings || [],
     region: country.region,
@@ -106,10 +111,34 @@ function normalizeCountry(country) {
   };
 }
 
+function withCountryListFlags(country) {
+  const next = { ...country };
+  next.isMainRecognizedCountry =
+    typeof next.isMainRecognizedCountry === "boolean"
+      ? next.isMainRecognizedCountry
+      : Boolean(next.unMember) ||
+        MAIN_RECOGNIZED_EXTRA_CODES.has(next.code) ||
+        MAIN_RECOGNIZED_EXTRA_NAMES.has(next.name);
+
+  return next;
+}
+
+function isMainRecognizedCountry(country) {
+  return (
+    Boolean(country.unMember) ||
+    MAIN_RECOGNIZED_EXTRA_CODES.has(country.cca3) ||
+    MAIN_RECOGNIZED_EXTRA_NAMES.has(country.name?.common)
+  );
+}
+
 function normalizeKey(value) {
   return String(value)
     .toLowerCase()
     .replace(/^the\s+/, "")
     .replace(/&/g, "and")
     .replace(/[^a-z0-9]+/g, "");
+}
+
+function isUsableMatchKey(key) {
+  return key && key !== "99" && key !== "999" && key !== "0" && key !== "null";
 }

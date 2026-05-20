@@ -22,6 +22,14 @@ createServer(async (request, response) => {
       return;
     }
 
+    if (request.method === "POST" && request.url === "/api/dev/globe-mesh/save") {
+      const body = await readBody(request);
+      const parsed = JSON.parse(body);
+      await writeFile(join(root, "assets", "globe-mesh.json"), `${JSON.stringify(parsed)}\n`, "utf8");
+      sendJson(response, { ok: true });
+      return;
+    }
+
     if (request.method !== "GET" && request.method !== "HEAD") {
       response.writeHead(405);
       response.end();

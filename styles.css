@@ -198,19 +198,148 @@ button {
   overflow: hidden;
 }
 
-.globe-game {
+.globe-game,
+.map-game {
   position: absolute;
   inset: 0;
   background: linear-gradient(180deg, #f8fbfd 0%, #e4eef0 100%);
 }
 
-.globe-canvas {
+.globe-canvas,
+.map-canvas {
   position: absolute;
   inset: 0;
 }
 
 .globe-canvas canvas {
   display: block;
+}
+
+.world-map-svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+  background: transparent;
+  cursor: grab;
+  touch-action: none;
+}
+
+.world-map-svg:active {
+  cursor: grabbing;
+}
+
+.map-country {
+  fill: var(--country-color);
+  fill-opacity: 0.92;
+  stroke: rgba(23, 33, 28, 0.58);
+  stroke-width: 0.45;
+  vector-effect: non-scaling-stroke;
+  cursor: pointer;
+  transition: fill 120ms ease, fill-opacity 120ms ease;
+}
+
+.map-country:hover {
+  fill-opacity: 1;
+}
+
+.map-country.selected {
+  fill: #e9563f;
+  fill-opacity: 1;
+  stroke: #17211c;
+  stroke-width: 1;
+}
+
+.flag-answer-country {
+  fill: var(--country-color);
+}
+
+.flag-answer-country.answer-correct {
+  fill: #2f8f5b;
+  fill-opacity: 1;
+}
+
+.flag-answer-country.answer-wrong {
+  fill: #c84d43;
+  fill-opacity: 0.95;
+}
+
+.flag-answer-country.answer-flash {
+  animation: answer-orange-flash 2s ease;
+}
+
+@keyframes answer-orange-flash {
+  0%,
+  100% {
+    fill: var(--country-color);
+  }
+
+  12%,
+  82% {
+    fill: #f0a13a;
+    fill-opacity: 1;
+  }
+}
+
+.flag-game-panel {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  z-index: 3;
+  display: grid;
+  gap: 0.75rem;
+  width: min(20rem, calc(100vw - 2rem));
+  border: 1px solid var(--line);
+  border-radius: 0.5rem;
+  padding: 1rem;
+  background: rgba(255, 255, 255, 0.93);
+  box-shadow: 0 20px 60px rgba(23, 33, 28, 0.18);
+  backdrop-filter: blur(14px);
+}
+
+.flag-game-score {
+  justify-self: start;
+  border-radius: 999px;
+  padding: 0.25rem 0.65rem;
+  background: var(--panel-soft);
+  color: var(--accent-strong);
+  font-weight: 800;
+}
+
+.flag-game-card {
+  display: grid;
+  gap: 0.65rem;
+}
+
+.flag-game-frame {
+  display: grid;
+  place-items: center;
+  width: 100%;
+  height: 8rem;
+  border: 1px solid var(--line);
+  border-radius: 0.45rem;
+  background: white;
+  overflow: hidden;
+}
+
+.flag-game-frame img {
+  display: block;
+  width: auto;
+  height: auto;
+  max-width: calc(100% - 1rem);
+  max-height: calc(100% - 1rem);
+  border: 1px solid var(--line);
+  object-fit: contain;
+}
+
+.flag-game-card h2,
+.flag-game-card p {
+  margin: 0;
+}
+
+.flag-game-card p {
+  min-height: 2.8rem;
+  color: var(--muted);
+  line-height: 1.4;
 }
 
 .globe-side-panel {
@@ -250,15 +379,20 @@ button {
   place-items: center;
   width: 4.75rem;
   height: 3.25rem;
-  border: 1px solid var(--line);
-  border-radius: 0.35rem;
-  background: white;
-  overflow: hidden;
+  background: transparent;
+  overflow: visible;
 }
 
 .flag-frame img {
-  width: 100%;
-  height: 100%;
+  display: block;
+  width: auto;
+  height: auto;
+  max-width: calc(100% - 2px);
+  max-height: calc(100% - 2px);
+  box-sizing: border-box;
+  border: 1px solid var(--line);
+  border-radius: 0.25rem;
+  background: white;
   object-fit: contain;
 }
 
@@ -336,6 +470,36 @@ button {
   border-bottom: 1px solid var(--line);
   background: var(--panel);
   overflow-x: auto;
+}
+
+.inline-control {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  color: var(--muted);
+  font-size: 0.86rem;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.inline-control input,
+.inline-control select {
+  border: 1px solid var(--line);
+  border-radius: 0.4rem;
+  padding: 0.4rem 0.5rem;
+  background: var(--panel);
+}
+
+.inline-control input[type="color"] {
+  width: 2.5rem;
+  height: 2rem;
+  padding: 0.1rem;
+}
+
+.globe-studio-preview {
+  position: relative;
+  min-height: 0;
+  background: linear-gradient(180deg, #f8fbfd 0%, #e4eef0 100%);
 }
 
 .studio-status {
@@ -438,6 +602,17 @@ button {
   font-weight: 700;
 }
 
+.country-edit-form .checkbox-field {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--text);
+}
+
+.country-edit-form .checkbox-field input {
+  width: auto;
+}
+
 .country-edit-form textarea {
   min-height: 7rem;
   resize: vertical;
@@ -480,6 +655,12 @@ button {
 
   .globe-hint {
     display: none;
+  }
+
+  .flag-game-panel {
+    top: 0.75rem;
+    right: 0.75rem;
+    width: min(18rem, calc(100vw - 1.5rem));
   }
 
   .studio-layout,
