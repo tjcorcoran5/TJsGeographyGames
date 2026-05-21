@@ -1,6 +1,7 @@
 import { mountInteractiveGlobeGame } from "./interactiveGlobeGame.js";
 import { mountInteractiveMapGame } from "./interactiveMapGame.js";
 import { mountCountryMapGame, mountFlagMapGame } from "./flagMapGame.js";
+import { mountCountryTypingGame } from "./countryTypingGame.js";
 import { mountDataStudioGame } from "./dataStudioGame.js";
 import { mountGlobeStudioGame } from "./globeStudioGame.js";
 
@@ -52,6 +53,14 @@ export const games = [
     description: "Use the flag and country name to locate the country on the map.",
     enabled: true,
     mount: mountCountryMapGame
+  },
+  {
+    id: "country-name-typing",
+    category: "countries",
+    title: "Country Name Typing",
+    description: "Type the main country names from memory and fill the world map.",
+    enabled: true,
+    mount: mountCountryTypingGame
   },
   {
     id: "mercator-map",
