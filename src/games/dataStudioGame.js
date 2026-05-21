@@ -17,7 +17,7 @@ export async function mountDataStudioGame(stage) {
         <div><strong data-total>0</strong><span>Total records</span></div>
         <div><strong data-usable>0</strong><span>Using in dataset</span></div>
         <div><strong data-main>0</strong><span>Main countries</span></div>
-        <div><strong data-geo>0</strong><span>With GeoJSON</span></div>
+        <div><strong data-geo>0</strong><span>Mapped countries</span></div>
         <div><strong data-missing>0</strong><span>Needs review</span></div>
       </div>
       <div class="dataset-tools">
@@ -108,6 +108,10 @@ async function syncRest(state, els) {
 async function syncGeo(state, els) {
   setStatus(els, "Syncing GeoJSON...");
   const response = await fetch("./assets/country-outlines.geo.json");
+  if (!response.ok) {
+    setStatus(els, "country-outlines.geo.json was not found. Existing embedded GeoJSON was kept.");
+    return;
+  }
   const geoJson = await response.json();
   state.geoFeatures = geoJson.features || [];
 
@@ -147,7 +151,7 @@ async function saveDataset(state, els) {
     body: JSON.stringify({
       generatedAt: new Date().toISOString(),
       countries: state.compiledCountries.map((country) => ({
-        ...country,
+        ...withDatasetMembership(country),
         needsReview: hasMissingCoreData(country)
       }))
     })
@@ -323,18 +327,19 @@ function updateCountryDetails(country, panel, state, els) {
 }
 
 function updateSummary(state, els) {
-  const included = state.compiledCountries.filter((country) => country.includeInDataset !== false);
+  const withMembership = state.compiledCountries.map(withDatasetMembership);
+  const included = withMembership.filter((country) => country.isExtendedCountry);
   els.total.textContent = String(state.compiledCountries.length);
   els.usable.textContent = String(included.length);
   els.main.textContent = String(included.filter((country) => country.isMainRecognizedCountry).length);
-  els.geo.textContent = String(state.compiledCountries.filter((country) => country.hasGeoJsonData).length);
-  els.missing.textContent = String(state.compiledCountries.filter(hasMissingCoreData).length);
+  els.geo.textContent = String(included.filter((country) => country.isMappedCountry).length);
+  els.missing.textContent = String(withMembership.filter(hasMissingCoreData).length);
 }
 
 function diffRestFields(current, rest) {
   const fields = {};
   CORE_SYNC_FIELDS.forEach((field) => {
-    const oldValue = normalizeComparable(current[field]);
+    const oldValue = normalizeComparable(field === "flag" ? current.remoteFlag || current.flag : current[field]);
     const newValue = normalizeComparable(rest[field]);
     if (oldValue !== newValue) fields[field] = { oldValue: current[field], newValue: rest[field] };
   });
@@ -381,6 +386,8 @@ function normalizeDatasetCountry(country) {
     unMember: Boolean(country.unMember),
     isMainRecognizedCountry: Boolean(country.isMainRecognizedCountry),
     includeInDataset: country.includeInDataset !== false,
+    isExtendedCountry: country.isExtendedCountry ?? country.includeInDataset !== false,
+    isMappedCountry: Boolean(country.isMappedCountry),
     hasGeoJsonData: Boolean(country.hasGeoJsonData || country.geoJson),
     area: country.area ?? null,
     region: country.region || "",
@@ -394,6 +401,15 @@ function normalizeDatasetCountry(country) {
     developerNotes: country.developerNotes || "",
     geoJson: country.geoJson || null,
     sources: country.sources || {}
+  };
+}
+
+function withDatasetMembership(country) {
+  const isExtendedCountry = country.includeInDataset !== false;
+  return {
+    ...country,
+    isExtendedCountry,
+    isMappedCountry: isExtendedCountry && Boolean(country.hasGeoJsonData || country.geoJson?.geometry)
   };
 }
 

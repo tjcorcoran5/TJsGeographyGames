@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-05-20T19:45:09.682Z",
+  "generatedAt": "2026-05-21T11:50:59.501Z",
   "countries": [
     {
       "id": "AFG",
@@ -1869,8 +1869,7 @@
         "restCountries": true,
         "geoJsonName": "Afghanistan"
       },
-      "needsReview": false,
-      "remoteFlag": "https://upload.wikimedia.org/wikipedia/commons/5/5c/Flag_of_the_Taliban.svg"
+      "needsReview": false
     },
     {
       "id": "ALA",
@@ -2312,8 +2311,7 @@
         "restCountries": true,
         "geoJsonName": "Åland"
       },
-      "needsReview": false,
-      "remoteFlag": "https://flagcdn.com/ax.svg"
+      "needsReview": false
     },
     {
       "id": "ALB",
@@ -2993,8 +2991,7 @@
         "restCountries": true,
         "geoJsonName": "Albania"
       },
-      "needsReview": false,
-      "remoteFlag": "https://flagcdn.com/al.svg"
+      "needsReview": false
     },
     {
       "id": "DZA",
@@ -4748,8 +4745,7 @@
         "restCountries": true,
         "geoJsonName": "Algeria"
       },
-      "needsReview": false,
-      "remoteFlag": "https://flagcdn.com/dz.svg"
+      "needsReview": false
     },
     {
       "id": "ASM",
@@ -5005,8 +5001,7 @@
         "restCountries": true,
         "geoJsonName": "American Samoa"
       },
-      "needsReview": false,
-      "remoteFlag": "https://flagcdn.com/as.svg"
+      "needsReview": false
     },
     {
       "id": "AND",
@@ -5307,8 +5302,7 @@
         "restCountries": true,
         "geoJsonName": "Andorra"
       },
-      "needsReview": false,
-      "remoteFlag": "https://flagcdn.com/ad.svg"
+      "needsReview": false
     },
     {
       "id": "AGO",
@@ -6893,8 +6887,7 @@
         "restCountries": true,
         "geoJsonName": "Angola"
       },
-      "needsReview": false,
-      "remoteFlag": "https://flagcdn.com/ao.svg"
+      "needsReview": false
     },
     {
       "id": "AIA",
@@ -7138,8 +7131,7 @@
         "restCountries": true,
         "geoJsonName": "Anguilla"
       },
-      "needsReview": false,
-      "remoteFlag": "https://flagcdn.com/ai.svg"
+      "needsReview": false
     },
     {
       "id": "ATA",
@@ -27472,8 +27464,7 @@
         "restCountries": true,
         "geoJsonName": "Antarctica"
       },
-      "needsReview": true,
-      "remoteFlag": "https://flagcdn.com/aq.svg"
+      "needsReview": true
     },
     {
       "id": "ATG",
@@ -27788,8 +27779,7 @@
         "restCountries": true,
         "geoJsonName": "Antigua and Barb."
       },
-      "needsReview": false,
-      "remoteFlag": "https://flagcdn.com/ag.svg"
+      "needsReview": false
     },
     {
       "id": "ARG",
@@ -32188,8 +32178,7 @@
         "restCountries": true,
         "geoJsonName": "Argentina"
       },
-      "needsReview": false,
-      "remoteFlag": "https://flagcdn.com/ar.svg"
+      "needsReview": false
     },
     {
       "id": "ARM",
@@ -33009,8 +32998,7 @@
         "restCountries": true,
         "geoJsonName": "Armenia"
       },
-      "needsReview": false,
-      "remoteFlag": "https://flagcdn.com/am.svg"
+      "needsReview": false
     },
     {
       "id": "ABW",
@@ -33271,8 +33259,7 @@
         "restCountries": true,
         "geoJsonName": "Aruba"
       },
-      "needsReview": false,
-      "remoteFlag": "https://flagcdn.com/aw.svg"
+      "needsReview": false
     },
     {
       "id": "-99",
@@ -41085,8 +41072,7 @@
         "restCountries": true,
         "geoJsonName": "Australia"
       },
-      "needsReview": false,
-      "remoteFlag": "https://flagcdn.com/au.svg"
+      "needsReview": false
     },
     {
       "id": "AUT",
@@ -42405,8 +42391,7 @@
         "restCountries": true,
         "geoJsonName": "Austria"
       },
-      "needsReview": false,
-      "remoteFlag": "https://flagcdn.com/at.svg"
+      "needsReview": false
     },
     {
       "id": "AZE",
@@ -43702,8 +43687,7 @@
         "restCountries": true,
         "geoJsonName": "Azerbaijan"
       },
-      "needsReview": false,
-      "remoteFlag": "https://flagcdn.com/az.svg"
+      "needsReview": false
     },
     {
       "id": "BHS",
@@ -45059,8 +45043,7 @@
         "restCountries": true,
         "geoJsonName": "Bahamas"
       },
-      "needsReview": false,
-      "remoteFlag": "https://flagcdn.com/bs.svg"
+      "needsReview": false
     },
     {
       "id": "BHR",
@@ -45334,8 +45317,7 @@
         "restCountries": true,
         "geoJsonName": "Bahrain"
       },
-      "needsReview": false,
-      "remoteFlag": "https://flagcdn.com/bh.svg"
+      "needsReview": false
     },
     {
       "id": "BGD",
@@ -47122,8 +47104,7 @@
         "restCountries": true,
         "geoJsonName": "Bangladesh"
       },
-      "needsReview": false,
-      "remoteFlag": "https://flagcdn.com/bd.svg"
+      "needsReview": false
     },
     {
       "id": "BRB",
@@ -47379,8 +47360,7 @@
         "restCountries": true,
         "geoJsonName": "Barbados"
       },
-      "needsReview": false,
-      "remoteFlag": "https://flagcdn.com/bb.svg"
+      "needsReview": false
     },
     {
       "id": "BLR",
@@ -48895,8 +48875,7 @@
         "restCountries": true,
         "geoJsonName": "Belarus"
       },
-      "needsReview": false,
-      "remoteFlag": "https://flagcdn.com/by.svg"
+      "needsReview": false
     },
     {
       "id": "BEL",
@@ -49787,8 +49766,7 @@
         "restCountries": true,
         "geoJsonName": "Belgium"
       },
-      "needsReview": false,
-      "remoteFlag": "https://flagcdn.com/be.svg"
+      "needsReview": false
     },
     {
       "id": "BLZ",
@@ -50283,8 +50261,7 @@
         "restCountries": true,
         "geoJsonName": "Belize"
       },
-      "needsReview": false,
-      "remoteFlag": "https://flagcdn.com/bz.svg"
+      "needsReview": false
     },
     {
       "id": "BEN",
@@ -51099,8 +51076,7 @@
         "restCountries": true,
         "geoJsonName": "Benin"
       },
-      "needsReview": false,
-      "remoteFlag": "https://flagcdn.com/bj.svg"
+      "needsReview": false
     },
     {
       "id": "BMU",
@@ -51355,8 +51331,7 @@
         "restCountries": true,
         "geoJsonName": "Bermuda"
       },
-      "needsReview": false,
-      "remoteFlag": "https://flagcdn.com/bm.svg"
+      "needsReview": false
     },
     {
       "id": "BTN",
@@ -51984,8 +51959,7 @@
         "restCountries": true,
         "geoJsonName": "Bhutan"
       },
-      "needsReview": false,
-      "remoteFlag": "https://flagcdn.com/bt.svg"
+      "needsReview": false
     },
     {
       "id": "BOL",
@@ -53894,8 +53868,7 @@
         "restCountries": true,
         "geoJsonName": "Bolivia"
       },
-      "needsReview": false,
-      "remoteFlag": "https://flagcdn.com/bo.svg"
+      "needsReview": false
     },
     {
       "id": "BIH",
@@ -54708,8 +54681,7 @@
         "restCountries": true,
         "geoJsonName": "Bosnia and Herz."
       },
-      "needsReview": false,
-      "remoteFlag": "https://flagcdn.com/ba.svg"
+      "needsReview": false
     },
     {
       "id": "BWA",
@@ -55821,8 +55793,7 @@
         "restCountries": true,
         "geoJsonName": "Botswana"
       },
-      "needsReview": false,
-      "remoteFlag": "https://flagcdn.com/bw.svg"
+      "needsReview": false
     },
     {
       "id": "BVT",
@@ -55856,8 +55827,7 @@
       "sources": {
         "restCountries": true
       },
-      "needsReview": true,
-      "remoteFlag": "https://flagcdn.com/bv.svg"
+      "needsReview": true
     },
     {
       "id": "BRA",
@@ -63697,8 +63667,7 @@
         "restCountries": true,
         "geoJsonName": "Brazil"
       },
-      "needsReview": false,
-      "remoteFlag": "https://flagcdn.com/br.svg"
+      "needsReview": false
     },
     {
       "id": "IOT",
@@ -63987,8 +63956,7 @@
         "restCountries": true,
         "geoJsonName": "Br. Indian Ocean Ter."
       },
-      "needsReview": true,
-      "remoteFlag": "https://flagcdn.com/io.svg"
+      "needsReview": true
     },
     {
       "id": "VGB",
@@ -64312,8 +64280,7 @@
         "restCountries": true,
         "geoJsonName": "British Virgin Is."
       },
-      "needsReview": false,
-      "remoteFlag": "https://flagcdn.com/vg.svg"
+      "needsReview": false
     },
     {
       "id": "BRN",
@@ -64772,8 +64739,7 @@
         "restCountries": true,
         "geoJsonName": "Brunei"
       },
-      "needsReview": false,
-      "remoteFlag": "https://flagcdn.com/bn.svg"
+      "needsReview": false
     },
     {
       "id": "BGR",
@@ -65717,8 +65683,7 @@
         "restCountries": true,
         "geoJsonName": "Bulgaria"
       },
-      "needsReview": false,
-      "remoteFlag": "https://flagcdn.com/bg.svg"
+      "needsReview": false
     },
     {
       "id": "BFA",
@@ -66957,8 +66922,7 @@
         "restCountries": true,
         "geoJsonName": "Burkina Faso"
       },
-      "needsReview": false,
-      "remoteFlag": "https://flagcdn.com/bf.svg"
+      "needsReview": false
     },
     {
       "id": "BDI",
@@ -67498,8 +67462,7 @@
         "restCountries": true,
         "geoJsonName": "Burundi"
       },
-      "needsReview": false,
-      "remoteFlag": "https://flagcdn.com/bi.svg"
+      "needsReview": false
     },
     {
       "id": "KHM",
@@ -68622,8 +68585,7 @@
         "restCountries": true,
         "geoJsonName": "Cambodia"
       },
-      "needsReview": false,
-      "remoteFlag": "https://flagcdn.com/kh.svg"
+      "needsReview": false
     },
     {
       "id": "CMR",
@@ -70253,8 +70215,7 @@
         "restCountries": true,
         "geoJsonName": "Cameroon"
       },
-      "needsReview": false,
-      "remoteFlag": "https://flagcdn.com/cm.svg"
+      "needsReview": false
     },
     {
       "id": "CAN",
@@ -117331,8 +117292,7 @@
         "restCountries": true,
         "geoJsonName": "Canada"
       },
-      "needsReview": false,
-      "remoteFlag": "https://flagcdn.com/ca.svg"
+      "needsReview": false
     },
     {
       "id": "CPV",
@@ -117932,8 +117892,7 @@
         "restCountries": true,
         "geoJsonName": "Cabo Verde"
       },
-      "needsReview": false,
-      "remoteFlag": "https://flagcdn.com/cv.svg"
+      "needsReview": false
     },
     {
       "id": "BES",
@@ -117974,8 +117933,7 @@
       "sources": {
         "restCountries": true
       },
-      "needsReview": false,
-      "remoteFlag": "https://flagcdn.com/bq.svg"
+      "needsReview": false
     },
     {
       "id": "CYM",
@@ -118350,8 +118308,7 @@
         "restCountries": true,
         "geoJsonName": "Cayman Is."
       },
-      "needsReview": false,
-      "remoteFlag": "https://flagcdn.com/ky.svg"
+      "needsReview": false
     },
     {
       "id": "CAF",
@@ -119877,8 +119834,7 @@
         "restCountries": true,
         "geoJsonName": "Central African Rep."
       },
-      "needsReview": false,
-      "remoteFlag": "https://flagcdn.com/cf.svg"
+      "needsReview": false
     },
     {
       "id": "TCD",
@@ -121273,8 +121229,7 @@
         "restCountries": true,
         "geoJsonName": "Chad"
       },
-      "needsReview": false,
-      "remoteFlag": "https://flagcdn.com/td.svg"
+      "needsReview": false
     },
     {
       "id": "CHL",
@@ -129646,8 +129601,7 @@
         "restCountries": true,
         "geoJsonName": "Chile"
       },
-      "needsReview": false,
-      "remoteFlag": "https://flagcdn.com/cl.svg"
+      "needsReview": false
     },
     {
       "id": "CHN",
@@ -140588,8 +140542,7 @@
         "restCountries": true,
         "geoJsonName": "China"
       },
-      "needsReview": false,
-      "remoteFlag": "https://flagcdn.com/cn.svg"
+      "needsReview": false
     },
     {
       "id": "CXR",
@@ -140629,8 +140582,7 @@
       "sources": {
         "restCountries": true
       },
-      "needsReview": false,
-      "remoteFlag": "https://flagcdn.com/cx.svg"
+      "needsReview": false
     },
     {
       "id": "CCK",
@@ -140671,8 +140623,7 @@
       "sources": {
         "restCountries": true
       },
-      "needsReview": false,
-      "remoteFlag": "https://flagcdn.com/cc.svg"
+      "needsReview": false
     },
     {
       "id": "COL",
@@ -140685,7 +140636,7 @@
       ],
       "population": 53057212,
       "unMember": false,
-      "isMainRecognizedCountry": false,
+      "isMainRecognizedCountry": true,
       "includeInDataset": true,
       "hasGeoJsonData": true,
       "area": 1141748,
@@ -143398,8 +143349,7 @@
         "restCountries": true,
         "geoJsonName": "Colombia"
       },
-      "needsReview": false,
-      "remoteFlag": "https://flagcdn.com/co.svg"
+      "needsReview": false
     },
     {
       "id": "COM",
@@ -143775,8 +143725,7 @@
         "restCountries": true,
         "geoJsonName": "Comoros"
       },
-      "needsReview": false,
-      "remoteFlag": "https://flagcdn.com/km.svg"
+      "needsReview": false
     },
     {
       "id": "COK",
@@ -143789,7 +143738,7 @@
       ],
       "population": 15040,
       "unMember": false,
-      "isMainRecognizedCountry": true,
+      "isMainRecognizedCountry": false,
       "includeInDataset": true,
       "hasGeoJsonData": true,
       "area": 236,
@@ -144047,8 +143996,7 @@
         "restCountries": true,
         "geoJsonName": "Cook Is."
       },
-      "needsReview": false,
-      "remoteFlag": "https://flagcdn.com/ck.svg"
+      "needsReview": false
     },
     {
       "id": "CRI",
@@ -144061,7 +144009,7 @@
       ],
       "population": 5309625,
       "unMember": false,
-      "isMainRecognizedCountry": false,
+      "isMainRecognizedCountry": true,
       "includeInDataset": true,
       "hasGeoJsonData": true,
       "area": 51100,
@@ -144805,8 +144753,7 @@
         "restCountries": true,
         "geoJsonName": "Costa Rica"
       },
-      "needsReview": false,
-      "remoteFlag": "https://flagcdn.com/cr.svg"
+      "needsReview": false
     },
     {
       "id": "HRV",
@@ -146581,8 +146528,7 @@
         "restCountries": true,
         "geoJsonName": "Croatia"
       },
-      "needsReview": false,
-      "remoteFlag": "https://flagcdn.com/hr.svg"
+      "needsReview": false
     },
     {
       "id": "CUB",
@@ -148054,8 +148000,7 @@
         "restCountries": true,
         "geoJsonName": "Cuba"
       },
-      "needsReview": false,
-      "remoteFlag": "https://flagcdn.com/cu.svg"
+      "needsReview": false
     },
     {
       "id": "CUW",
@@ -148068,7 +148013,7 @@
       ],
       "population": 156115,
       "unMember": false,
-      "isMainRecognizedCountry": true,
+      "isMainRecognizedCountry": false,
       "includeInDataset": true,
       "hasGeoJsonData": true,
       "area": 444,
@@ -148322,8 +148267,7 @@
         "restCountries": true,
         "geoJsonName": "Curaçao"
       },
-      "needsReview": false,
-      "remoteFlag": "https://flagcdn.com/cw.svg"
+      "needsReview": false
     },
     {
       "id": "CYP",
@@ -148336,7 +148280,7 @@
       ],
       "population": 1442614,
       "unMember": false,
-      "isMainRecognizedCountry": false,
+      "isMainRecognizedCountry": true,
       "includeInDataset": true,
       "hasGeoJsonData": true,
       "area": 9251,
@@ -148773,8 +148717,7 @@
         "restCountries": true,
         "geoJsonName": "Cyprus"
       },
-      "needsReview": false,
-      "remoteFlag": "https://flagcdn.com/cy.svg"
+      "needsReview": false
     },
     {
       "id": "CZE",
@@ -149963,8 +149906,7 @@
         "restCountries": true,
         "geoJsonName": "Czechia"
       },
-      "needsReview": false,
-      "remoteFlag": "https://flagcdn.com/cz.svg"
+      "needsReview": false
     },
     {
       "id": "DNK",
@@ -151427,8 +151369,7 @@
         "restCountries": true,
         "geoJsonName": "Denmark"
       },
-      "needsReview": false,
-      "remoteFlag": "https://flagcdn.com/dk.svg"
+      "needsReview": false
     },
     {
       "id": "DJI",
@@ -151883,8 +151824,7 @@
         "restCountries": true,
         "geoJsonName": "Djibouti"
       },
-      "needsReview": false,
-      "remoteFlag": "https://flagcdn.com/dj.svg"
+      "needsReview": false
     },
     {
       "id": "DMA",
@@ -152147,8 +152087,7 @@
         "restCountries": true,
         "geoJsonName": "Dominica"
       },
-      "needsReview": false,
-      "remoteFlag": "https://flagcdn.com/dm.svg"
+      "needsReview": false
     },
     {
       "id": "DOM",
@@ -152819,8 +152758,7 @@
         "restCountries": true,
         "geoJsonName": "Dominican Rep."
       },
-      "needsReview": false,
-      "remoteFlag": "https://flagcdn.com/do.svg"
+      "needsReview": false
     },
     {
       "id": "COD",
@@ -155495,8 +155433,7 @@
         "restCountries": true,
         "geoJsonName": "Dem. Rep. Congo"
       },
-      "needsReview": false,
-      "remoteFlag": "https://flagcdn.com/cd.svg"
+      "needsReview": false
     },
     {
       "id": "ECU",
@@ -157143,8 +157080,7 @@
         "restCountries": true,
         "geoJsonName": "Ecuador"
       },
-      "needsReview": false,
-      "remoteFlag": "https://flagcdn.com/ec.svg"
+      "needsReview": false
     },
     {
       "id": "EGY",
@@ -158382,8 +158318,7 @@
         "restCountries": true,
         "geoJsonName": "Egypt"
       },
-      "needsReview": false,
-      "remoteFlag": "https://flagcdn.com/eg.svg"
+      "needsReview": false
     },
     {
       "id": "SLV",
@@ -158904,8 +158839,7 @@
         "restCountries": true,
         "geoJsonName": "El Salvador"
       },
-      "needsReview": false,
-      "remoteFlag": "https://flagcdn.com/sv.svg"
+      "needsReview": false
     },
     {
       "id": "GNQ",
@@ -159409,8 +159343,7 @@
         "restCountries": true,
         "geoJsonName": "Eq. Guinea"
       },
-      "needsReview": false,
-      "remoteFlag": "https://flagcdn.com/gq.svg"
+      "needsReview": false
     },
     {
       "id": "ERI",
@@ -160419,8 +160352,7 @@
         "restCountries": true,
         "geoJsonName": "Eritrea"
       },
-      "needsReview": false,
-      "remoteFlag": "https://flagcdn.com/er.svg"
+      "needsReview": false
     },
     {
       "id": "EST",
@@ -161440,8 +161372,7 @@
         "restCountries": true,
         "geoJsonName": "Estonia"
       },
-      "needsReview": false,
-      "remoteFlag": "https://flagcdn.com/ee.svg"
+      "needsReview": false
     },
     {
       "id": "SWZ",
@@ -161828,8 +161759,7 @@
         "restCountries": true,
         "geoJsonName": "eSwatini"
       },
-      "needsReview": false,
-      "remoteFlag": "https://flagcdn.com/sz.svg"
+      "needsReview": false
     },
     {
       "id": "ETH",
@@ -163267,8 +163197,7 @@
         "restCountries": true,
         "geoJsonName": "Ethiopia"
       },
-      "needsReview": false,
-      "remoteFlag": "https://flagcdn.com/et.svg"
+      "needsReview": false
     },
     {
       "id": "FLK",
@@ -164110,8 +164039,7 @@
         "restCountries": true,
         "geoJsonName": "Falkland Is."
       },
-      "needsReview": false,
-      "remoteFlag": "https://flagcdn.com/fk.svg"
+      "needsReview": false
     },
     {
       "id": "FRO",
@@ -164610,8 +164538,7 @@
         "restCountries": true,
         "geoJsonName": "Faeroe Is."
       },
-      "needsReview": false,
-      "remoteFlag": "https://flagcdn.com/fo.svg"
+      "needsReview": false
     },
     {
       "id": "FJI",
@@ -166043,8 +165970,7 @@
         "restCountries": true,
         "geoJsonName": "Fiji"
       },
-      "needsReview": false,
-      "remoteFlag": "https://flagcdn.com/fj.svg"
+      "needsReview": false
     },
     {
       "id": "FIN",
@@ -168379,8 +168305,7 @@
         "restCountries": true,
         "geoJsonName": "Finland"
       },
-      "needsReview": false,
-      "remoteFlag": "https://flagcdn.com/fi.svg"
+      "needsReview": false
     },
     {
       "id": "FRA",
@@ -171917,8 +171842,7 @@
         "restCountries": true,
         "geoJsonName": "France"
       },
-      "needsReview": false,
-      "remoteFlag": "https://flagcdn.com/fr.svg"
+      "needsReview": false
     },
     {
       "id": "GUF",
@@ -171962,8 +171886,7 @@
       "sources": {
         "restCountries": true
       },
-      "needsReview": false,
-      "remoteFlag": "https://flagcdn.com/gf.svg"
+      "needsReview": false
     },
     {
       "id": "PYF",
@@ -173008,8 +172931,7 @@
         "restCountries": true,
         "geoJsonName": "Fr. Polynesia"
       },
-      "needsReview": false,
-      "remoteFlag": "https://flagcdn.com/pf.svg"
+      "needsReview": false
     },
     {
       "id": "ATF",
@@ -173022,7 +172944,7 @@
       ],
       "population": 400,
       "unMember": false,
-      "isMainRecognizedCountry": true,
+      "isMainRecognizedCountry": false,
       "includeInDataset": true,
       "hasGeoJsonData": true,
       "area": 7747,
@@ -173717,8 +173639,7 @@
         "restCountries": true,
         "geoJsonName": "Fr. S. Antarctic Lands"
       },
-      "needsReview": false,
-      "remoteFlag": "https://flagcdn.com/tf.svg"
+      "needsReview": false
     },
     {
       "id": "GAB",
@@ -175028,8 +174949,7 @@
         "restCountries": true,
         "geoJsonName": "Gabon"
       },
-      "needsReview": false,
-      "remoteFlag": "https://flagcdn.com/ga.svg"
+      "needsReview": false
     },
     {
       "id": "GMB",
@@ -175545,8 +175465,7 @@
         "restCountries": true,
         "geoJsonName": "Gambia"
       },
-      "needsReview": false,
-      "remoteFlag": "https://flagcdn.com/gm.svg"
+      "needsReview": false
     },
     {
       "id": "GEO",
@@ -176428,8 +176347,7 @@
         "restCountries": true,
         "geoJsonName": "Georgia"
       },
-      "needsReview": false,
-      "remoteFlag": "https://flagcdn.com/ge.svg"
+      "needsReview": false
     },
     {
       "id": "DEU",
@@ -178931,8 +178849,7 @@
         "restCountries": true,
         "geoJsonName": "Germany"
       },
-      "needsReview": false,
-      "remoteFlag": "https://flagcdn.com/de.svg"
+      "needsReview": false
     },
     {
       "id": "GHA",
@@ -180008,8 +179925,7 @@
         "restCountries": true,
         "geoJsonName": "Ghana"
       },
-      "needsReview": false,
-      "remoteFlag": "https://flagcdn.com/gh.svg"
+      "needsReview": false
     },
     {
       "id": "GIB",
@@ -180050,8 +179966,7 @@
       "sources": {
         "restCountries": true
       },
-      "needsReview": false,
-      "remoteFlag": "https://flagcdn.com/gi.svg"
+      "needsReview": false
     },
     {
       "id": "GRC",
@@ -184129,8 +184044,7 @@
         "restCountries": true,
         "geoJsonName": "Greece"
       },
-      "needsReview": false,
-      "remoteFlag": "https://flagcdn.com/gr.svg"
+      "needsReview": false
     },
     {
       "id": "GRL",
@@ -193377,8 +193291,7 @@
         "restCountries": true,
         "geoJsonName": "Greenland"
       },
-      "needsReview": false,
-      "remoteFlag": "https://flagcdn.com/gl.svg"
+      "needsReview": false
     },
     {
       "id": "GRD",
@@ -193634,8 +193547,7 @@
         "restCountries": true,
         "geoJsonName": "Grenada"
       },
-      "needsReview": false,
-      "remoteFlag": "https://flagcdn.com/gd.svg"
+      "needsReview": false
     },
     {
       "id": "GLP",
@@ -193675,8 +193587,7 @@
       "sources": {
         "restCountries": true
       },
-      "needsReview": false,
-      "remoteFlag": "https://flagcdn.com/gp.svg"
+      "needsReview": false
     },
     {
       "id": "GUM",
@@ -193947,8 +193858,7 @@
         "restCountries": true,
         "geoJsonName": "Guam"
       },
-      "needsReview": false,
-      "remoteFlag": "https://flagcdn.com/gu.svg"
+      "needsReview": false
     },
     {
       "id": "GTM",
@@ -194633,8 +194543,7 @@
         "restCountries": true,
         "geoJsonName": "Guatemala"
       },
-      "needsReview": false,
-      "remoteFlag": "https://flagcdn.com/gt.svg"
+      "needsReview": false
     },
     {
       "id": "GGY",
@@ -194890,8 +194799,7 @@
         "restCountries": true,
         "geoJsonName": "Guernsey"
       },
-      "needsReview": false,
-      "remoteFlag": "https://flagcdn.com/gg.svg"
+      "needsReview": false
     },
     {
       "id": "GIN",
@@ -196512,8 +196420,7 @@
         "restCountries": true,
         "geoJsonName": "Guinea"
       },
-      "needsReview": false,
-      "remoteFlag": "https://flagcdn.com/gn.svg"
+      "needsReview": false
     },
     {
       "id": "GNB",
@@ -196526,7 +196433,7 @@
       ],
       "population": 1781308,
       "unMember": false,
-      "isMainRecognizedCountry": false,
+      "isMainRecognizedCountry": true,
       "includeInDataset": true,
       "hasGeoJsonData": true,
       "area": 36125,
@@ -197385,8 +197292,7 @@
         "restCountries": true,
         "geoJsonName": "Guinea-Bissau"
       },
-      "needsReview": false,
-      "remoteFlag": "https://flagcdn.com/gw.svg"
+      "needsReview": false
     },
     {
       "id": "GUY",
@@ -198759,8 +198665,7 @@
         "restCountries": true,
         "geoJsonName": "Guyana"
       },
-      "needsReview": false,
-      "remoteFlag": "https://flagcdn.com/gy.svg"
+      "needsReview": false
     },
     {
       "id": "HTI",
@@ -199444,8 +199349,7 @@
         "restCountries": true,
         "geoJsonName": "Haiti"
       },
-      "needsReview": false,
-      "remoteFlag": "https://flagcdn.com/ht.svg"
+      "needsReview": false
     },
     {
       "id": "HMD",
@@ -199720,8 +199624,7 @@
         "restCountries": true,
         "geoJsonName": "Heard I. and McDonald Is."
       },
-      "needsReview": true,
-      "remoteFlag": "https://flagcdn.com/hm.svg"
+      "needsReview": true
     },
     {
       "id": "HND",
@@ -200785,8 +200688,7 @@
         "restCountries": true,
         "geoJsonName": "Honduras"
       },
-      "needsReview": false,
-      "remoteFlag": "https://flagcdn.com/hn.svg"
+      "needsReview": false
     },
     {
       "id": "HKG",
@@ -201176,8 +201078,7 @@
         "restCountries": true,
         "geoJsonName": "Hong Kong"
       },
-      "needsReview": false,
-      "remoteFlag": "https://flagcdn.com/hk.svg"
+      "needsReview": false
     },
     {
       "id": "HUN",
@@ -202261,8 +202162,7 @@
         "restCountries": true,
         "geoJsonName": "Hungary"
       },
-      "needsReview": false,
-      "remoteFlag": "https://flagcdn.com/hu.svg"
+      "needsReview": false
     },
     {
       "id": "ISL",
@@ -204297,8 +204197,7 @@
         "restCountries": true,
         "geoJsonName": "Iceland"
       },
-      "needsReview": false,
-      "remoteFlag": "https://flagcdn.com/is.svg"
+      "needsReview": false
     },
     {
       "id": "IND",
@@ -210657,8 +210556,7 @@
         "restCountries": true,
         "geoJsonName": "India"
       },
-      "needsReview": false,
-      "remoteFlag": "https://flagcdn.com/in.svg"
+      "needsReview": false
     },
     {
       "id": "-99",
@@ -226643,8 +226541,7 @@
         "restCountries": true,
         "geoJsonName": "Indonesia"
       },
-      "needsReview": false,
-      "remoteFlag": "https://flagcdn.com/id.svg"
+      "needsReview": false
     },
     {
       "id": "IRN",
@@ -229301,8 +229198,7 @@
         "restCountries": true,
         "geoJsonName": "Iran"
       },
-      "needsReview": false,
-      "remoteFlag": "https://flagcdn.com/ir.svg"
+      "needsReview": false
     },
     {
       "id": "IRQ",
@@ -230465,8 +230361,7 @@
         "restCountries": true,
         "geoJsonName": "Iraq"
       },
-      "needsReview": false,
-      "remoteFlag": "https://flagcdn.com/iq.svg"
+      "needsReview": false
     },
     {
       "id": "IRL",
@@ -231958,8 +231853,7 @@
         "restCountries": true,
         "geoJsonName": "Ireland"
       },
-      "needsReview": false,
-      "remoteFlag": "https://flagcdn.com/ie.svg"
+      "needsReview": false
     },
     {
       "id": "IMN",
@@ -232247,8 +232141,7 @@
         "restCountries": true,
         "geoJsonName": "Isle of Man"
       },
-      "needsReview": false,
-      "remoteFlag": "https://flagcdn.com/im.svg"
+      "needsReview": false
     },
     {
       "id": "ISR",
@@ -232901,8 +232794,7 @@
         "restCountries": true,
         "geoJsonName": "Israel"
       },
-      "needsReview": false,
-      "remoteFlag": "https://flagcdn.com/il.svg"
+      "needsReview": false
     },
     {
       "id": "ITA",
@@ -235622,8 +235514,7 @@
         "restCountries": true,
         "geoJsonName": "Italy"
       },
-      "needsReview": false,
-      "remoteFlag": "https://flagcdn.com/it.svg"
+      "needsReview": false
     },
     {
       "id": "CIV",
@@ -237034,8 +236925,7 @@
         "restCountries": true,
         "geoJsonName": "Côte d'Ivoire"
       },
-      "needsReview": false,
-      "remoteFlag": "https://flagcdn.com/ci.svg"
+      "needsReview": false
     },
     {
       "id": "JAM",
@@ -237448,8 +237338,7 @@
         "restCountries": true,
         "geoJsonName": "Jamaica"
       },
-      "needsReview": false,
-      "remoteFlag": "https://flagcdn.com/jm.svg"
+      "needsReview": false
     },
     {
       "id": "JPN",
@@ -242193,8 +242082,7 @@
         "restCountries": true,
         "geoJsonName": "Japan"
       },
-      "needsReview": false,
-      "remoteFlag": "https://flagcdn.com/jp.svg"
+      "needsReview": false
     },
     {
       "id": "JEY",
@@ -242459,8 +242347,7 @@
         "restCountries": true,
         "geoJsonName": "Jersey"
       },
-      "needsReview": false,
-      "remoteFlag": "https://flagcdn.com/je.svg"
+      "needsReview": false
     },
     {
       "id": "JOR",
@@ -243072,8 +242959,7 @@
         "restCountries": true,
         "geoJsonName": "Jordan"
       },
-      "needsReview": false,
-      "remoteFlag": "https://flagcdn.com/jo.svg"
+      "needsReview": false
     },
     {
       "id": "KAZ",
@@ -247881,8 +247767,7 @@
         "restCountries": true,
         "geoJsonName": "Kazakhstan"
       },
-      "needsReview": false,
-      "remoteFlag": "https://flagcdn.com/kz.svg"
+      "needsReview": false
     },
     {
       "id": "KEN",
@@ -249017,8 +248902,7 @@
         "restCountries": true,
         "geoJsonName": "Kenya"
       },
-      "needsReview": false,
-      "remoteFlag": "https://flagcdn.com/ke.svg"
+      "needsReview": false
     },
     {
       "id": "KIR",
@@ -250167,8 +250051,7 @@
         "restCountries": true,
         "geoJsonName": "Kiribati"
       },
-      "needsReview": false,
-      "remoteFlag": "https://flagcdn.com/ki.svg"
+      "needsReview": false
     },
     {
       "id": "UNK",
@@ -250683,8 +250566,7 @@
         "restCountries": true,
         "geoJsonName": "Kosovo"
       },
-      "needsReview": false,
-      "remoteFlag": "https://flagcdn.com/xk.svg"
+      "needsReview": false
     },
     {
       "id": "KWT",
@@ -251183,8 +251065,7 @@
         "restCountries": true,
         "geoJsonName": "Kuwait"
       },
-      "needsReview": false,
-      "remoteFlag": "https://flagcdn.com/kw.svg"
+      "needsReview": false
     },
     {
       "id": "KGZ",
@@ -252972,8 +252853,7 @@
         "restCountries": true,
         "geoJsonName": "Kyrgyzstan"
       },
-      "needsReview": false,
-      "remoteFlag": "https://flagcdn.com/kg.svg"
+      "needsReview": false
     },
     {
       "id": "LAO",
@@ -254763,8 +254643,7 @@
         "restCountries": true,
         "geoJsonName": "Laos"
       },
-      "needsReview": false,
-      "remoteFlag": "https://flagcdn.com/la.svg"
+      "needsReview": false
     },
     {
       "id": "LVA",
@@ -255551,8 +255430,7 @@
         "restCountries": true,
         "geoJsonName": "Latvia"
       },
-      "needsReview": false,
-      "remoteFlag": "https://flagcdn.com/lv.svg"
+      "needsReview": false
     },
     {
       "id": "LBN",
@@ -256026,8 +255904,7 @@
         "restCountries": true,
         "geoJsonName": "Lebanon"
       },
-      "needsReview": false,
-      "remoteFlag": "https://flagcdn.com/lb.svg"
+      "needsReview": false
     },
     {
       "id": "LSO",
@@ -256564,8 +256441,7 @@
         "restCountries": true,
         "geoJsonName": "Lesotho"
       },
-      "needsReview": false,
-      "remoteFlag": "https://flagcdn.com/ls.svg"
+      "needsReview": false
     },
     {
       "id": "LBR",
@@ -257346,8 +257222,7 @@
         "restCountries": true,
         "geoJsonName": "Liberia"
       },
-      "needsReview": false,
-      "remoteFlag": "https://flagcdn.com/lr.svg"
+      "needsReview": false
     },
     {
       "id": "LBY",
@@ -258604,8 +258479,7 @@
         "restCountries": true,
         "geoJsonName": "Libya"
       },
-      "needsReview": false,
-      "remoteFlag": "https://flagcdn.com/ly.svg"
+      "needsReview": false
     },
     {
       "id": "LIE",
@@ -258890,8 +258764,7 @@
         "restCountries": true,
         "geoJsonName": "Liechtenstein"
       },
-      "needsReview": false,
-      "remoteFlag": "https://flagcdn.com/li.svg"
+      "needsReview": false
     },
     {
       "id": "LTU",
@@ -259744,8 +259617,7 @@
         "restCountries": true,
         "geoJsonName": "Lithuania"
       },
-      "needsReview": false,
-      "remoteFlag": "https://flagcdn.com/lt.svg"
+      "needsReview": false
     },
     {
       "id": "LUX",
@@ -260159,8 +260031,7 @@
         "restCountries": true,
         "geoJsonName": "Luxembourg"
       },
-      "needsReview": false,
-      "remoteFlag": "https://flagcdn.com/lu.svg"
+      "needsReview": false
     },
     {
       "id": "MAC",
@@ -260422,8 +260293,7 @@
         "restCountries": true,
         "geoJsonName": "Macao"
       },
-      "needsReview": true,
-      "remoteFlag": "https://flagcdn.com/mo.svg"
+      "needsReview": true
     },
     {
       "id": "MDG",
@@ -261721,8 +261591,7 @@
         "restCountries": true,
         "geoJsonName": "Madagascar"
       },
-      "needsReview": false,
-      "remoteFlag": "https://flagcdn.com/mg.svg"
+      "needsReview": false
     },
     {
       "id": "MWI",
@@ -262938,8 +262807,7 @@
         "restCountries": true,
         "geoJsonName": "Malawi"
       },
-      "needsReview": false,
-      "remoteFlag": "https://flagcdn.com/mw.svg"
+      "needsReview": false
     },
     {
       "id": "MYS",
@@ -265234,8 +265102,7 @@
         "restCountries": true,
         "geoJsonName": "Malaysia"
       },
-      "needsReview": false,
-      "remoteFlag": "https://flagcdn.com/my.svg"
+      "needsReview": false
     },
     {
       "id": "MDV",
@@ -265552,8 +265419,7 @@
         "restCountries": true,
         "geoJsonName": "Maldives"
       },
-      "needsReview": false,
-      "remoteFlag": "https://flagcdn.com/mv.svg"
+      "needsReview": false
     },
     {
       "id": "MLI",
@@ -267679,8 +267545,7 @@
         "restCountries": true,
         "geoJsonName": "Mali"
       },
-      "needsReview": false,
-      "remoteFlag": "https://flagcdn.com/ml.svg"
+      "needsReview": false
     },
     {
       "id": "MLT",
@@ -267973,8 +267838,7 @@
         "restCountries": true,
         "geoJsonName": "Malta"
       },
-      "needsReview": false,
-      "remoteFlag": "https://flagcdn.com/mt.svg"
+      "needsReview": false
     },
     {
       "id": "MHL",
@@ -268404,8 +268268,7 @@
         "restCountries": true,
         "geoJsonName": "Marshall Is."
       },
-      "needsReview": false,
-      "remoteFlag": "https://flagcdn.com/mh.svg"
+      "needsReview": false
     },
     {
       "id": "MTQ",
@@ -268444,8 +268307,7 @@
       "sources": {
         "restCountries": true
       },
-      "needsReview": false,
-      "remoteFlag": "https://flagcdn.com/mq.svg"
+      "needsReview": false
     },
     {
       "id": "MRT",
@@ -269962,8 +269824,7 @@
         "restCountries": true,
         "geoJsonName": "Mauritania"
       },
-      "needsReview": false,
-      "remoteFlag": "https://flagcdn.com/mr.svg"
+      "needsReview": false
     },
     {
       "id": "MUS",
@@ -270263,8 +270124,7 @@
         "restCountries": true,
         "geoJsonName": "Mauritius"
       },
-      "needsReview": false,
-      "remoteFlag": "https://flagcdn.com/mu.svg"
+      "needsReview": false
     },
     {
       "id": "MYT",
@@ -270305,8 +270165,7 @@
       "sources": {
         "restCountries": true
       },
-      "needsReview": false,
-      "remoteFlag": "https://flagcdn.com/yt.svg"
+      "needsReview": false
     },
     {
       "id": "MEX",
@@ -274655,8 +274514,7 @@
         "restCountries": true,
         "geoJsonName": "Mexico"
       },
-      "needsReview": false,
-      "remoteFlag": "https://flagcdn.com/mx.svg"
+      "needsReview": false
     },
     {
       "id": "FSM",
@@ -275092,8 +274950,7 @@
         "restCountries": true,
         "geoJsonName": "Micronesia"
       },
-      "needsReview": false,
-      "remoteFlag": "https://flagcdn.com/fm.svg"
+      "needsReview": false
     },
     {
       "id": "MDA",
@@ -275915,8 +275772,7 @@
         "restCountries": true,
         "geoJsonName": "Moldova"
       },
-      "needsReview": false,
-      "remoteFlag": "https://flagcdn.com/md.svg"
+      "needsReview": false
     },
     {
       "id": "MCO",
@@ -276168,8 +276024,7 @@
         "restCountries": true,
         "geoJsonName": "Monaco"
       },
-      "needsReview": false,
-      "remoteFlag": "https://flagcdn.com/mc.svg"
+      "needsReview": false
     },
     {
       "id": "MNG",
@@ -279336,8 +279191,7 @@
         "restCountries": true,
         "geoJsonName": "Mongolia"
       },
-      "needsReview": false,
-      "remoteFlag": "https://flagcdn.com/mn.svg"
+      "needsReview": false
     },
     {
       "id": "MNE",
@@ -279932,8 +279786,7 @@
         "restCountries": true,
         "geoJsonName": "Montenegro"
       },
-      "needsReview": false,
-      "remoteFlag": "https://flagcdn.com/me.svg"
+      "needsReview": false
     },
     {
       "id": "MSR",
@@ -280181,8 +280034,7 @@
         "restCountries": true,
         "geoJsonName": "Montserrat"
       },
-      "needsReview": false,
-      "remoteFlag": "https://flagcdn.com/ms.svg"
+      "needsReview": false
     },
     {
       "id": "MAR",
@@ -281881,8 +281733,7 @@
         "restCountries": true,
         "geoJsonName": "Morocco"
       },
-      "needsReview": false,
-      "remoteFlag": "https://flagcdn.com/ma.svg"
+      "needsReview": false
     },
     {
       "id": "MOZ",
@@ -283991,8 +283842,7 @@
         "restCountries": true,
         "geoJsonName": "Mozambique"
       },
-      "needsReview": false,
-      "remoteFlag": "https://flagcdn.com/mz.svg"
+      "needsReview": false
     },
     {
       "id": "MMR",
@@ -287663,8 +287513,7 @@
         "restCountries": true,
         "geoJsonName": "Myanmar"
       },
-      "needsReview": false,
-      "remoteFlag": "https://flagcdn.com/mm.svg"
+      "needsReview": false
     },
     {
       "id": "-99",
@@ -289230,8 +289079,7 @@
         "restCountries": true,
         "geoJsonName": "Namibia"
       },
-      "needsReview": false,
-      "remoteFlag": "https://flagcdn.com/na.svg"
+      "needsReview": false
     },
     {
       "id": "NRU",
@@ -289488,8 +289336,7 @@
         "restCountries": true,
         "geoJsonName": "Nauru"
       },
-      "needsReview": false,
-      "remoteFlag": "https://flagcdn.com/nr.svg"
+      "needsReview": false
     },
     {
       "id": "NPL",
@@ -290522,8 +290369,7 @@
         "restCountries": true,
         "geoJsonName": "Nepal"
       },
-      "needsReview": false,
-      "remoteFlag": "https://flagcdn.com/np.svg"
+      "needsReview": false
     },
     {
       "id": "NLD",
@@ -291843,8 +291689,7 @@
         "restCountries": true,
         "geoJsonName": "Netherlands"
       },
-      "needsReview": false,
-      "remoteFlag": "https://flagcdn.com/nl.svg"
+      "needsReview": false
     },
     {
       "id": "NCL",
@@ -292594,8 +292439,7 @@
         "restCountries": true,
         "geoJsonName": "New Caledonia"
       },
-      "needsReview": false,
-      "remoteFlag": "https://flagcdn.com/nc.svg"
+      "needsReview": false
     },
     {
       "id": "NZL",
@@ -295968,8 +295812,7 @@
         "restCountries": true,
         "geoJsonName": "New Zealand"
       },
-      "needsReview": false,
-      "remoteFlag": "https://flagcdn.com/nz.svg"
+      "needsReview": false
     },
     {
       "id": "NIC",
@@ -296898,8 +296741,7 @@
         "restCountries": true,
         "geoJsonName": "Nicaragua"
       },
-      "needsReview": false,
-      "remoteFlag": "https://flagcdn.com/ni.svg"
+      "needsReview": false
     },
     {
       "id": "NER",
@@ -298148,8 +297990,7 @@
         "restCountries": true,
         "geoJsonName": "Niger"
       },
-      "needsReview": false,
-      "remoteFlag": "https://flagcdn.com/ne.svg"
+      "needsReview": false
     },
     {
       "id": "NGA",
@@ -299839,8 +299680,7 @@
         "restCountries": true,
         "geoJsonName": "Nigeria"
       },
-      "needsReview": false,
-      "remoteFlag": "https://flagcdn.com/ng.svg"
+      "needsReview": false
     },
     {
       "id": "NIU",
@@ -300093,8 +299933,7 @@
         "restCountries": true,
         "geoJsonName": "Niue"
       },
-      "needsReview": false,
-      "remoteFlag": "https://flagcdn.com/nu.svg"
+      "needsReview": false
     },
     {
       "id": "NFK",
@@ -300421,8 +300260,7 @@
         "restCountries": true,
         "geoJsonName": "Norfolk Island"
       },
-      "needsReview": false,
-      "remoteFlag": "https://flagcdn.com/nf.svg"
+      "needsReview": false
     },
     {
       "id": "PRK",
@@ -301688,8 +301526,7 @@
         "restCountries": true,
         "geoJsonName": "North Korea"
       },
-      "needsReview": false,
-      "remoteFlag": "https://flagcdn.com/kp.svg"
+      "needsReview": false
     },
     {
       "id": "MKD",
@@ -302243,8 +302080,7 @@
         "restCountries": true,
         "geoJsonName": "North Macedonia"
       },
-      "needsReview": false,
-      "remoteFlag": "https://flagcdn.com/mk.svg"
+      "needsReview": false
     },
     {
       "id": "MNP",
@@ -302675,8 +302511,7 @@
         "restCountries": true,
         "geoJsonName": "N. Mariana Is."
       },
-      "needsReview": false,
-      "remoteFlag": "https://flagcdn.com/mp.svg"
+      "needsReview": false
     },
     {
       "id": "NOR",
@@ -310973,8 +310808,7 @@
         "restCountries": true,
         "geoJsonName": "Norway"
       },
-      "needsReview": false,
-      "remoteFlag": "https://flagcdn.com/no.svg"
+      "needsReview": false
     },
     {
       "id": "OMN",
@@ -312186,8 +312020,7 @@
         "restCountries": true,
         "geoJsonName": "Oman"
       },
-      "needsReview": false,
-      "remoteFlag": "https://flagcdn.com/om.svg"
+      "needsReview": false
     },
     {
       "id": "PAK",
@@ -314700,8 +314533,7 @@
         "restCountries": true,
         "geoJsonName": "Pakistan"
       },
-      "needsReview": false,
-      "remoteFlag": "https://flagcdn.com/pk.svg"
+      "needsReview": false
     },
     {
       "id": "PLW",
@@ -315014,8 +314846,7 @@
         "restCountries": true,
         "geoJsonName": "Palau"
       },
-      "needsReview": false,
-      "remoteFlag": "https://flagcdn.com/pw.svg"
+      "needsReview": false
     },
     {
       "id": "PSE",
@@ -315457,8 +315288,7 @@
         "restCountries": true,
         "geoJsonName": "Palestine"
       },
-      "needsReview": false,
-      "remoteFlag": "https://flagcdn.com/ps.svg"
+      "needsReview": false
     },
     {
       "id": "PAN",
@@ -316689,8 +316519,7 @@
         "restCountries": true,
         "geoJsonName": "Panama"
       },
-      "needsReview": false,
-      "remoteFlag": "https://flagcdn.com/pa.svg"
+      "needsReview": false
     },
     {
       "id": "PNG",
@@ -320082,8 +319911,7 @@
         "restCountries": true,
         "geoJsonName": "Papua New Guinea"
       },
-      "needsReview": false,
-      "remoteFlag": "https://flagcdn.com/pg.svg"
+      "needsReview": false
     },
     {
       "id": "PRY",
@@ -321339,8 +321167,7 @@
         "restCountries": true,
         "geoJsonName": "Paraguay"
       },
-      "needsReview": false,
-      "remoteFlag": "https://flagcdn.com/py.svg"
+      "needsReview": false
     },
     {
       "id": "PER",
@@ -323926,8 +323753,7 @@
         "restCountries": true,
         "geoJsonName": "Peru"
       },
-      "needsReview": false,
-      "remoteFlag": "https://flagcdn.com/pe.svg"
+      "needsReview": false
     },
     {
       "id": "PHL",
@@ -329292,8 +329118,7 @@
         "restCountries": true,
         "geoJsonName": "Philippines"
       },
-      "needsReview": false,
-      "remoteFlag": "https://flagcdn.com/ph.svg"
+      "needsReview": false
     },
     {
       "id": "PCN",
@@ -329552,8 +329377,7 @@
         "restCountries": true,
         "geoJsonName": "Pitcairn Is."
       },
-      "needsReview": false,
-      "remoteFlag": "https://flagcdn.com/pn.svg"
+      "needsReview": false
     },
     {
       "id": "POL",
@@ -331047,8 +330871,7 @@
         "restCountries": true,
         "geoJsonName": "Poland"
       },
-      "needsReview": false,
-      "remoteFlag": "https://flagcdn.com/pl.svg"
+      "needsReview": false
     },
     {
       "id": "PRT",
@@ -332367,8 +332190,7 @@
         "restCountries": true,
         "geoJsonName": "Portugal"
       },
-      "needsReview": false,
-      "remoteFlag": "https://flagcdn.com/pt.svg"
+      "needsReview": false
     },
     {
       "id": "PRI",
@@ -332877,8 +332699,7 @@
         "restCountries": true,
         "geoJsonName": "Puerto Rico"
       },
-      "needsReview": false,
-      "remoteFlag": "https://flagcdn.com/pr.svg"
+      "needsReview": false
     },
     {
       "id": "QAT",
@@ -333238,8 +333059,7 @@
         "restCountries": true,
         "geoJsonName": "Qatar"
       },
-      "needsReview": false,
-      "remoteFlag": "https://flagcdn.com/qa.svg"
+      "needsReview": false
     },
     {
       "id": "COG",
@@ -334761,8 +334581,7 @@
         "restCountries": true,
         "geoJsonName": "Congo"
       },
-      "needsReview": false,
-      "remoteFlag": "https://flagcdn.com/cg.svg"
+      "needsReview": false
     },
     {
       "id": "REU",
@@ -334802,8 +334621,7 @@
       "sources": {
         "restCountries": true
       },
-      "needsReview": false,
-      "remoteFlag": "https://flagcdn.com/re.svg"
+      "needsReview": false
     },
     {
       "id": "ROU",
@@ -336128,8 +335946,7 @@
         "restCountries": true,
         "geoJsonName": "Romania"
       },
-      "needsReview": false,
-      "remoteFlag": "https://flagcdn.com/ro.svg"
+      "needsReview": false
     },
     {
       "id": "RUS",
@@ -366568,8 +366385,7 @@
         "restCountries": true,
         "geoJsonName": "Russia"
       },
-      "needsReview": false,
-      "remoteFlag": "https://flagcdn.com/ru.svg"
+      "needsReview": false
     },
     {
       "id": "RWA",
@@ -367131,8 +366947,7 @@
         "restCountries": true,
         "geoJsonName": "Rwanda"
       },
-      "needsReview": false,
-      "remoteFlag": "https://flagcdn.com/rw.svg"
+      "needsReview": false
     },
     {
       "id": "BLM",
@@ -367401,8 +367216,7 @@
         "restCountries": true,
         "geoJsonName": "St-Barthélemy"
       },
-      "needsReview": false,
-      "remoteFlag": "https://flagcdn.com/bl.svg"
+      "needsReview": false
     },
     {
       "id": "SHN",
@@ -367704,8 +367518,7 @@
         "restCountries": true,
         "geoJsonName": "Saint Helena"
       },
-      "needsReview": false,
-      "remoteFlag": "https://flagcdn.com/sh.svg"
+      "needsReview": false
     },
     {
       "id": "KNA",
@@ -368013,8 +367826,7 @@
         "restCountries": true,
         "geoJsonName": "St. Kitts and Nevis"
       },
-      "needsReview": false,
-      "remoteFlag": "https://flagcdn.com/kn.svg"
+      "needsReview": false
     },
     {
       "id": "LCA",
@@ -368274,8 +368086,7 @@
         "restCountries": true,
         "geoJsonName": "Saint Lucia"
       },
-      "needsReview": false,
-      "remoteFlag": "https://flagcdn.com/lc.svg"
+      "needsReview": false
     },
     {
       "id": "MAF",
@@ -368530,8 +368341,7 @@
         "restCountries": true,
         "geoJsonName": "St-Martin"
       },
-      "needsReview": false,
-      "remoteFlag": "https://flagcdn.com/mf.svg"
+      "needsReview": false
     },
     {
       "id": "SPM",
@@ -368855,8 +368665,7 @@
         "restCountries": true,
         "geoJsonName": "St. Pierre and Miquelon"
       },
-      "needsReview": false,
-      "remoteFlag": "https://flagcdn.com/pm.svg"
+      "needsReview": false
     },
     {
       "id": "VCT",
@@ -369283,8 +369092,7 @@
         "restCountries": true,
         "geoJsonName": "St. Vin. and Gren."
       },
-      "needsReview": false,
-      "remoteFlag": "https://flagcdn.com/vc.svg"
+      "needsReview": false
     },
     {
       "id": "WSM",
@@ -369621,8 +369429,7 @@
         "restCountries": true,
         "geoJsonName": "Samoa"
       },
-      "needsReview": false,
-      "remoteFlag": "https://flagcdn.com/ws.svg"
+      "needsReview": false
     },
     {
       "id": "SMR",
@@ -369874,8 +369681,7 @@
         "restCountries": true,
         "geoJsonName": "San Marino"
       },
-      "needsReview": false,
-      "remoteFlag": "https://flagcdn.com/sm.svg"
+      "needsReview": false
     },
     {
       "id": "STP",
@@ -370192,8 +369998,7 @@
         "restCountries": true,
         "geoJsonName": "São Tomé and Principe"
       },
-      "needsReview": false,
-      "remoteFlag": "https://flagcdn.com/st.svg"
+      "needsReview": false
     },
     {
       "id": "SAU",
@@ -372182,8 +371987,7 @@
         "restCountries": true,
         "geoJsonName": "Saudi Arabia"
       },
-      "needsReview": false,
-      "remoteFlag": "https://flagcdn.com/sa.svg"
+      "needsReview": false
     },
     {
       "id": "SEN",
@@ -373383,8 +373187,7 @@
         "restCountries": true,
         "geoJsonName": "Senegal"
       },
-      "needsReview": false,
-      "remoteFlag": "https://flagcdn.com/sn.svg"
+      "needsReview": false
     },
     {
       "id": "SRB",
@@ -374685,8 +374488,7 @@
         "restCountries": true,
         "geoJsonName": "Serbia"
       },
-      "needsReview": false,
-      "remoteFlag": "https://flagcdn.com/rs.svg"
+      "needsReview": false
     },
     {
       "id": "SYC",
@@ -374943,8 +374745,7 @@
         "restCountries": true,
         "geoJsonName": "Seychelles"
       },
-      "needsReview": false,
-      "remoteFlag": "https://flagcdn.com/sc.svg"
+      "needsReview": false
     },
     {
       "id": "-99",
@@ -375972,8 +375773,7 @@
         "restCountries": true,
         "geoJsonName": "Sierra Leone"
       },
-      "needsReview": false,
-      "remoteFlag": "https://flagcdn.com/sl.svg"
+      "needsReview": false
     },
     {
       "id": "SGP",
@@ -376235,8 +376035,7 @@
         "restCountries": true,
         "geoJsonName": "Singapore"
       },
-      "needsReview": false,
-      "remoteFlag": "https://flagcdn.com/sg.svg"
+      "needsReview": false
     },
     {
       "id": "SXM",
@@ -376489,8 +376288,7 @@
         "restCountries": true,
         "geoJsonName": "Sint Maarten"
       },
-      "needsReview": false,
-      "remoteFlag": "https://flagcdn.com/sx.svg"
+      "needsReview": false
     },
     {
       "id": "SVK",
@@ -377298,8 +377096,7 @@
         "restCountries": true,
         "geoJsonName": "Slovakia"
       },
-      "needsReview": false,
-      "remoteFlag": "https://flagcdn.com/sk.svg"
+      "needsReview": false
     },
     {
       "id": "SVN",
@@ -378054,8 +377851,7 @@
         "restCountries": true,
         "geoJsonName": "Slovenia"
       },
-      "needsReview": false,
-      "remoteFlag": "https://flagcdn.com/si.svg"
+      "needsReview": false
     },
     {
       "id": "SLB",
@@ -379698,8 +379494,7 @@
         "restCountries": true,
         "geoJsonName": "Solomon Is."
       },
-      "needsReview": false,
-      "remoteFlag": "https://flagcdn.com/sb.svg"
+      "needsReview": false
     },
     {
       "id": "SOM",
@@ -380500,8 +380295,7 @@
         "restCountries": true,
         "geoJsonName": "Somalia"
       },
-      "needsReview": false,
-      "remoteFlag": "https://flagcdn.com/so.svg"
+      "needsReview": false
     },
     {
       "id": "-99",
@@ -383045,8 +382839,7 @@
         "restCountries": true,
         "geoJsonName": "South Africa"
       },
-      "needsReview": false,
-      "remoteFlag": "https://flagcdn.com/za.svg"
+      "needsReview": false
     },
     {
       "id": "SGS",
@@ -383526,8 +383319,7 @@
         "restCountries": true,
         "geoJsonName": "S. Geo. and the Is."
       },
-      "needsReview": true,
-      "remoteFlag": "https://flagcdn.com/gs.svg"
+      "needsReview": true
     },
     {
       "id": "KOR",
@@ -384835,8 +384627,7 @@
         "restCountries": true,
         "geoJsonName": "South Korea"
       },
-      "needsReview": false,
-      "remoteFlag": "https://flagcdn.com/kr.svg"
+      "needsReview": false
     },
     {
       "id": "SSD",
@@ -386368,8 +386159,7 @@
         "restCountries": true,
         "geoJsonName": "S. Sudan"
       },
-      "needsReview": false,
-      "remoteFlag": "https://flagcdn.com/ss.svg"
+      "needsReview": false
     },
     {
       "id": "ESP",
@@ -388798,8 +388588,7 @@
         "restCountries": true,
         "geoJsonName": "Spain"
       },
-      "needsReview": false,
-      "remoteFlag": "https://flagcdn.com/es.svg"
+      "needsReview": false
     },
     {
       "id": "LKA",
@@ -389400,8 +389189,7 @@
         "restCountries": true,
         "geoJsonName": "Sri Lanka"
       },
-      "needsReview": false,
-      "remoteFlag": "https://flagcdn.com/lk.svg"
+      "needsReview": false
     },
     {
       "id": "SDN",
@@ -391420,8 +391208,7 @@
         "restCountries": true,
         "geoJsonName": "Sudan"
       },
-      "needsReview": false,
-      "remoteFlag": "https://flagcdn.com/sd.svg"
+      "needsReview": false
     },
     {
       "id": "SUR",
@@ -392385,8 +392172,7 @@
         "restCountries": true,
         "geoJsonName": "Suriname"
       },
-      "needsReview": false,
-      "remoteFlag": "https://flagcdn.com/sr.svg"
+      "needsReview": false
     },
     {
       "id": "SJM",
@@ -392426,8 +392212,7 @@
       "sources": {
         "restCountries": true
       },
-      "needsReview": false,
-      "remoteFlag": "https://flagcdn.com/sj.svg"
+      "needsReview": false
     },
     {
       "id": "SWE",
@@ -395046,8 +394831,7 @@
         "restCountries": true,
         "geoJsonName": "Sweden"
       },
-      "needsReview": false,
-      "remoteFlag": "https://flagcdn.com/se.svg"
+      "needsReview": false
     },
     {
       "id": "CHE",
@@ -396029,8 +395813,7 @@
         "restCountries": true,
         "geoJsonName": "Switzerland"
       },
-      "needsReview": false,
-      "remoteFlag": "https://flagcdn.com/ch.svg"
+      "needsReview": false
     },
     {
       "id": "SYR",
@@ -396950,8 +396733,7 @@
         "restCountries": true,
         "geoJsonName": "Syria"
       },
-      "needsReview": false,
-      "remoteFlag": "https://flagcdn.com/sy.svg"
+      "needsReview": false
     },
     {
       "id": "TWN",
@@ -397454,8 +397236,7 @@
         "restCountries": true,
         "geoJsonName": "Taiwan"
       },
-      "needsReview": false,
-      "remoteFlag": "https://flagcdn.com/tw.svg"
+      "needsReview": false
     },
     {
       "id": "TJK",
@@ -399171,8 +398952,7 @@
         "restCountries": true,
         "geoJsonName": "Tajikistan"
       },
-      "needsReview": false,
-      "remoteFlag": "https://flagcdn.com/tj.svg"
+      "needsReview": false
     },
     {
       "id": "TZA",
@@ -400923,8 +400703,7 @@
         "restCountries": true,
         "geoJsonName": "Tanzania"
       },
-      "needsReview": false,
-      "remoteFlag": "https://flagcdn.com/tz.svg"
+      "needsReview": false
     },
     {
       "id": "THA",
@@ -403504,8 +403283,7 @@
         "restCountries": true,
         "geoJsonName": "Thailand"
       },
-      "needsReview": false,
-      "remoteFlag": "https://flagcdn.com/th.svg"
+      "needsReview": false
     },
     {
       "id": "TLS",
@@ -404024,8 +403802,7 @@
         "restCountries": true,
         "geoJsonName": "Timor-Leste"
       },
-      "needsReview": false,
-      "remoteFlag": "https://flagcdn.com/tl.svg"
+      "needsReview": false
     },
     {
       "id": "TGO",
@@ -404772,8 +404549,7 @@
         "restCountries": true,
         "geoJsonName": "Togo"
       },
-      "needsReview": false,
-      "remoteFlag": "https://flagcdn.com/tg.svg"
+      "needsReview": false
     },
     {
       "id": "TKL",
@@ -404814,8 +404590,7 @@
       "sources": {
         "restCountries": true
       },
-      "needsReview": false,
-      "remoteFlag": "https://flagcdn.com/tk.svg"
+      "needsReview": false
     },
     {
       "id": "TON",
@@ -405174,8 +404949,7 @@
         "restCountries": true,
         "geoJsonName": "Tonga"
       },
-      "needsReview": false,
-      "remoteFlag": "https://flagcdn.com/to.svg"
+      "needsReview": false
     },
     {
       "id": "TTO",
@@ -405554,8 +405328,7 @@
         "restCountries": true,
         "geoJsonName": "Trinidad and Tobago"
       },
-      "needsReview": false,
-      "remoteFlag": "https://flagcdn.com/tt.svg"
+      "needsReview": false
     },
     {
       "id": "TUN",
@@ -406534,8 +406307,7 @@
         "restCountries": true,
         "geoJsonName": "Tunisia"
       },
-      "needsReview": false,
-      "remoteFlag": "https://flagcdn.com/tn.svg"
+      "needsReview": false
     },
     {
       "id": "TUR",
@@ -409025,8 +408797,7 @@
         "restCountries": true,
         "geoJsonName": "Turkey"
       },
-      "needsReview": false,
-      "remoteFlag": "https://flagcdn.com/tr.svg"
+      "needsReview": false
     },
     {
       "id": "TKM",
@@ -410990,8 +410761,7 @@
         "restCountries": true,
         "geoJsonName": "Turkmenistan"
       },
-      "needsReview": false,
-      "remoteFlag": "https://flagcdn.com/tm.svg"
+      "needsReview": false
     },
     {
       "id": "TCA",
@@ -411338,8 +411108,7 @@
         "restCountries": true,
         "geoJsonName": "Turks and Caicos Is."
       },
-      "needsReview": false,
-      "remoteFlag": "https://flagcdn.com/tc.svg"
+      "needsReview": false
     },
     {
       "id": "TUV",
@@ -411604,8 +411373,7 @@
         "restCountries": true,
         "geoJsonName": "Tuvalu"
       },
-      "needsReview": false,
-      "remoteFlag": "https://flagcdn.com/tv.svg"
+      "needsReview": false
     },
     {
       "id": "UGA",
@@ -412554,8 +412322,7 @@
         "restCountries": true,
         "geoJsonName": "Uganda"
       },
-      "needsReview": false,
-      "remoteFlag": "https://flagcdn.com/ug.svg"
+      "needsReview": false
     },
     {
       "id": "UKR",
@@ -415334,8 +415101,7 @@
         "restCountries": true,
         "geoJsonName": "Ukraine"
       },
-      "needsReview": false,
-      "remoteFlag": "https://flagcdn.com/ua.svg"
+      "needsReview": false
     },
     {
       "id": "ARE",
@@ -416312,8 +416078,7 @@
         "restCountries": true,
         "geoJsonName": "United Arab Emirates"
       },
-      "needsReview": false,
-      "remoteFlag": "https://flagcdn.com/ae.svg"
+      "needsReview": false
     },
     {
       "id": "GBR",
@@ -420571,8 +420336,7 @@
         "restCountries": true,
         "geoJsonName": "United Kingdom"
       },
-      "needsReview": false,
-      "remoteFlag": "https://flagcdn.com/gb.svg"
+      "needsReview": false
     },
     {
       "id": "USA",
@@ -444316,8 +444080,7 @@
         "restCountries": true,
         "geoJsonName": "United States of America"
       },
-      "needsReview": false,
-      "remoteFlag": "https://flagcdn.com/us.svg"
+      "needsReview": false
     },
     {
       "id": "UMI",
@@ -444356,8 +444119,7 @@
       "sources": {
         "restCountries": true
       },
-      "needsReview": true,
-      "remoteFlag": "https://flagcdn.com/um.svg"
+      "needsReview": true
     },
     {
       "id": "VIR",
@@ -444665,8 +444427,7 @@
         "restCountries": true,
         "geoJsonName": "U.S. Virgin Is."
       },
-      "needsReview": false,
-      "remoteFlag": "https://flagcdn.com/vi.svg"
+      "needsReview": false
     },
     {
       "id": "URY",
@@ -445463,8 +445224,7 @@
         "restCountries": true,
         "geoJsonName": "Uruguay"
       },
-      "needsReview": false,
-      "remoteFlag": "https://flagcdn.com/uy.svg"
+      "needsReview": false
     },
     {
       "id": "UZB",
@@ -448042,8 +447802,7 @@
         "restCountries": true,
         "geoJsonName": "Uzbekistan"
       },
-      "needsReview": false,
-      "remoteFlag": "https://flagcdn.com/uz.svg"
+      "needsReview": false
     },
     {
       "id": "VUT",
@@ -449066,8 +448825,7 @@
         "restCountries": true,
         "geoJsonName": "Vanuatu"
       },
-      "needsReview": false,
-      "remoteFlag": "https://flagcdn.com/vu.svg"
+      "needsReview": false
     },
     {
       "id": "VAT",
@@ -449317,8 +449075,7 @@
         "restCountries": true,
         "geoJsonName": "Vatican"
       },
-      "needsReview": false,
-      "remoteFlag": "https://flagcdn.com/va.svg"
+      "needsReview": false
     },
     {
       "id": "VEN",
@@ -451831,8 +451588,7 @@
         "restCountries": true,
         "geoJsonName": "Venezuela"
       },
-      "needsReview": false,
-      "remoteFlag": "https://flagcdn.com/ve.svg"
+      "needsReview": false
     },
     {
       "id": "VNM",
@@ -454541,8 +454297,7 @@
         "restCountries": true,
         "geoJsonName": "Vietnam"
       },
-      "needsReview": false,
-      "remoteFlag": "https://flagcdn.com/vn.svg"
+      "needsReview": false
     },
     {
       "id": "WLF",
@@ -454836,8 +454591,7 @@
         "restCountries": true,
         "geoJsonName": "Wallis and Futuna Is."
       },
-      "needsReview": false,
-      "remoteFlag": "https://flagcdn.com/wf.svg"
+      "needsReview": false
     },
     {
       "id": "ESH",
@@ -455989,8 +455743,7 @@
         "restCountries": true,
         "geoJsonName": "W. Sahara"
       },
-      "needsReview": false,
-      "remoteFlag": "https://flagcdn.com/eh.svg"
+      "needsReview": false
     },
     {
       "id": "YEM",
@@ -457133,8 +456886,7 @@
         "restCountries": true,
         "geoJsonName": "Yemen"
       },
-      "needsReview": false,
-      "remoteFlag": "https://flagcdn.com/ye.svg"
+      "needsReview": false
     },
     {
       "id": "ZMB",
@@ -458872,8 +458624,7 @@
         "restCountries": true,
         "geoJsonName": "Zambia"
       },
-      "needsReview": false,
-      "remoteFlag": "https://flagcdn.com/zm.svg"
+      "needsReview": false
     },
     {
       "id": "ZWE",
@@ -459793,8 +459544,7 @@
         "restCountries": true,
         "geoJsonName": "Zimbabwe"
       },
-      "needsReview": false,
-      "remoteFlag": "https://flagcdn.com/zw.svg"
+      "needsReview": false
     }
   ]
 }

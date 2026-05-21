@@ -2,15 +2,17 @@ let countriesPromise;
 const MAIN_RECOGNIZED_EXTRA_CODES = new Set(["PSE", "VAT", "TWN", "XKX", "KOS"]);
 const MAIN_RECOGNIZED_EXTRA_NAMES = new Set(["Palestine", "Vatican City", "Taiwan", "Kosovo"]);
 
-export async function loadCountries({ onlyUN = false, onlyMainRecognized = false, refresh = false } = {}) {
+export async function loadCountries({ onlyUN = false, onlyMainRecognized = false, scope = "all", refresh = false } = {}) {
   if (!countriesPromise || refresh) {
     countriesPromise = loadCompiledCountries().catch(() => loadRestCountries());
   }
 
   const countries = (await countriesPromise).map(withCountryListFlags);
-  if (!onlyUN && !onlyMainRecognized) return countries;
+  if (scope === "main" || onlyUN || onlyMainRecognized) return countries.filter((country) => country.isMainRecognizedCountry);
+  if (scope === "extended") return countries.filter((country) => country.isExtendedCountry);
+  if (scope === "mapped") return countries.filter((country) => country.isMappedCountry);
 
-  return countries.filter((country) => country.isMainRecognizedCountry);
+  return countries;
 }
 
 export async function loadCompiledCountries() {
@@ -18,6 +20,47 @@ export async function loadCompiledCountries() {
   if (!response.ok) throw new Error("Compiled country dataset is not available yet.");
   const payload = await response.json();
   return Array.isArray(payload) ? payload : payload.countries;
+}
+
+export async function loadCompiledGeoJson({ interactiveScope = "mapped" } = {}) {
+  const countries = (await loadCompiledCountries()).map(withCountryListFlags);
+  const interactiveCountries = filterCountriesByScope(countries, interactiveScope);
+  const features = countries
+    .filter((country) => country.geoJson?.geometry)
+    .map((country) => ({
+      type: "Feature",
+      properties: {
+        ...country.geoJson.properties,
+        compiledCode: country.code,
+        compiledName: country.name,
+        isInteractive: Boolean(findCountryByCodeOrName(country, interactiveCountries))
+      },
+      geometry: country.geoJson.geometry
+    }));
+
+  if (!features.length) throw new Error("Compiled dataset does not contain GeoJSON features.");
+  return { type: "FeatureCollection", features };
+}
+
+export async function loadCountryGeoJson(options = {}) {
+  try {
+    return await loadCompiledGeoJson(options);
+  } catch (error) {
+    const response = await fetch("./assets/country-outlines.geo.json");
+    if (!response.ok) throw error;
+    return response.json();
+  }
+}
+
+function filterCountriesByScope(countries, scope) {
+  if (scope === "main") return countries.filter((country) => country.isMainRecognizedCountry);
+  if (scope === "extended") return countries.filter((country) => country.isExtendedCountry);
+  if (scope === "mapped") return countries.filter((country) => country.isMappedCountry);
+  return countries;
+}
+
+function findCountryByCodeOrName(country, countries) {
+  return countries.find((candidate) => candidate.code === country.code || candidate.name === country.name);
 }
 
 export async function loadRemoteCountries() {
@@ -59,6 +102,8 @@ async function fetchCountriesByFields(fields) {
 
 export function findCountryMatch(properties, countries) {
   const candidates = [
+    properties.compiledCode,
+    properties.compiledName,
     properties.iso_a3,
     properties.adm0_a3,
     properties.sov_a3,
@@ -119,6 +164,8 @@ function withCountryListFlags(country) {
       : Boolean(next.unMember) ||
         MAIN_RECOGNIZED_EXTRA_CODES.has(next.code) ||
         MAIN_RECOGNIZED_EXTRA_NAMES.has(next.name);
+  next.isExtendedCountry = next.includeInDataset !== false;
+  next.isMappedCountry = next.isExtendedCountry && Boolean(next.hasGeoJsonData || next.geoJson?.geometry);
 
   return next;
 }

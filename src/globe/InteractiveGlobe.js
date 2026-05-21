@@ -108,11 +108,12 @@ export class InteractiveGlobe {
 
       const countryGroup = new THREE.Group();
       countryGroup.userData.feature = feature;
+      countryGroup.userData.isInteractive = feature.properties.isInteractive !== false;
       countryGroup.userData.baseColor = colorFromString(feature.properties.iso_a3 || feature.properties.name);
       countryGroup.userData.pickSize = getFeatureBoundsArea(feature);
 
       const fillMaterial = new THREE.MeshStandardMaterial({
-        color: countryGroup.userData.baseColor,
+        color: countryGroup.userData.isInteractive ? countryGroup.userData.baseColor : 0xb9c2bd,
         roughness: 1,
         metalness: 0
       });
@@ -159,11 +160,12 @@ export class InteractiveGlobe {
     bakedMesh.countries.forEach((country) => {
       const countryGroup = new THREE.Group();
       countryGroup.userData.feature = { properties: country.properties };
+      countryGroup.userData.isInteractive = country.properties.isInteractive !== false;
       countryGroup.userData.baseColor = country.color;
       countryGroup.userData.pickSize = country.pickSize;
 
       const fillMaterial = new THREE.MeshStandardMaterial({
-        color: country.color,
+        color: countryGroup.userData.isInteractive ? country.color : 0xb9c2bd,
         roughness: 1,
         metalness: 0
       });
@@ -229,7 +231,7 @@ export class InteractiveGlobe {
 
     const hits = this.countryRaycaster
       .intersectObjects(this.globe.children, true)
-      .filter((hit) => hit.object.isMesh && hit.object.userData?.countryGroup);
+      .filter((hit) => hit.object.isMesh && hit.object.userData?.countryGroup?.userData.isInteractive);
 
     if (!hits.length) return;
 

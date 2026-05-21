@@ -1,4 +1,4 @@
-import { loadCountries, findCountryMatch } from "../data/countryData.js";
+import { loadCountries, findCountryMatch, loadCountryGeoJson } from "../data/countryData.js";
 import { emptyCountryPanelText, renderCountryPanel } from "../components/countryPanel.js";
 import { InteractiveGlobe } from "../globe/InteractiveGlobe.js";
 
@@ -14,7 +14,7 @@ export async function mountInteractiveGlobeGame(stage) {
   `;
 
   const [countriesResult, globeAsset] = await Promise.all([
-    loadCountries({ onlyUN: false, refresh: true }).catch((error) => {
+    loadCountries({ scope: "mapped", refresh: true }).catch((error) => {
       console.warn(error);
       return [];
     }),
@@ -32,13 +32,26 @@ export async function mountInteractiveGlobeGame(stage) {
   });
 
   if (globeAsset.type === "baked") {
-    await globe.loadBakedMesh(globeAsset.data);
+    await globe.loadBakedMesh(filterBakedMesh(globeAsset.data, countries));
   } else {
     await globe.loadGeoJson(globeAsset.data);
   }
   globe.start();
 
   return () => globe.dispose();
+}
+
+function filterBakedMesh(bakedMesh, countries) {
+  return {
+    ...bakedMesh,
+    countries: bakedMesh.countries.map((country) => ({
+      ...country,
+      properties: {
+        ...country.properties,
+        isInteractive: Boolean(findCountryMatch(country.properties, countries))
+      }
+    }))
+  };
 }
 
 async function loadGlobeAsset() {
@@ -51,6 +64,5 @@ async function loadGlobeAsset() {
     console.warn(error);
   }
 
-  const response = await fetch("./assets/country-outlines.geo.json");
-  return { type: "geojson", data: await response.json() };
+  return { type: "geojson", data: await loadCountryGeoJson({ interactiveScope: "mapped" }) };
 }

@@ -242,6 +242,16 @@ button {
   fill-opacity: 1;
 }
 
+.map-country.non-interactive {
+  fill: #b9c2bd;
+  fill-opacity: 0.72;
+  cursor: default;
+}
+
+.map-country.non-interactive:hover {
+  fill-opacity: 0.72;
+}
+
 .map-country.selected {
   fill: #e9563f;
   fill-opacity: 1;

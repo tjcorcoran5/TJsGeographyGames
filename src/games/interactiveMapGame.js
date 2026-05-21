@@ -1,5 +1,5 @@
 import { emptyCountryPanelText, renderCountryPanel } from "../components/countryPanel.js";
-import { findCountryMatch, loadCountries } from "../data/countryData.js";
+import { findCountryMatch, loadCountries, loadCountryGeoJson } from "../data/countryData.js";
 
 const VIEWBOX = { width: 1000, height: 520 };
 const MAX_ZOOM = 60;
@@ -18,11 +18,11 @@ export async function mountInteractiveMapGame(stage) {
   `;
 
   const [countries, geoJson] = await Promise.all([
-    loadCountries({ refresh: true }).catch((error) => {
+    loadCountries({ scope: "mapped", refresh: true }).catch((error) => {
       console.warn(error);
       return [];
     }),
-    fetch("./assets/country-outlines.geo.json").then((response) => response.json())
+    loadCountryGeoJson({ interactiveScope: "mapped" })
   ]);
 
   const panel = stage.querySelector(".globe-side-panel");
@@ -89,6 +89,7 @@ class InteractiveMap {
         const path = document.createElementNS("http://www.w3.org/2000/svg", "path");
         path.setAttribute("d", featureToPath(feature));
         path.setAttribute("class", "map-country");
+        if (!feature.properties.isInteractive) path.classList.add("non-interactive");
         path.dataset.countryIndex = String(index);
         path.dataset.countryId = getFeatureId(feature.properties);
         path.style.setProperty("--country-color", colorFromString(feature.properties.iso_a3 || feature.properties.name));
@@ -103,6 +104,7 @@ class InteractiveMap {
 
   selectCountry(path) {
     const feature = this.geoJson.features[Number(path.dataset.countryIndex)];
+    if (!feature.properties.isInteractive) return;
     const countryId = path.dataset.countryId;
     this.selectedCountryId = countryId;
 

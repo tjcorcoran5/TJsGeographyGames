@@ -1,4 +1,4 @@
-import { findCountryMatch, loadCountries } from "../data/countryData.js";
+import { findCountryMatch, loadCountries, loadCountryGeoJson } from "../data/countryData.js";
 
 const VIEWBOX = { width: 1000, height: 520 };
 const MAX_ZOOM = 45;
@@ -42,9 +42,9 @@ async function mountMapPromptGame(stage, config) {
   `;
 
   const [allCountries, mainCountries, geoJson] = await Promise.all([
-    loadCountries({ refresh: true }).catch(() => []),
-    loadCountries({ onlyMainRecognized: true }).catch(() => []),
-    fetch("./assets/country-outlines.geo.json").then((response) => response.json())
+    loadCountries({ scope: "mapped", refresh: true }).catch(() => []),
+    loadCountries({ scope: "main" }).catch(() => []),
+    loadCountryGeoJson({ interactiveScope: "main" })
   ]);
 
   const game = new FlagMapGame(stage, geoJson, buildQuestionPool(allCountries, mainCountries, geoJson), config);
@@ -122,6 +122,7 @@ class FlagMapGame {
         const path = document.createElementNS("http://www.w3.org/2000/svg", "path");
         path.setAttribute("d", featureToPath(feature));
         path.setAttribute("class", "map-country flag-answer-country");
+        if (!feature.properties.isInteractive) path.classList.add("non-interactive");
         path.dataset.countryIndex = String(index);
         path.dataset.countryId = id;
         path.style.setProperty("--country-color", "#d8e4df");
@@ -157,6 +158,7 @@ class FlagMapGame {
     if (!this.current || !this.acceptingAnswer) return;
 
     const feature = this.geoJson.features[Number(path.dataset.countryIndex)];
+    if (!feature.properties.isInteractive) return;
     const selectedCountry = findCountryMatch(feature.properties, this.countries);
     if (!selectedCountry) return;
 

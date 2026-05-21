@@ -1,5 +1,6 @@
 import { bakeGlobeMesh } from "../globe/bakeGlobeMesh.js";
 import { InteractiveGlobe } from "../globe/InteractiveGlobe.js";
+import { loadCountryGeoJson } from "../data/countryData.js";
 
 export async function mountGlobeStudioGame(stage) {
   stage.innerHTML = `
@@ -39,8 +40,7 @@ export async function mountGlobeStudioGame(stage) {
 
 async function generatePreview(state, els) {
   setStatus(els, "Loading GeoJSON...");
-  const response = await fetch("./assets/country-outlines.geo.json");
-  const geoJson = await response.json();
+  const geoJson = await loadCountryGeoJson();
 
   setStatus(els, "Baking globe mesh...");
   await new Promise((resolve) => setTimeout(resolve, 20));
