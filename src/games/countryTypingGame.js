@@ -2,6 +2,7 @@ import { findCountryMatch, loadCountries, loadCountryGeoJson } from "../data/cou
 
 const VIEWBOX = { width: 1000, height: 520 };
 const MAX_ZOOM = 45;
+const GAME_ID = "country-name-typing";
 
 export async function mountCountryTypingGame(stage) {
   stage.innerHTML = `
@@ -15,6 +16,11 @@ export async function mountCountryTypingGame(stage) {
           <span data-timer>00:00</span>
         </div>
         <input data-country-input type="text" autocomplete="off" spellcheck="false" placeholder="Type a country..." />
+        <button class="text-button typing-give-up" type="button" data-give-up>Give up</button>
+      </aside>
+      <aside class="typing-review-actions" data-review-actions hidden>
+        <button class="text-button primary" type="button" data-review-retry>Retry</button>
+        <button class="text-button" type="button" data-review-hub>Return to hub</button>
       </aside>
       <div class="globe-hint">Type a country name and press Enter. Scroll to zoom. Drag to pan.</div>
     </section>
@@ -39,6 +45,7 @@ class CountryTypingGame {
     this.svg = stage.querySelector("svg");
     this.content = document.createElementNS("http://www.w3.org/2000/svg", "g");
     this.mapBounds = getGeoJsonProjectedBounds(geoJson);
+    this.countryFeatures = new Map();
     this.transform = { x: 0, y: 0, scale: 1 };
     this.drag = { active: false, moved: false, x: 0, y: 0 };
     this.velocity = { x: 0, y: 0 };
@@ -50,7 +57,11 @@ class CountryTypingGame {
       score: stage.querySelector("[data-score]"),
       total: stage.querySelector("[data-total]"),
       timer: stage.querySelector("[data-timer]"),
-      input: stage.querySelector("[data-country-input]")
+      input: stage.querySelector("[data-country-input]"),
+      giveUp: stage.querySelector("[data-give-up]"),
+      reviewActions: stage.querySelector("[data-review-actions]"),
+      reviewRetry: stage.querySelector("[data-review-retry]"),
+      reviewHub: stage.querySelector("[data-review-hub]")
     };
 
     this.onWheel = this.handleWheel.bind(this);
@@ -58,6 +69,9 @@ class CountryTypingGame {
     this.onPointerMove = this.handlePointerMove.bind(this);
     this.onPointerUp = this.handlePointerUp.bind(this);
     this.onSubmit = this.handleSubmit.bind(this);
+    this.onGiveUp = this.handleGiveUp.bind(this);
+    this.onRetry = () => navigateToGame();
+    this.onHub = () => navigateToHub();
   }
 
   mount() {
@@ -69,6 +83,9 @@ class CountryTypingGame {
     window.addEventListener("pointermove", this.onPointerMove);
     window.addEventListener("pointerup", this.onPointerUp);
     this.els.input.addEventListener("keydown", this.onSubmit);
+    this.els.giveUp.addEventListener("click", this.onGiveUp);
+    this.els.reviewRetry.addEventListener("click", this.onRetry);
+    this.els.reviewHub.addEventListener("click", this.onHub);
     this.els.total.textContent = String(this.countries.length);
     this.timerId = window.setInterval(() => this.updateTimer(), 1000);
     this.updateTimer();
@@ -83,14 +100,22 @@ class CountryTypingGame {
     window.removeEventListener("pointermove", this.onPointerMove);
     window.removeEventListener("pointerup", this.onPointerUp);
     this.els.input.removeEventListener("keydown", this.onSubmit);
+    this.els.giveUp.removeEventListener("click", this.onGiveUp);
+    this.els.reviewRetry.removeEventListener("click", this.onRetry);
+    this.els.reviewHub.removeEventListener("click", this.onHub);
   }
 
   drawCountries() {
     const fragment = document.createDocumentFragment();
+    this.countries.forEach((country) => {
+      const feature = this.findFeatureForCountry(country);
+      if (feature) this.countryFeatures.set(getCountryKey(country), feature);
+    });
 
     [-VIEWBOX.width, 0, VIEWBOX.width].forEach((offset) => {
       const tile = document.createElementNS("http://www.w3.org/2000/svg", "g");
       tile.setAttribute("transform", `translate(${offset} 0)`);
+      tile.dataset.tileOffset = String(offset);
 
       this.geoJson.features.forEach((feature, index) => {
         if (!feature.geometry) return;
@@ -103,6 +128,15 @@ class CountryTypingGame {
         path.dataset.countryId = id;
         path.style.setProperty("--country-color", "#d8e4df");
         tile.append(path);
+      });
+
+      this.countries.forEach((country) => {
+        const feature = this.countryFeatures.get(getCountryKey(country));
+        if (!feature) return;
+        const label = createCountryLabel(country, feature);
+        label.dataset.countryId = getFeatureId(feature.properties);
+        label.dataset.tileOffset = String(offset);
+        tile.append(label);
       });
 
       fragment.append(tile);
@@ -133,25 +167,51 @@ class CountryTypingGame {
     this.guessed.add(countryKey);
     this.els.input.value = "";
     this.els.score.textContent = String(this.guessed.size);
-    this.markCountry(country);
+    this.markCountry(country, "correct");
 
     if (this.guessed.size === this.countries.length) {
-      clearInterval(this.timerId);
-      this.els.input.disabled = true;
-      this.els.input.placeholder = "Complete";
+      this.endGame({ gaveUp: false });
     }
   }
 
-  markCountry(country) {
-    const feature = this.geoJson.features.find((candidate) => {
-      const match = findCountryMatch(candidate.properties, [country]);
-      return match?.code === country.code || match?.name === country.name;
-    });
+  handleGiveUp() {
+    this.endGame({ gaveUp: true });
+  }
+
+  endGame({ gaveUp }) {
+    clearInterval(this.timerId);
+    this.els.input.disabled = true;
+    this.els.giveUp.disabled = true;
+    this.els.input.placeholder = gaveUp ? "Revealed" : "Complete";
+
+    if (gaveUp) {
+      this.countries.forEach((country) => {
+        if (!this.guessed.has(getCountryKey(country))) this.markCountry(country, "missed");
+      });
+    }
+
+    this.showEndScreen({ gaveUp });
+  }
+
+  markCountry(country, state) {
+    const feature = this.countryFeatures.get(getCountryKey(country)) || this.findFeatureForCountry(country);
     if (!feature) return;
 
     const countryId = getFeatureId(feature.properties);
     this.content.querySelectorAll(`.map-country[data-country-id="${cssEscape(countryId)}"]`).forEach((path) => {
-      path.classList.add("typed-correct");
+      path.classList.add(state === "missed" ? "typed-missed" : "typed-correct");
+    });
+    this.content.querySelectorAll(`.typing-label[data-country-id="${cssEscape(countryId)}"]`).forEach((label) => {
+      label.dataset.revealed = "true";
+      label.classList.toggle("label-missed", state === "missed");
+    });
+    this.updateLabels();
+  }
+
+  findFeatureForCountry(country) {
+    return this.geoJson.features.find((candidate) => {
+      const match = findCountryMatch(candidate.properties, [country]);
+      return match?.code === country.code || match?.name === country.name;
     });
   }
 
@@ -166,6 +226,42 @@ class CountryTypingGame {
     const mins = String(Math.floor(elapsed / 60)).padStart(2, "0");
     const secs = String(elapsed % 60).padStart(2, "0");
     this.els.timer.textContent = `${mins}:${secs}`;
+    return this.els.timer.textContent;
+  }
+
+  showEndScreen({ gaveUp }) {
+    this.stage.querySelector(".typing-end-overlay")?.remove();
+    const elapsed = this.updateTimer();
+    const missed = this.countries.length - this.guessed.size;
+    const overlay = document.createElement("div");
+    overlay.className = "typing-end-overlay";
+    overlay.innerHTML = `
+      <section class="typing-end-card" role="dialog" aria-modal="true" aria-labelledby="typing-end-title">
+        <h2 id="typing-end-title">${gaveUp ? "Run ended" : "Map complete"}</h2>
+        <p>${this.guessed.size} of ${this.countries.length} countries in ${elapsed}</p>
+        ${gaveUp ? `<p>${missed} missed countries are highlighted in red.</p>` : ""}
+        <div class="typing-end-actions">
+          <button class="text-button primary" type="button" data-retry>Retry</button>
+          <button class="text-button" type="button" data-review>Review map</button>
+          <button class="text-button" type="button" data-hub>Return to hub</button>
+        </div>
+      </section>
+    `;
+    overlay.querySelector("[data-retry]").addEventListener("click", () => {
+      navigateToGame();
+    });
+    overlay.querySelector("[data-hub]").addEventListener("click", () => {
+      navigateToHub();
+    });
+    overlay.querySelector("[data-review]").addEventListener("click", () => {
+      overlay.remove();
+      this.showReviewActions();
+    });
+    this.stage.querySelector(".country-typing-game").append(overlay);
+  }
+
+  showReviewActions() {
+    this.els.reviewActions.hidden = false;
   }
 
   handleWheel(event) {
@@ -237,6 +333,7 @@ class CountryTypingGame {
   applyTransform() {
     this.constrainTransform();
     this.content.setAttribute("transform", `translate(${this.transform.x} ${this.transform.y}) scale(${this.transform.scale})`);
+    this.updateLabels();
   }
 
   constrainTransform() {
@@ -255,6 +352,21 @@ class CountryTypingGame {
     const landHeight = this.mapBounds.maxY - this.mapBounds.minY;
     this.transform.y = (VIEWBOX.height - landHeight) / 2 - this.mapBounds.minY;
     this.applyTransform();
+  }
+
+  updateLabels() {
+    const visibleLabels = [];
+    this.content.querySelectorAll(".typing-label").forEach((label) => {
+      const minScale = Number(label.dataset.minScale || 1);
+      const isVisible = label.dataset.revealed === "true" && this.transform.scale >= minScale;
+      label.classList.toggle("label-visible", isVisible);
+      label.setAttribute("font-size", String(clamp(8 / this.transform.scale, 0.85, 8)));
+      label.setAttribute("stroke-width", String(clamp(2.8 / this.transform.scale, 0.28, 2.8)));
+      label.setAttribute("x", label.dataset.baseX);
+      label.setAttribute("y", label.dataset.baseY);
+      if (isVisible) visibleLabels.push(label);
+    });
+    resolveLabelCollisions(visibleLabels, this.transform);
   }
 }
 
@@ -291,6 +403,120 @@ function polygonToPath(rings) {
       return `${commands.join(" ")} Z`;
     })
     .join(" ");
+}
+
+function createCountryLabel(country, feature) {
+  const label = document.createElementNS("http://www.w3.org/2000/svg", "text");
+  const metrics = getFeatureLabelMetrics(feature);
+  label.setAttribute("x", metrics.x.toFixed(2));
+  label.setAttribute("y", metrics.y.toFixed(2));
+  label.setAttribute("text-anchor", "middle");
+  label.setAttribute("dominant-baseline", "central");
+  label.setAttribute("class", "typing-label");
+  label.dataset.revealed = "false";
+  label.dataset.minScale = String(getLabelMinScale(metrics.width, metrics.height));
+  label.dataset.baseX = metrics.x.toFixed(2);
+  label.dataset.baseY = metrics.y.toFixed(2);
+  label.dataset.labelPriority = String(metrics.width * metrics.height);
+  label.textContent = country.name;
+  return label;
+}
+
+function resolveLabelCollisions(labels, transform) {
+  const placed = [];
+  const visibleLabels = labels
+    .map((label) => ({ label, box: getLabelBox(label, transform, 0) }))
+    .filter((entry) => isBoxNearView(entry.box))
+    .sort((a, b) => Number(b.label.dataset.labelPriority || 0) - Number(a.label.dataset.labelPriority || 0));
+
+  visibleLabels.forEach(({ label }) => {
+    const offsets = [0, -12, 12, -24, 24, -38, 38, -54, 54];
+    let selectedOffset = offsets[offsets.length - 1];
+    let selectedBox = getLabelBox(label, transform, selectedOffset);
+
+    for (const offset of offsets) {
+      const box = getLabelBox(label, transform, offset);
+      if (!placed.some((placedBox) => boxesOverlap(box, placedBox))) {
+        selectedOffset = offset;
+        selectedBox = box;
+        break;
+      }
+    }
+
+    label.setAttribute("y", String(Number(label.dataset.baseY) + selectedOffset / transform.scale));
+    placed.push(selectedBox);
+  });
+}
+
+function getLabelBox(label, transform, yOffset) {
+  const textLength = label.textContent.length;
+  const width = clamp(textLength * 4.4, 18, 150);
+  const height = 10;
+  const x = (Number(label.dataset.baseX) + Number(label.dataset.tileOffset || 0)) * transform.scale + transform.x;
+  const y = Number(label.dataset.baseY) * transform.scale + transform.y + yOffset;
+  return {
+    left: x - width / 2 - 3,
+    right: x + width / 2 + 3,
+    top: y - height / 2 - 2,
+    bottom: y + height / 2 + 2
+  };
+}
+
+function isBoxNearView(box) {
+  return box.right >= -80 && box.left <= VIEWBOX.width + 80 && box.bottom >= -50 && box.top <= VIEWBOX.height + 50;
+}
+
+function boxesOverlap(a, b) {
+  return a.left < b.right && a.right > b.left && a.top < b.bottom && a.bottom > b.top;
+}
+
+function getFeatureLabelMetrics(feature) {
+  const rings = getPolygonRings(feature.geometry);
+  const best = rings
+    .map((ring) => {
+      const points = ring.map(([lon, lat]) => project(lon, lat));
+      const bounds = points.reduce(
+        (next, point) => ({
+          minX: Math.min(next.minX, point.x),
+          maxX: Math.max(next.maxX, point.x),
+          minY: Math.min(next.minY, point.y),
+          maxY: Math.max(next.maxY, point.y)
+        }),
+        { minX: Infinity, maxX: -Infinity, minY: Infinity, maxY: -Infinity }
+      );
+      return {
+        ...bounds,
+        area: Math.max(0, bounds.maxX - bounds.minX) * Math.max(0, bounds.maxY - bounds.minY)
+      };
+    })
+    .sort((a, b) => b.area - a.area)[0];
+
+  if (!best) return { x: VIEWBOX.width / 2, y: VIEWBOX.height / 2, width: 0, height: 0 };
+  const labelLon = Number(feature.properties?.label_x);
+  const labelLat = Number(feature.properties?.label_y);
+  const labelPoint = Number.isFinite(labelLon) && Number.isFinite(labelLat) ? project(labelLon, labelLat) : null;
+  return {
+    x: labelPoint?.x ?? (best.minX + best.maxX) / 2,
+    y: labelPoint?.y ?? (best.minY + best.maxY) / 2,
+    width: best.maxX - best.minX,
+    height: best.maxY - best.minY
+  };
+}
+
+function getPolygonRings(geometry) {
+  if (!geometry) return [];
+  if (geometry.type === "Polygon") return geometry.coordinates;
+  if (geometry.type === "MultiPolygon") return geometry.coordinates.flat();
+  return [];
+}
+
+function getLabelMinScale(width, height) {
+  const size = Math.max(width, height);
+  if (size >= 55) return 1;
+  if (size >= 28) return 1.8;
+  if (size >= 14) return 3.2;
+  if (size >= 7) return 6;
+  return 10;
 }
 
 function project(lon, lat) {
@@ -340,4 +566,12 @@ function clamp(value, min, max) {
 function cssEscape(value) {
   if (window.CSS?.escape) return CSS.escape(value);
   return String(value).replaceAll("\"", "\\\"");
+}
+
+function navigateToGame() {
+  window.dispatchEvent(new CustomEvent("geo:navigate", { detail: { view: "game", gameId: GAME_ID } }));
+}
+
+function navigateToHub() {
+  window.dispatchEvent(new CustomEvent("geo:navigate", { detail: { view: "hub" } }));
 }

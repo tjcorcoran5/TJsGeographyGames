@@ -1,6 +1,7 @@
 import { mountInteractiveGlobeGame } from "./interactiveGlobeGame.js";
 import { mountInteractiveMapGame } from "./interactiveMapGame.js";
 import { mountCountryMapGame, mountFlagMapGame } from "./flagMapGame.js";
+import { mountFlagTypingGame } from "./flagTypingGame.js";
 import { mountCountryTypingGame } from "./countryTypingGame.js";
 import { mountDataStudioGame } from "./dataStudioGame.js";
 import { mountGlobeStudioGame } from "./globeStudioGame.js";
@@ -45,6 +46,14 @@ export const games = [
     description: "Find the country on the map that matches the displayed flag.",
     enabled: true,
     mount: mountFlagMapGame
+  },
+  {
+    id: "flag-name-typing",
+    category: "flags",
+    title: "Flag Name Typing",
+    description: "Type the country that matches each flag, then review missed answers.",
+    enabled: true,
+    mount: mountFlagTypingGame
   },
   {
     id: "countries-of-the-world",

@@ -139,4 +139,19 @@ async function renderGame(gameId) {
   }
 }
 
+window.addEventListener("geo:navigate", (event) => {
+  const detail = event.detail || {};
+  if (detail.view === "hub") {
+    renderHub();
+    return;
+  }
+  if (detail.view === "category") {
+    renderCategory(detail.categoryId);
+    return;
+  }
+  if (detail.view === "game") {
+    renderGame(detail.gameId);
+  }
+});
+
 renderHub();
