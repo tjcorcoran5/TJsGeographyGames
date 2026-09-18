@@ -2,7 +2,7 @@
 
 A collection of interactive geography games for learning and testing country names, flags, capital cities, locations, and outlines.
 
-**[Play Geography Games](https://tjcorcoran5.github.io/geographyGames/)**
+**[Play Geography Games](https://tjcorcoran5.github.io/TJsGeographyGames/)**
 
 ## Games
 
