@@ -56,6 +56,8 @@ class CountryTypingGame {
     this.countryFeatures = new Map();
     this.transform = { x: 0, y: 0, scale: 1 };
     this.drag = { active: false, moved: false, x: 0, y: 0 };
+    this.activePointers = new Map();
+    this.pinch = null;
     this.velocity = { x: 0, y: 0 };
     this.momentumFrame = null;
     this.startedAt = Date.now();
@@ -91,6 +93,7 @@ class CountryTypingGame {
     this.svg.addEventListener("pointerdown", this.onPointerDown);
     window.addEventListener("pointermove", this.onPointerMove);
     window.addEventListener("pointerup", this.onPointerUp);
+    window.addEventListener("pointercancel", this.onPointerUp);
     this.els.input.addEventListener("keydown", this.onSubmit);
     this.els.giveUp.addEventListener("click", this.onGiveUp);
     this.els.reviewRetry.addEventListener("click", this.onRetry);
@@ -108,6 +111,7 @@ class CountryTypingGame {
     this.svg.removeEventListener("pointerdown", this.onPointerDown);
     window.removeEventListener("pointermove", this.onPointerMove);
     window.removeEventListener("pointerup", this.onPointerUp);
+    window.removeEventListener("pointercancel", this.onPointerUp);
     this.els.input.removeEventListener("keydown", this.onSubmit);
     this.els.giveUp.removeEventListener("click", this.onGiveUp);
     this.els.reviewRetry.removeEventListener("click", this.onRetry);
@@ -287,12 +291,25 @@ class CountryTypingGame {
 
   handlePointerDown(event) {
     cancelAnimationFrame(this.momentumFrame);
+    this.activePointers.set(event.pointerId, { x: event.clientX, y: event.clientY });
+    if (this.activePointers.size === 2) {
+      this.beginPinch();
+      return;
+    }
+    if (this.activePointers.size > 1) return;
     const pointer = this.clientToViewBox(event.clientX, event.clientY);
     this.drag = { active: true, moved: false, x: pointer.x, y: pointer.y };
     this.velocity = { x: 0, y: 0 };
   }
 
   handlePointerMove(event) {
+    if (this.activePointers.has(event.pointerId)) {
+      this.activePointers.set(event.pointerId, { x: event.clientX, y: event.clientY });
+    }
+    if (this.activePointers.size >= 2) {
+      this.updatePinch();
+      return;
+    }
     if (!this.drag.active) return;
     const pointer = this.clientToViewBox(event.clientX, event.clientY);
     const dx = pointer.x - this.drag.x;
@@ -305,10 +322,42 @@ class CountryTypingGame {
     this.applyTransform();
   }
 
-  handlePointerUp() {
+  handlePointerUp(event) {
+    const wasPinching = Boolean(this.pinch);
+    this.activePointers.delete(event.pointerId);
+    if (wasPinching) {
+      this.pinch = null;
+      this.drag.active = false;
+      this.velocity = { x: 0, y: 0 };
+      return;
+    }
     if (!this.drag.active) return;
     this.drag.active = false;
     this.startMomentum();
+  }
+
+  beginPinch() {
+    const [first, second] = [...this.activePointers.values()];
+    const midpoint = this.clientToViewBox((first.x + second.x) / 2, (first.y + second.y) / 2);
+    this.pinch = {
+      distance: Math.max(1, Math.hypot(second.x - first.x, second.y - first.y)),
+      scale: this.transform.scale,
+      mapPoint: this.viewBoxToMap(midpoint.x, midpoint.y)
+    };
+    this.drag.active = false;
+    this.velocity = { x: 0, y: 0 };
+  }
+
+  updatePinch() {
+    if (!this.pinch) this.beginPinch();
+    const [first, second] = [...this.activePointers.values()];
+    const distance = Math.max(1, Math.hypot(second.x - first.x, second.y - first.y));
+    const midpoint = this.clientToViewBox((first.x + second.x) / 2, (first.y + second.y) / 2);
+    const scale = clamp(this.pinch.scale * (distance / this.pinch.distance), 1, MAX_ZOOM);
+    this.transform.scale = scale;
+    this.transform.x = midpoint.x - this.pinch.mapPoint.x * scale;
+    this.transform.y = midpoint.y - this.pinch.mapPoint.y * scale;
+    this.applyTransform();
   }
 
   viewBoxToMap(x, y) {

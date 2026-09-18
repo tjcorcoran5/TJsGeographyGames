@@ -12,6 +12,8 @@ export class InteractiveGlobe {
     this.inertia = { lon: 0, lat: 0 };
     this.isDragging = false;
     this.dragMoved = false;
+    this.activePointers = new Set();
+    this.isPinching = false;
     this.dragStartVec = new THREE.Vector3();
     this.dragCurrentVec = new THREE.Vector3();
     this.selectedCountry = null;
@@ -83,6 +85,7 @@ export class InteractiveGlobe {
     this.renderer.domElement.addEventListener("pointerdown", this.onPointerDown);
     window.addEventListener("pointermove", this.onPointerMove);
     window.addEventListener("pointerup", this.onPointerUp);
+    window.addEventListener("pointercancel", this.onPointerUp);
     this.renderer.domElement.addEventListener("click", this.onClick);
     this.resize();
     this.resizeObserver.observe(this.container);
@@ -96,6 +99,7 @@ export class InteractiveGlobe {
     this.renderer.domElement.removeEventListener("pointerdown", this.onPointerDown);
     window.removeEventListener("pointermove", this.onPointerMove);
     window.removeEventListener("pointerup", this.onPointerUp);
+    window.removeEventListener("pointercancel", this.onPointerUp);
     this.renderer.domElement.removeEventListener("click", this.onClick);
     this.controls.dispose();
     this.scene.traverse((object) => {
@@ -203,6 +207,14 @@ export class InteractiveGlobe {
   }
 
   handlePointerDown(event) {
+    this.activePointers.add(event.pointerId);
+    if (this.activePointers.size > 1) {
+      this.isPinching = true;
+      this.isDragging = false;
+      this.dragMoved = true;
+      this.inertia = { lon: 0, lat: 0 };
+      return;
+    }
     this.isDragging = true;
     this.dragMoved = false;
     const vector = this.getPointerSphereVector(event);
@@ -210,7 +222,7 @@ export class InteractiveGlobe {
   }
 
   handlePointerMove(event) {
-    if (!this.isDragging) return;
+    if (this.isPinching || this.activePointers.size !== 1 || !this.isDragging) return;
 
     const vector = this.getPointerSphereVector(event);
     if (!vector) return;
@@ -225,7 +237,14 @@ export class InteractiveGlobe {
     this.dragStartVec.copy(this.dragCurrentVec);
   }
 
-  handlePointerUp() {
+  handlePointerUp(event) {
+    this.activePointers.delete(event.pointerId);
+    if (this.isPinching) {
+      this.isDragging = false;
+      this.inertia = { lon: 0, lat: 0 };
+      if (this.activePointers.size === 0) this.isPinching = false;
+      return;
+    }
     this.isDragging = false;
   }
 
