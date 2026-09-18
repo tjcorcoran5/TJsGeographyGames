@@ -16,6 +16,8 @@ export class InteractiveGlobe {
     this.dragCurrentVec = new THREE.Vector3();
     this.selectedCountry = null;
     this.animationId = null;
+    this.resizeFrame = null;
+    this.renderSize = { width: 0, height: 0 };
     this.hasInitialCameraFit = false;
 
     this.scene = new THREE.Scene();
@@ -56,7 +58,10 @@ export class InteractiveGlobe {
 
     this.countryRaycaster = new THREE.Raycaster();
     this.mouse = new THREE.Vector2();
-    this.resizeObserver = new ResizeObserver(() => this.resize());
+    this.resizeObserver = new ResizeObserver((entries) => {
+      const bounds = entries[0]?.contentRect;
+      this.scheduleResize(bounds?.width, bounds?.height);
+    });
 
     this.onPointerDown = this.handlePointerDown.bind(this);
     this.onPointerMove = this.handlePointerMove.bind(this);
@@ -75,17 +80,18 @@ export class InteractiveGlobe {
   }
 
   start() {
-    this.resizeObserver.observe(this.container);
     this.renderer.domElement.addEventListener("pointerdown", this.onPointerDown);
     window.addEventListener("pointermove", this.onPointerMove);
     window.addEventListener("pointerup", this.onPointerUp);
     this.renderer.domElement.addEventListener("click", this.onClick);
     this.resize();
+    this.resizeObserver.observe(this.container);
     this.animate();
   }
 
   dispose() {
     cancelAnimationFrame(this.animationId);
+    cancelAnimationFrame(this.resizeFrame);
     this.resizeObserver.disconnect();
     this.renderer.domElement.removeEventListener("pointerdown", this.onPointerDown);
     window.removeEventListener("pointermove", this.onPointerMove);
@@ -300,11 +306,21 @@ export class InteractiveGlobe {
     this.globe.rotation.x = THREE.MathUtils.clamp(this.globe.rotation.x, -this.maxLat, this.maxLat);
   }
 
-  resize() {
-    const bounds = this.container.getBoundingClientRect();
-    const width = Math.max(1, Math.round(bounds.width));
-    const height = Math.max(1, Math.round(bounds.height));
-    this.renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2));
+  scheduleResize(width, height) {
+    cancelAnimationFrame(this.resizeFrame);
+    this.resizeFrame = requestAnimationFrame(() => {
+      this.resizeFrame = null;
+      this.resize(width, height);
+    });
+  }
+
+  resize(measuredWidth, measuredHeight) {
+    const bounds = measuredWidth && measuredHeight ? null : this.container.getBoundingClientRect();
+    const width = Math.max(1, Math.round(measuredWidth || bounds.width));
+    const height = Math.max(1, Math.round(measuredHeight || bounds.height));
+    if (width === this.renderSize.width && height === this.renderSize.height) return;
+
+    this.renderSize = { width, height };
     this.renderer.setSize(width, height, false);
     this.camera.aspect = width / height;
     this.camera.updateProjectionMatrix();

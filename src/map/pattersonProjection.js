@@ -42,6 +42,16 @@ export function getPattersonBounds(geoJson) {
     : { minX: 0, maxX: MAP_VIEWBOX.width, minY: 0, maxY: MAP_VIEWBOX.height };
 }
 
+export function getInitialMapTransform(bounds, padding = 2) {
+  const landHeight = Math.max(1, bounds.maxY - bounds.minY);
+  const scale = (MAP_VIEWBOX.height - padding * 2) / landHeight;
+  return {
+    scale,
+    x: (MAP_VIEWBOX.width - MAP_VIEWBOX.width * scale) / 2,
+    y: padding - bounds.minY * scale
+  };
+}
+
 function polygonToPath(rings) {
   return rings
     .map((ring) => {

@@ -4,6 +4,7 @@ import { extname, join, normalize } from "node:path";
 
 const root = process.cwd();
 const port = Number(process.env.PORT || 5173);
+let countrySourcePromise;
 
 const mimeTypes = {
   ".html": "text/html; charset=utf-8",
@@ -18,6 +19,8 @@ const mimeTypes = {
 
 createServer(async (request, response) => {
   try {
+    const requestUrl = new URL(request.url, `http://localhost:${port}`);
+
     if (request.method === "POST" && request.url === "/api/dev/country-data/save") {
       const body = await readBody(request);
       const parsed = JSON.parse(body);
@@ -37,14 +40,32 @@ createServer(async (request, response) => {
       return;
     }
 
+    if (request.method === "GET" && requestUrl.pathname === "/api/dev/rest-countries") {
+      const fields = requestUrl.searchParams.get("fields") || "";
+      if (!/^[a-zA-Z0-9,]+$/.test(fields)) {
+        response.writeHead(400, { "Content-Type": "text/plain; charset=utf-8" });
+        response.end("A comma-separated fields parameter is required.");
+        return;
+      }
+
+      const requestedFields = fields.split(",");
+      const countries = await loadRestCompatibleCountries();
+      sendJson(response, countries.map((country) => selectFields(country, requestedFields)));
+      return;
+    }
+
+    if (request.method === "GET" && requestUrl.pathname === "/api/dev/country-outlines") {
+      sendJson(response, await loadCountryOutlines());
+      return;
+    }
+
     if (request.method !== "GET" && request.method !== "HEAD") {
       response.writeHead(405);
       response.end();
       return;
     }
 
-    const url = new URL(request.url, `http://localhost:${port}`);
-    const pathname = url.pathname === "/" ? "/index.html" : decodeURIComponent(url.pathname);
+    const pathname = requestUrl.pathname === "/" ? "/index.html" : decodeURIComponent(requestUrl.pathname);
     const filePath = normalize(join(root, pathname));
 
     if (!filePath.startsWith(root)) {
@@ -80,6 +101,64 @@ function readBody(request) {
 function sendJson(response, payload) {
   response.writeHead(200, { "Content-Type": "application/json; charset=utf-8" });
   response.end(JSON.stringify(payload));
+}
+
+async function loadCountryOutlines() {
+  try {
+    const source = JSON.parse(await readFile(join(root, "assets", "country-outlines.geo.json"), "utf8"));
+    return { source: "country-outlines.geo.json", geoJson: source };
+  } catch (error) {
+    if (error.code !== "ENOENT") throw error;
+  }
+
+  const compiled = JSON.parse(await readFile(join(root, "assets", "country-data.json"), "utf8"));
+  const features = (compiled.countries || [])
+    .filter((country) => country.geoJson?.geometry)
+    .map((country) => ({
+      type: "Feature",
+      properties: {
+        ...country.geoJson.properties,
+        compiledCode: country.code,
+        compiledName: country.name
+      },
+      geometry: country.geoJson.geometry
+    }));
+
+  return {
+    source: "embedded country-data.json geometry",
+    geoJson: { type: "FeatureCollection", features }
+  };
+}
+
+async function loadRestCompatibleCountries() {
+  if (!countrySourcePromise) {
+    countrySourcePromise = Promise.all([
+      fetch("https://raw.githubusercontent.com/mledoze/countries/master/countries.json").then((response) => {
+        if (!response.ok) throw new Error(`Country source returned ${response.status}.`);
+        return response.json();
+      }),
+      readFile(join(root, "assets", "country-data.json"), "utf8").then(JSON.parse)
+    ]).then(([sourceCountries, compiled]) => {
+      const compiledByCode = new Map((compiled.countries || []).map((country) => [country.code, country]));
+      return sourceCountries.map((country) => {
+        const existing = compiledByCode.get(country.cca3);
+        return {
+          ...country,
+          population: existing?.population ?? null,
+          flags: {
+            svg: existing?.flag || `https://flagcdn.com/${String(country.cca2 || "").toLowerCase()}.svg`,
+            alt: existing?.flagAlt || ""
+          }
+        };
+      });
+    });
+  }
+
+  return countrySourcePromise;
+}
+
+function selectFields(country, fields) {
+  return Object.fromEntries(fields.filter((field) => field in country).map((field) => [field, country[field]]));
 }
 
 async function saveFlagAssets(countries) {

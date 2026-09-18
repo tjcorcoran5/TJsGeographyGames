@@ -64,10 +64,10 @@ function findCountryByCodeOrName(country, countries) {
 }
 
 export async function loadRemoteCountries() {
-  return loadRestCountries();
+  return loadRestCountries("/api/dev/rest-countries");
 }
 
-async function loadRestCountries() {
+async function loadRestCountries(endpoint = "https://restcountries.com/v3.1/all") {
   const coreFields = [
     "name",
     "cca2",
@@ -83,16 +83,16 @@ async function loadRestCountries() {
   const extraFields = ["cca3", "borders", "unMember", "languages", "currencies"];
 
   const [coreData, extraData] = await Promise.all([
-    fetchCountriesByFields(coreFields),
-    fetchCountriesByFields(extraFields)
+    fetchCountriesByFields(coreFields, endpoint),
+    fetchCountriesByFields(extraFields, endpoint)
   ]);
 
   const extrasByCode = new Map(extraData.map((country) => [country.cca3, country]));
   return coreData.map((country) => normalizeCountry({ ...country, ...extrasByCode.get(country.cca3) }));
 }
 
-async function fetchCountriesByFields(fields) {
-  const response = await fetch(`https://restcountries.com/v3.1/all?fields=${fields.join(",")}`);
+async function fetchCountriesByFields(fields, endpoint) {
+  const response = await fetch(`${endpoint}?fields=${fields.join(",")}`);
   if (!response.ok) {
     throw new Error(`Could not load REST Countries data (${response.status}).`);
   }

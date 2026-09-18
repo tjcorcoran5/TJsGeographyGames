@@ -1,6 +1,6 @@
 import { emptyCountryPanelText, renderCountryPanel } from "../components/countryPanel.js";
 import { findCountryMatch, loadCountries, loadCountryGeoJson } from "../data/countryData.js";
-import { featureToPattersonPath, getPattersonBounds, MAP_VIEWBOX } from "../map/pattersonProjection.js";
+import { featureToPattersonPath, getInitialMapTransform, getPattersonBounds, MAP_VIEWBOX } from "../map/pattersonProjection.js";
 
 const VIEWBOX = MAP_VIEWBOX;
 const MAX_ZOOM = 60;
@@ -229,8 +229,7 @@ class InteractiveMap {
   }
 
   centerInitialView() {
-    const landHeight = this.mapBounds.maxY - this.mapBounds.minY;
-    this.transform.y = (VIEWBOX.height - landHeight) / 2 - this.mapBounds.minY;
+    this.transform = getInitialMapTransform(this.mapBounds);
     this.applyTransform();
   }
 }

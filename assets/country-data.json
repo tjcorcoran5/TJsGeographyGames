@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-05-21T18:22:23.621Z",
+  "generatedAt": "2026-09-18T15:31:43.688Z",
   "countries": [
     {
       "id": "AFG",
@@ -217,7 +217,9 @@
           "fclass_se": null,
           "fclass_bd": null,
           "fclass_ua": null,
-          "filename": "AFG.geojson"
+          "filename": "AFG.geojson",
+          "compiledCode": "AFG",
+          "compiledName": "Afghanistan"
         },
         "geometry": {
           "type": "Polygon",
@@ -2083,7 +2085,9 @@
           "fclass_se": null,
           "fclass_bd": null,
           "fclass_ua": null,
-          "filename": "ALA.geojson"
+          "filename": "ALA.geojson",
+          "compiledCode": "ALA",
+          "compiledName": "Åland Islands"
         },
         "geometry": {
           "type": "MultiPolygon",
@@ -2531,7 +2535,9 @@
           "fclass_se": null,
           "fclass_bd": null,
           "fclass_ua": null,
-          "filename": "ALB.geojson"
+          "filename": "ALB.geojson",
+          "compiledCode": "ALB",
+          "compiledName": "Albania"
         },
         "geometry": {
           "type": "Polygon",
@@ -3215,7 +3221,9 @@
           "fclass_se": null,
           "fclass_bd": null,
           "fclass_ua": null,
-          "filename": "DZA.geojson"
+          "filename": "DZA.geojson",
+          "compiledCode": "DZA",
+          "compiledName": "Algeria"
         },
         "geometry": {
           "type": "Polygon",
@@ -4965,7 +4973,9 @@
           "fclass_se": null,
           "fclass_bd": null,
           "fclass_ua": null,
-          "filename": "ASM.geojson"
+          "filename": "ASM.geojson",
+          "compiledCode": "ASM",
+          "compiledName": "American Samoa"
         },
         "geometry": {
           "type": "Polygon",
@@ -5224,7 +5234,9 @@
           "fclass_se": null,
           "fclass_bd": null,
           "fclass_ua": null,
-          "filename": "AND.geojson"
+          "filename": "AND.geojson",
+          "compiledCode": "AND",
+          "compiledName": "Andorra"
         },
         "geometry": {
           "type": "Polygon",
@@ -5529,7 +5541,9 @@
           "fclass_se": null,
           "fclass_bd": null,
           "fclass_ua": null,
-          "filename": "AGO.geojson"
+          "filename": "AGO.geojson",
+          "compiledCode": "AGO",
+          "compiledName": "Angola"
         },
         "geometry": {
           "type": "MultiPolygon",
@@ -7109,7 +7123,9 @@
           "fclass_se": null,
           "fclass_bd": null,
           "fclass_ua": null,
-          "filename": "AIA.geojson"
+          "filename": "AIA.geojson",
+          "compiledCode": "AIA",
+          "compiledName": "Anguilla"
         },
         "geometry": {
           "type": "Polygon",
@@ -7346,7 +7362,9 @@
           "fclass_se": null,
           "fclass_bd": null,
           "fclass_ua": null,
-          "filename": "ATA.geojson"
+          "filename": "ATA.geojson",
+          "compiledCode": "ATA",
+          "compiledName": "Antarctica"
         },
         "geometry": {
           "type": "MultiPolygon",
@@ -27691,7 +27709,9 @@
           "fclass_se": null,
           "fclass_bd": null,
           "fclass_ua": null,
-          "filename": "ATG.geojson"
+          "filename": "ATG.geojson",
+          "compiledCode": "ATG",
+          "compiledName": "Antigua and Barbuda"
         },
         "geometry": {
           "type": "MultiPolygon",
@@ -28016,7 +28036,9 @@
           "fclass_se": null,
           "fclass_bd": null,
           "fclass_ua": null,
-          "filename": "ARG.geojson"
+          "filename": "ARG.geojson",
+          "compiledCode": "ARG",
+          "compiledName": "Argentina"
         },
         "geometry": {
           "type": "MultiPolygon",
@@ -32416,7 +32438,9 @@
           "fclass_se": null,
           "fclass_bd": null,
           "fclass_ua": null,
-          "filename": "ARM.geojson"
+          "filename": "ARM.geojson",
+          "compiledCode": "ARM",
+          "compiledName": "Armenia"
         },
         "geometry": {
           "type": "MultiPolygon",
@@ -33231,7 +33255,9 @@
           "fclass_se": null,
           "fclass_bd": null,
           "fclass_ua": null,
-          "filename": "ABW.geojson"
+          "filename": "ABW.geojson",
+          "compiledCode": "ABW",
+          "compiledName": "Aruba"
         },
         "geometry": {
           "type": "Polygon",
@@ -33484,7 +33510,9 @@
           "fclass_se": null,
           "fclass_bd": null,
           "fclass_ua": null,
-          "filename": "ashmoreandcartieris.geojson"
+          "filename": "ashmoreandcartieris.geojson",
+          "compiledCode": "-99",
+          "compiledName": "Ashmore and Cartier Is."
         },
         "geometry": {
           "type": "Polygon",
@@ -33726,7 +33754,9 @@
           "fclass_se": null,
           "fclass_bd": null,
           "fclass_ua": null,
-          "filename": "AUS.geojson"
+          "filename": "AUS.geojson",
+          "compiledCode": "AUS",
+          "compiledName": "Australia"
         },
         "geometry": {
           "type": "MultiPolygon",
@@ -41321,7 +41351,9 @@
           "fclass_se": null,
           "fclass_bd": null,
           "fclass_ua": null,
-          "filename": "AUT.geojson"
+          "filename": "AUT.geojson",
+          "compiledCode": "AUT",
+          "compiledName": "Austria"
         },
         "geometry": {
           "type": "Polygon",
@@ -42639,7 +42671,9 @@
           "fclass_se": null,
           "fclass_bd": null,
           "fclass_ua": null,
-          "filename": "AZE.geojson"
+          "filename": "AZE.geojson",
+          "compiledCode": "AZE",
+          "compiledName": "Azerbaijan"
         },
         "geometry": {
           "type": "MultiPolygon",
@@ -43935,7 +43969,9 @@
           "fclass_se": null,
           "fclass_bd": null,
           "fclass_ua": null,
-          "filename": "BHS.geojson"
+          "filename": "BHS.geojson",
+          "compiledCode": "BHS",
+          "compiledName": "Bahamas"
         },
         "geometry": {
           "type": "MultiPolygon",
@@ -45289,7 +45325,9 @@
           "fclass_se": null,
           "fclass_bd": null,
           "fclass_ua": null,
-          "filename": "BHR.geojson"
+          "filename": "BHR.geojson",
+          "compiledCode": "BHR",
+          "compiledName": "Bahrain"
         },
         "geometry": {
           "type": "Polygon",
@@ -45568,7 +45606,9 @@
           "fclass_se": null,
           "fclass_bd": null,
           "fclass_ua": null,
-          "filename": "BGD.geojson"
+          "filename": "BGD.geojson",
+          "compiledCode": "BGD",
+          "compiledName": "Bangladesh"
         },
         "geometry": {
           "type": "MultiPolygon",
@@ -47352,7 +47392,9 @@
           "fclass_se": null,
           "fclass_bd": null,
           "fclass_ua": null,
-          "filename": "BRB.geojson"
+          "filename": "BRB.geojson",
+          "compiledCode": "BRB",
+          "compiledName": "Barbados"
         },
         "geometry": {
           "type": "Polygon",
@@ -47621,7 +47663,9 @@
           "fclass_se": null,
           "fclass_bd": null,
           "fclass_ua": null,
-          "filename": "BLR.geojson"
+          "filename": "BLR.geojson",
+          "compiledCode": "BLR",
+          "compiledName": "Belarus"
         },
         "geometry": {
           "type": "Polygon",
@@ -49142,7 +49186,9 @@
           "fclass_se": null,
           "fclass_bd": null,
           "fclass_ua": null,
-          "filename": "BEL.geojson"
+          "filename": "BEL.geojson",
+          "compiledCode": "BEL",
+          "compiledName": "Belgium"
         },
         "geometry": {
           "type": "Polygon",
@@ -50025,7 +50071,9 @@
           "fclass_se": null,
           "fclass_bd": null,
           "fclass_ua": null,
-          "filename": "BLZ.geojson"
+          "filename": "BLZ.geojson",
+          "compiledCode": "BLZ",
+          "compiledName": "Belize"
         },
         "geometry": {
           "type": "MultiPolygon",
@@ -50524,7 +50572,9 @@
           "fclass_se": null,
           "fclass_bd": null,
           "fclass_ua": null,
-          "filename": "BEN.geojson"
+          "filename": "BEN.geojson",
+          "compiledCode": "BEN",
+          "compiledName": "Benin"
         },
         "geometry": {
           "type": "Polygon",
@@ -51337,7 +51387,9 @@
           "fclass_se": null,
           "fclass_bd": null,
           "fclass_ua": null,
-          "filename": "BMU.geojson"
+          "filename": "BMU.geojson",
+          "compiledCode": "BMU",
+          "compiledName": "Bermuda"
         },
         "geometry": {
           "type": "Polygon",
@@ -51599,7 +51651,9 @@
           "fclass_se": null,
           "fclass_bd": null,
           "fclass_ua": null,
-          "filename": "BTN.geojson"
+          "filename": "BTN.geojson",
+          "compiledCode": "BTN",
+          "compiledName": "Bhutan"
         },
         "geometry": {
           "type": "Polygon",
@@ -52238,7 +52292,9 @@
           "fclass_se": null,
           "fclass_bd": null,
           "fclass_ua": null,
-          "filename": "BOL.geojson"
+          "filename": "BOL.geojson",
+          "compiledCode": "BOL",
+          "compiledName": "Bolivia"
         },
         "geometry": {
           "type": "Polygon",
@@ -54141,7 +54197,9 @@
           "fclass_se": null,
           "fclass_bd": null,
           "fclass_ua": null,
-          "filename": "BIH.geojson"
+          "filename": "BIH.geojson",
+          "compiledCode": "BIH",
+          "compiledName": "Bosnia and Herzegovina"
         },
         "geometry": {
           "type": "Polygon",
@@ -54955,7 +55013,9 @@
           "fclass_se": null,
           "fclass_bd": null,
           "fclass_ua": null,
-          "filename": "BWA.geojson"
+          "filename": "BWA.geojson",
+          "compiledCode": "BWA",
+          "compiledName": "Botswana"
         },
         "geometry": {
           "type": "Polygon",
@@ -56111,7 +56171,9 @@
           "fclass_se": null,
           "fclass_bd": null,
           "fclass_ua": null,
-          "filename": "BRA.geojson"
+          "filename": "BRA.geojson",
+          "compiledCode": "BRA",
+          "compiledName": "Brazil"
         },
         "geometry": {
           "type": "MultiPolygon",
@@ -63940,7 +64002,9 @@
           "fclass_se": null,
           "fclass_bd": null,
           "fclass_ua": null,
-          "filename": "IOT.geojson"
+          "filename": "IOT.geojson",
+          "compiledCode": "IOT",
+          "compiledName": "British Indian Ocean Territory"
         },
         "geometry": {
           "type": "Polygon",
@@ -64232,7 +64296,9 @@
           "fclass_se": null,
           "fclass_bd": null,
           "fclass_ua": null,
-          "filename": "VGB.geojson"
+          "filename": "VGB.geojson",
+          "compiledCode": "VGB",
+          "compiledName": "British Virgin Islands"
         },
         "geometry": {
           "type": "MultiPolygon",
@@ -64565,7 +64631,9 @@
           "fclass_se": null,
           "fclass_bd": null,
           "fclass_ua": null,
-          "filename": "BRN.geojson"
+          "filename": "BRN.geojson",
+          "compiledCode": "BRN",
+          "compiledName": "Brunei"
         },
         "geometry": {
           "type": "MultiPolygon",
@@ -65025,7 +65093,9 @@
           "fclass_se": null,
           "fclass_bd": null,
           "fclass_ua": null,
-          "filename": "BGR.geojson"
+          "filename": "BGR.geojson",
+          "compiledCode": "BGR",
+          "compiledName": "Bulgaria"
         },
         "geometry": {
           "type": "Polygon",
@@ -65970,7 +66040,9 @@
           "fclass_se": null,
           "fclass_bd": null,
           "fclass_ua": null,
-          "filename": "BFA.geojson"
+          "filename": "BFA.geojson",
+          "compiledCode": "BFA",
+          "compiledName": "Burkina Faso"
         },
         "geometry": {
           "type": "Polygon",
@@ -67212,7 +67284,9 @@
           "fclass_se": null,
           "fclass_bd": null,
           "fclass_ua": null,
-          "filename": "BDI.geojson"
+          "filename": "BDI.geojson",
+          "compiledCode": "BDI",
+          "compiledName": "Burundi"
         },
         "geometry": {
           "type": "Polygon",
@@ -67755,7 +67829,9 @@
           "fclass_se": null,
           "fclass_bd": null,
           "fclass_ua": null,
-          "filename": "KHM.geojson"
+          "filename": "KHM.geojson",
+          "compiledCode": "KHM",
+          "compiledName": "Cambodia"
         },
         "geometry": {
           "type": "MultiPolygon",
@@ -68881,7 +68957,9 @@
           "fclass_se": null,
           "fclass_bd": null,
           "fclass_ua": null,
-          "filename": "CMR.geojson"
+          "filename": "CMR.geojson",
+          "compiledCode": "CMR",
+          "compiledName": "Cameroon"
         },
         "geometry": {
           "type": "Polygon",
@@ -70506,7 +70584,9 @@
           "fclass_se": null,
           "fclass_bd": null,
           "fclass_ua": null,
-          "filename": "CAN.geojson"
+          "filename": "CAN.geojson",
+          "compiledCode": "CAN",
+          "compiledName": "Canada"
         },
         "geometry": {
           "type": "MultiPolygon",
@@ -117584,7 +117664,9 @@
           "fclass_se": null,
           "fclass_bd": null,
           "fclass_ua": null,
-          "filename": "CPV.geojson"
+          "filename": "CPV.geojson",
+          "compiledCode": "CPV",
+          "compiledName": "Cape Verde"
         },
         "geometry": {
           "type": "MultiPolygon",
@@ -118228,7 +118310,9 @@
           "fclass_se": null,
           "fclass_bd": null,
           "fclass_ua": null,
-          "filename": "CYM.geojson"
+          "filename": "CYM.geojson",
+          "compiledCode": "CYM",
+          "compiledName": "Cayman Islands"
         },
         "geometry": {
           "type": "MultiPolygon",
@@ -118614,7 +118698,9 @@
           "fclass_se": null,
           "fclass_bd": null,
           "fclass_ua": null,
-          "filename": "CAF.geojson"
+          "filename": "CAF.geojson",
+          "compiledCode": "CAF",
+          "compiledName": "Central African Republic"
         },
         "geometry": {
           "type": "Polygon",
@@ -120143,7 +120229,9 @@
           "fclass_se": null,
           "fclass_bd": null,
           "fclass_ua": null,
-          "filename": "TCD.geojson"
+          "filename": "TCD.geojson",
+          "compiledCode": "TCD",
+          "compiledName": "Chad"
         },
         "geometry": {
           "type": "Polygon",
@@ -121535,7 +121623,9 @@
           "fclass_se": null,
           "fclass_bd": null,
           "fclass_ua": null,
-          "filename": "CHL.geojson"
+          "filename": "CHL.geojson",
+          "compiledCode": "CHL",
+          "compiledName": "Chile"
         },
         "geometry": {
           "type": "MultiPolygon",
@@ -129926,7 +130016,9 @@
           "fclass_se": null,
           "fclass_bd": null,
           "fclass_ua": null,
-          "filename": "CHN.geojson"
+          "filename": "CHN.geojson",
+          "compiledCode": "CHN",
+          "compiledName": "China"
         },
         "geometry": {
           "type": "MultiPolygon",
@@ -140939,7 +141031,9 @@
           "fclass_se": null,
           "fclass_bd": null,
           "fclass_ua": null,
-          "filename": "COL.geojson"
+          "filename": "COL.geojson",
+          "compiledCode": "COL",
+          "compiledName": "Colombia"
         },
         "geometry": {
           "type": "MultiPolygon",
@@ -143665,7 +143759,9 @@
           "fclass_se": null,
           "fclass_bd": null,
           "fclass_ua": null,
-          "filename": "COM.geojson"
+          "filename": "COM.geojson",
+          "compiledCode": "COM",
+          "compiledName": "Comoros"
         },
         "geometry": {
           "type": "MultiPolygon",
@@ -144044,7 +144140,9 @@
           "fclass_se": null,
           "fclass_bd": null,
           "fclass_ua": null,
-          "filename": "COK.geojson"
+          "filename": "COK.geojson",
+          "compiledCode": "COK",
+          "compiledName": "Cook Islands"
         },
         "geometry": {
           "type": "Polygon",
@@ -144315,7 +144413,9 @@
           "fclass_se": null,
           "fclass_bd": null,
           "fclass_ua": null,
-          "filename": "CRI.geojson"
+          "filename": "CRI.geojson",
+          "compiledCode": "CRI",
+          "compiledName": "Costa Rica"
         },
         "geometry": {
           "type": "Polygon",
@@ -145078,7 +145178,9 @@
           "fclass_se": null,
           "fclass_bd": null,
           "fclass_ua": null,
-          "filename": "HRV.geojson"
+          "filename": "HRV.geojson",
+          "compiledCode": "HRV",
+          "compiledName": "Croatia"
         },
         "geometry": {
           "type": "MultiPolygon",
@@ -146852,7 +146954,9 @@
           "fclass_se": null,
           "fclass_bd": null,
           "fclass_ua": null,
-          "filename": "CUB.geojson"
+          "filename": "CUB.geojson",
+          "compiledCode": "CUB",
+          "compiledName": "Cuba"
         },
         "geometry": {
           "type": "MultiPolygon",
@@ -148327,7 +148431,9 @@
           "fclass_se": null,
           "fclass_bd": null,
           "fclass_ua": null,
-          "filename": "CUW.geojson"
+          "filename": "CUW.geojson",
+          "compiledCode": "CUW",
+          "compiledName": "Curaçao"
         },
         "geometry": {
           "type": "Polygon",
@@ -148595,7 +148701,9 @@
           "fclass_se": null,
           "fclass_bd": null,
           "fclass_ua": null,
-          "filename": "CYP.geojson"
+          "filename": "CYP.geojson",
+          "compiledCode": "CYP",
+          "compiledName": "Cyprus"
         },
         "geometry": {
           "type": "Polygon",
@@ -149050,7 +149158,9 @@
           "fclass_se": null,
           "fclass_bd": null,
           "fclass_ua": null,
-          "filename": "CZE.geojson"
+          "filename": "CZE.geojson",
+          "compiledCode": "CZE",
+          "compiledName": "Czechia"
         },
         "geometry": {
           "type": "Polygon",
@@ -150237,7 +150347,9 @@
           "fclass_se": null,
           "fclass_bd": null,
           "fclass_ua": null,
-          "filename": "DNK.geojson"
+          "filename": "DNK.geojson",
+          "compiledCode": "DNK",
+          "compiledName": "Denmark"
         },
         "geometry": {
           "type": "MultiPolygon",
@@ -151708,7 +151820,9 @@
           "fclass_se": null,
           "fclass_bd": null,
           "fclass_ua": null,
-          "filename": "DJI.geojson"
+          "filename": "DJI.geojson",
+          "compiledCode": "DJI",
+          "compiledName": "Djibouti"
         },
         "geometry": {
           "type": "Polygon",
@@ -152157,7 +152271,9 @@
           "fclass_se": null,
           "fclass_bd": null,
           "fclass_ua": null,
-          "filename": "DMA.geojson"
+          "filename": "DMA.geojson",
+          "compiledCode": "DMA",
+          "compiledName": "Dominica"
         },
         "geometry": {
           "type": "Polygon",
@@ -152422,7 +152538,9 @@
           "fclass_se": null,
           "fclass_bd": null,
           "fclass_ua": null,
-          "filename": "DOM.geojson"
+          "filename": "DOM.geojson",
+          "compiledCode": "DOM",
+          "compiledName": "Dominican Republic"
         },
         "geometry": {
           "type": "Polygon",
@@ -153111,7 +153229,9 @@
           "fclass_se": null,
           "fclass_bd": null,
           "fclass_ua": null,
-          "filename": "COD.geojson"
+          "filename": "COD.geojson",
+          "compiledCode": "COD",
+          "compiledName": "DR Congo"
         },
         "geometry": {
           "type": "Polygon",
@@ -155774,7 +155894,9 @@
           "fclass_se": null,
           "fclass_bd": null,
           "fclass_ua": null,
-          "filename": "ECU.geojson"
+          "filename": "ECU.geojson",
+          "compiledCode": "ECU",
+          "compiledName": "Ecuador"
         },
         "geometry": {
           "type": "MultiPolygon",
@@ -157424,7 +157546,9 @@
           "fclass_se": null,
           "fclass_bd": null,
           "fclass_ua": null,
-          "filename": "EGY.geojson"
+          "filename": "EGY.geojson",
+          "compiledCode": "EGY",
+          "compiledName": "Egypt"
         },
         "geometry": {
           "type": "Polygon",
@@ -158663,7 +158787,9 @@
           "fclass_se": null,
           "fclass_bd": null,
           "fclass_ua": null,
-          "filename": "SLV.geojson"
+          "filename": "SLV.geojson",
+          "compiledCode": "SLV",
+          "compiledName": "El Salvador"
         },
         "geometry": {
           "type": "Polygon",
@@ -159191,7 +159317,9 @@
           "fclass_se": null,
           "fclass_bd": null,
           "fclass_ua": null,
-          "filename": "GNQ.geojson"
+          "filename": "GNQ.geojson",
+          "compiledCode": "GNQ",
+          "compiledName": "Equatorial Guinea"
         },
         "geometry": {
           "type": "MultiPolygon",
@@ -159698,7 +159826,9 @@
           "fclass_se": null,
           "fclass_bd": null,
           "fclass_ua": null,
-          "filename": "ERI.geojson"
+          "filename": "ERI.geojson",
+          "compiledCode": "ERI",
+          "compiledName": "Eritrea"
         },
         "geometry": {
           "type": "MultiPolygon",
@@ -160704,7 +160834,9 @@
           "fclass_se": null,
           "fclass_bd": null,
           "fclass_ua": null,
-          "filename": "EST.geojson"
+          "filename": "EST.geojson",
+          "compiledCode": "EST",
+          "compiledName": "Estonia"
         },
         "geometry": {
           "type": "MultiPolygon",
@@ -161735,7 +161867,9 @@
           "fclass_se": null,
           "fclass_bd": null,
           "fclass_ua": null,
-          "filename": "SWZ.geojson"
+          "filename": "SWZ.geojson",
+          "compiledCode": "SWZ",
+          "compiledName": "Eswatini"
         },
         "geometry": {
           "type": "Polygon",
@@ -162119,7 +162253,9 @@
           "fclass_se": null,
           "fclass_bd": null,
           "fclass_ua": null,
-          "filename": "ETH.geojson"
+          "filename": "ETH.geojson",
+          "compiledCode": "ETH",
+          "compiledName": "Ethiopia"
         },
         "geometry": {
           "type": "Polygon",
@@ -163553,7 +163689,9 @@
           "fclass_se": null,
           "fclass_bd": null,
           "fclass_ua": null,
-          "filename": "FLK.geojson"
+          "filename": "FLK.geojson",
+          "compiledCode": "FLK",
+          "compiledName": "Falkland Islands"
         },
         "geometry": {
           "type": "MultiPolygon",
@@ -164402,7 +164540,9 @@
           "fclass_se": null,
           "fclass_bd": null,
           "fclass_ua": null,
-          "filename": "FRO.geojson"
+          "filename": "FRO.geojson",
+          "compiledCode": "FRO",
+          "compiledName": "Faroe Islands"
         },
         "geometry": {
           "type": "MultiPolygon",
@@ -164900,7 +165040,9 @@
           "fclass_se": null,
           "fclass_bd": null,
           "fclass_ua": null,
-          "filename": "FJI.geojson"
+          "filename": "FJI.geojson",
+          "compiledCode": "FJI",
+          "compiledName": "Fiji"
         },
         "geometry": {
           "type": "MultiPolygon",
@@ -166337,7 +166479,9 @@
           "fclass_se": null,
           "fclass_bd": null,
           "fclass_ua": null,
-          "filename": "FIN.geojson"
+          "filename": "FIN.geojson",
+          "compiledCode": "FIN",
+          "compiledName": "Finland"
         },
         "geometry": {
           "type": "MultiPolygon",
@@ -168676,7 +168820,9 @@
           "fclass_se": null,
           "fclass_bd": null,
           "fclass_ua": null,
-          "filename": "FRA.geojson"
+          "filename": "FRA.geojson",
+          "compiledCode": "FRA",
+          "compiledName": "France"
         },
         "geometry": {
           "type": "MultiPolygon",
@@ -172253,7 +172399,9 @@
           "fclass_se": null,
           "fclass_bd": null,
           "fclass_ua": null,
-          "filename": "PYF.geojson"
+          "filename": "PYF.geojson",
+          "compiledCode": "PYF",
+          "compiledName": "French Polynesia"
         },
         "geometry": {
           "type": "MultiPolygon",
@@ -173299,7 +173447,9 @@
           "fclass_se": null,
           "fclass_bd": null,
           "fclass_ua": null,
-          "filename": "ATF.geojson"
+          "filename": "ATF.geojson",
+          "compiledCode": "ATF",
+          "compiledName": "French Southern and Antarctic Lands"
         },
         "geometry": {
           "type": "MultiPolygon",
@@ -174013,7 +174163,9 @@
           "fclass_se": null,
           "fclass_bd": null,
           "fclass_ua": null,
-          "filename": "GAB.geojson"
+          "filename": "GAB.geojson",
+          "compiledCode": "GAB",
+          "compiledName": "Gabon"
         },
         "geometry": {
           "type": "Polygon",
@@ -175323,7 +175475,9 @@
           "fclass_se": null,
           "fclass_bd": null,
           "fclass_ua": null,
-          "filename": "GMB.geojson"
+          "filename": "GMB.geojson",
+          "compiledCode": "GMB",
+          "compiledName": "Gambia"
         },
         "geometry": {
           "type": "Polygon",
@@ -175843,7 +175997,9 @@
           "fclass_se": null,
           "fclass_bd": null,
           "fclass_ua": null,
-          "filename": "GEO.geojson"
+          "filename": "GEO.geojson",
+          "compiledCode": "GEO",
+          "compiledName": "Georgia"
         },
         "geometry": {
           "type": "Polygon",
@@ -176733,7 +176889,9 @@
           "fclass_se": null,
           "fclass_bd": null,
           "fclass_ua": null,
-          "filename": "DEU.geojson"
+          "filename": "DEU.geojson",
+          "compiledCode": "DEU",
+          "compiledName": "Germany"
         },
         "geometry": {
           "type": "MultiPolygon",
@@ -179229,7 +179387,9 @@
           "fclass_se": null,
           "fclass_bd": null,
           "fclass_ua": null,
-          "filename": "GHA.geojson"
+          "filename": "GHA.geojson",
+          "compiledCode": "GHA",
+          "compiledName": "Ghana"
         },
         "geometry": {
           "type": "Polygon",
@@ -180354,7 +180514,9 @@
           "fclass_se": null,
           "fclass_bd": null,
           "fclass_ua": null,
-          "filename": "GRC.geojson"
+          "filename": "GRC.geojson",
+          "compiledCode": "GRC",
+          "compiledName": "Greece"
         },
         "geometry": {
           "type": "MultiPolygon",
@@ -184427,7 +184589,9 @@
           "fclass_se": null,
           "fclass_bd": null,
           "fclass_ua": null,
-          "filename": "GRL.geojson"
+          "filename": "GRL.geojson",
+          "compiledCode": "GRL",
+          "compiledName": "Greenland"
         },
         "geometry": {
           "type": "MultiPolygon",
@@ -193675,7 +193839,9 @@
           "fclass_se": null,
           "fclass_bd": null,
           "fclass_ua": null,
-          "filename": "GRD.geojson"
+          "filename": "GRD.geojson",
+          "compiledCode": "GRD",
+          "compiledName": "Grenada"
         },
         "geometry": {
           "type": "Polygon",
@@ -193978,7 +194144,9 @@
           "fclass_se": null,
           "fclass_bd": null,
           "fclass_ua": null,
-          "filename": "GUM.geojson"
+          "filename": "GUM.geojson",
+          "compiledCode": "GUM",
+          "compiledName": "Guam"
         },
         "geometry": {
           "type": "Polygon",
@@ -194253,7 +194421,9 @@
           "fclass_se": null,
           "fclass_bd": null,
           "fclass_ua": null,
-          "filename": "GTM.geojson"
+          "filename": "GTM.geojson",
+          "compiledCode": "GTM",
+          "compiledName": "Guatemala"
         },
         "geometry": {
           "type": "Polygon",
@@ -194943,7 +195113,9 @@
           "fclass_se": null,
           "fclass_bd": null,
           "fclass_ua": null,
-          "filename": "GGY.geojson"
+          "filename": "GGY.geojson",
+          "compiledCode": "GGY",
+          "compiledName": "Guernsey"
         },
         "geometry": {
           "type": "Polygon",
@@ -195202,7 +195374,9 @@
           "fclass_se": null,
           "fclass_bd": null,
           "fclass_ua": null,
-          "filename": "GIN.geojson"
+          "filename": "GIN.geojson",
+          "compiledCode": "GIN",
+          "compiledName": "Guinea"
         },
         "geometry": {
           "type": "Polygon",
@@ -196822,7 +196996,9 @@
           "fclass_se": null,
           "fclass_bd": null,
           "fclass_ua": null,
-          "filename": "GNB.geojson"
+          "filename": "GNB.geojson",
+          "compiledCode": "GNB",
+          "compiledName": "Guinea-Bissau"
         },
         "geometry": {
           "type": "MultiPolygon",
@@ -197695,7 +197871,9 @@
           "fclass_se": null,
           "fclass_bd": null,
           "fclass_ua": null,
-          "filename": "GUY.geojson"
+          "filename": "GUY.geojson",
+          "compiledCode": "GUY",
+          "compiledName": "Guyana"
         },
         "geometry": {
           "type": "Polygon",
@@ -199071,7 +199249,9 @@
           "fclass_se": null,
           "fclass_bd": null,
           "fclass_ua": null,
-          "filename": "HTI.geojson"
+          "filename": "HTI.geojson",
+          "compiledCode": "HTI",
+          "compiledName": "Haiti"
         },
         "geometry": {
           "type": "MultiPolygon",
@@ -199746,7 +199926,9 @@
           "fclass_se": null,
           "fclass_bd": null,
           "fclass_ua": null,
-          "filename": "HMD.geojson"
+          "filename": "HMD.geojson",
+          "compiledCode": "HMD",
+          "compiledName": "Heard Island and McDonald Islands"
         },
         "geometry": {
           "type": "Polygon",
@@ -200034,7 +200216,9 @@
           "fclass_se": null,
           "fclass_bd": null,
           "fclass_ua": null,
-          "filename": "HND.geojson"
+          "filename": "HND.geojson",
+          "compiledCode": "HND",
+          "compiledName": "Honduras"
         },
         "geometry": {
           "type": "MultiPolygon",
@@ -201098,7 +201282,9 @@
           "fclass_se": null,
           "fclass_bd": null,
           "fclass_ua": null,
-          "filename": "HKG.geojson"
+          "filename": "HKG.geojson",
+          "compiledCode": "HKG",
+          "compiledName": "Hong Kong"
         },
         "geometry": {
           "type": "MultiPolygon",
@@ -201494,7 +201680,9 @@
           "fclass_se": null,
           "fclass_bd": null,
           "fclass_ua": null,
-          "filename": "HUN.geojson"
+          "filename": "HUN.geojson",
+          "compiledCode": "HUN",
+          "compiledName": "Hungary"
         },
         "geometry": {
           "type": "Polygon",
@@ -202575,7 +202763,9 @@
           "fclass_se": null,
           "fclass_bd": null,
           "fclass_ua": null,
-          "filename": "ISL.geojson"
+          "filename": "ISL.geojson",
+          "compiledCode": "ISL",
+          "compiledName": "Iceland"
         },
         "geometry": {
           "type": "Polygon",
@@ -204622,7 +204812,9 @@
           "fclass_se": null,
           "fclass_bd": null,
           "fclass_ua": null,
-          "filename": "IND.geojson"
+          "filename": "IND.geojson",
+          "compiledCode": "IND",
+          "compiledName": "India"
         },
         "geometry": {
           "type": "MultiPolygon",
@@ -210961,7 +211153,9 @@
           "fclass_se": null,
           "fclass_bd": null,
           "fclass_ua": null,
-          "filename": "indianoceanter.geojson"
+          "filename": "indianoceanter.geojson",
+          "compiledCode": "-99",
+          "compiledName": "Indian Ocean Ter."
         },
         "geometry": {
           "type": "MultiPolygon",
@@ -211339,7 +211533,9 @@
           "fclass_se": null,
           "fclass_bd": null,
           "fclass_ua": null,
-          "filename": "IDN.geojson"
+          "filename": "IDN.geojson",
+          "compiledCode": "IDN",
+          "compiledName": "Indonesia"
         },
         "geometry": {
           "type": "MultiPolygon",
@@ -226970,7 +227166,9 @@
           "fclass_se": null,
           "fclass_bd": null,
           "fclass_ua": null,
-          "filename": "IRN.geojson"
+          "filename": "IRN.geojson",
+          "compiledCode": "IRN",
+          "compiledName": "Iran"
         },
         "geometry": {
           "type": "MultiPolygon",
@@ -229629,7 +229827,9 @@
           "fclass_se": null,
           "fclass_bd": null,
           "fclass_ua": null,
-          "filename": "IRQ.geojson"
+          "filename": "IRQ.geojson",
+          "compiledCode": "IRQ",
+          "compiledName": "Iraq"
         },
         "geometry": {
           "type": "Polygon",
@@ -230789,7 +230989,9 @@
           "fclass_se": null,
           "fclass_bd": null,
           "fclass_ua": null,
-          "filename": "IRL.geojson"
+          "filename": "IRL.geojson",
+          "compiledCode": "IRL",
+          "compiledName": "Ireland"
         },
         "geometry": {
           "type": "MultiPolygon",
@@ -232285,7 +232487,9 @@
           "fclass_se": null,
           "fclass_bd": null,
           "fclass_ua": null,
-          "filename": "IMN.geojson"
+          "filename": "IMN.geojson",
+          "compiledCode": "IMN",
+          "compiledName": "Isle of Man"
         },
         "geometry": {
           "type": "Polygon",
@@ -232576,7 +232780,9 @@
           "fclass_se": null,
           "fclass_bd": "Unrecognized",
           "fclass_ua": null,
-          "filename": "ISR.geojson"
+          "filename": "ISR.geojson",
+          "compiledCode": "ISR",
+          "compiledName": "Israel"
         },
         "geometry": {
           "type": "Polygon",
@@ -233232,7 +233438,9 @@
           "fclass_se": null,
           "fclass_bd": null,
           "fclass_ua": null,
-          "filename": "ITA.geojson"
+          "filename": "ITA.geojson",
+          "compiledCode": "ITA",
+          "compiledName": "Italy"
         },
         "geometry": {
           "type": "MultiPolygon",
@@ -235953,7 +236161,9 @@
           "fclass_se": null,
           "fclass_bd": null,
           "fclass_ua": null,
-          "filename": "CIV.geojson"
+          "filename": "CIV.geojson",
+          "compiledCode": "CIV",
+          "compiledName": "Ivory Coast"
         },
         "geometry": {
           "type": "MultiPolygon",
@@ -237358,7 +237568,9 @@
           "fclass_se": null,
           "fclass_bd": null,
           "fclass_ua": null,
-          "filename": "JAM.geojson"
+          "filename": "JAM.geojson",
+          "compiledCode": "JAM",
+          "compiledName": "Jamaica"
         },
         "geometry": {
           "type": "Polygon",
@@ -237774,7 +237986,9 @@
           "fclass_se": null,
           "fclass_bd": null,
           "fclass_ua": null,
-          "filename": "JPN.geojson"
+          "filename": "JPN.geojson",
+          "compiledCode": "JPN",
+          "compiledName": "Japan"
         },
         "geometry": {
           "type": "MultiPolygon",
@@ -242527,7 +242741,9 @@
           "fclass_se": null,
           "fclass_bd": null,
           "fclass_ua": null,
-          "filename": "JEY.geojson"
+          "filename": "JEY.geojson",
+          "compiledCode": "JEY",
+          "compiledName": "Jersey"
         },
         "geometry": {
           "type": "Polygon",
@@ -242793,7 +243009,9 @@
           "fclass_se": null,
           "fclass_bd": null,
           "fclass_ua": null,
-          "filename": "JOR.geojson"
+          "filename": "JOR.geojson",
+          "compiledCode": "JOR",
+          "compiledName": "Jordan"
         },
         "geometry": {
           "type": "Polygon",
@@ -243413,7 +243631,9 @@
           "fclass_se": null,
           "fclass_bd": null,
           "fclass_ua": null,
-          "filename": "KAZ.geojson"
+          "filename": "KAZ.geojson",
+          "compiledCode": "KAZ",
+          "compiledName": "Kazakhstan"
         },
         "geometry": {
           "type": "MultiPolygon",
@@ -248218,7 +248438,9 @@
           "fclass_se": null,
           "fclass_bd": null,
           "fclass_ua": null,
-          "filename": "KEN.geojson"
+          "filename": "KEN.geojson",
+          "compiledCode": "KEN",
+          "compiledName": "Kenya"
         },
         "geometry": {
           "type": "MultiPolygon",
@@ -249353,7 +249575,9 @@
           "fclass_se": null,
           "fclass_bd": null,
           "fclass_ua": null,
-          "filename": "KIR.geojson"
+          "filename": "KIR.geojson",
+          "compiledCode": "KIR",
+          "compiledName": "Kiribati"
         },
         "geometry": {
           "type": "MultiPolygon",
@@ -250504,7 +250728,9 @@
           "fclass_se": "Admin-0 country",
           "fclass_bd": "Admin-0 country",
           "fclass_ua": "Unrecognized",
-          "filename": "kosovo.geojson"
+          "filename": "kosovo.geojson",
+          "compiledCode": "UNK",
+          "compiledName": "Kosovo"
         },
         "geometry": {
           "type": "Polygon",
@@ -251019,7 +251245,9 @@
           "fclass_se": null,
           "fclass_bd": null,
           "fclass_ua": null,
-          "filename": "KWT.geojson"
+          "filename": "KWT.geojson",
+          "compiledCode": "KWT",
+          "compiledName": "Kuwait"
         },
         "geometry": {
           "type": "MultiPolygon",
@@ -251525,7 +251753,9 @@
           "fclass_se": null,
           "fclass_bd": null,
           "fclass_ua": null,
-          "filename": "KGZ.geojson"
+          "filename": "KGZ.geojson",
+          "compiledCode": "KGZ",
+          "compiledName": "Kyrgyzstan"
         },
         "geometry": {
           "type": "Polygon",
@@ -253315,7 +253545,9 @@
           "fclass_se": null,
           "fclass_bd": null,
           "fclass_ua": null,
-          "filename": "LAO.geojson"
+          "filename": "LAO.geojson",
+          "compiledCode": "LAO",
+          "compiledName": "Laos"
         },
         "geometry": {
           "type": "Polygon",
@@ -255104,7 +255336,9 @@
           "fclass_se": null,
           "fclass_bd": null,
           "fclass_ua": null,
-          "filename": "LVA.geojson"
+          "filename": "LVA.geojson",
+          "compiledCode": "LVA",
+          "compiledName": "Latvia"
         },
         "geometry": {
           "type": "Polygon",
@@ -255892,7 +256126,9 @@
           "fclass_se": null,
           "fclass_bd": null,
           "fclass_ua": null,
-          "filename": "LBN.geojson"
+          "filename": "LBN.geojson",
+          "compiledCode": "LBN",
+          "compiledName": "Lebanon"
         },
         "geometry": {
           "type": "Polygon",
@@ -256371,7 +256607,9 @@
           "fclass_se": null,
           "fclass_bd": null,
           "fclass_ua": null,
-          "filename": "LSO.geojson"
+          "filename": "LSO.geojson",
+          "compiledCode": "LSO",
+          "compiledName": "Lesotho"
         },
         "geometry": {
           "type": "Polygon",
@@ -256906,7 +257144,9 @@
           "fclass_se": null,
           "fclass_bd": null,
           "fclass_ua": null,
-          "filename": "LBR.geojson"
+          "filename": "LBR.geojson",
+          "compiledCode": "LBR",
+          "compiledName": "Liberia"
         },
         "geometry": {
           "type": "Polygon",
@@ -257693,7 +257933,9 @@
           "fclass_se": null,
           "fclass_bd": null,
           "fclass_ua": null,
-          "filename": "LBY.geojson"
+          "filename": "LBY.geojson",
+          "compiledCode": "LBY",
+          "compiledName": "Libya"
         },
         "geometry": {
           "type": "Polygon",
@@ -258948,7 +259190,9 @@
           "fclass_se": null,
           "fclass_bd": null,
           "fclass_ua": null,
-          "filename": "LIE.geojson"
+          "filename": "LIE.geojson",
+          "compiledCode": "LIE",
+          "compiledName": "Liechtenstein"
         },
         "geometry": {
           "type": "Polygon",
@@ -259237,7 +259481,9 @@
           "fclass_se": null,
           "fclass_bd": null,
           "fclass_ua": null,
-          "filename": "LTU.geojson"
+          "filename": "LTU.geojson",
+          "compiledCode": "LTU",
+          "compiledName": "Lithuania"
         },
         "geometry": {
           "type": "MultiPolygon",
@@ -260095,7 +260341,9 @@
           "fclass_se": null,
           "fclass_bd": null,
           "fclass_ua": null,
-          "filename": "LUX.geojson"
+          "filename": "LUX.geojson",
+          "compiledCode": "LUX",
+          "compiledName": "Luxembourg"
         },
         "geometry": {
           "type": "Polygon",
@@ -260507,7 +260755,9 @@
           "fclass_se": null,
           "fclass_bd": null,
           "fclass_ua": null,
-          "filename": "MAC.geojson"
+          "filename": "MAC.geojson",
+          "compiledCode": "MAC",
+          "compiledName": "Macau"
         },
         "geometry": {
           "type": "Polygon",
@@ -260769,7 +261019,9 @@
           "fclass_se": null,
           "fclass_bd": null,
           "fclass_ua": null,
-          "filename": "MDG.geojson"
+          "filename": "MDG.geojson",
+          "compiledCode": "MDG",
+          "compiledName": "Madagascar"
         },
         "geometry": {
           "type": "MultiPolygon",
@@ -262071,7 +262323,9 @@
           "fclass_se": null,
           "fclass_bd": null,
           "fclass_ua": null,
-          "filename": "MWI.geojson"
+          "filename": "MWI.geojson",
+          "compiledCode": "MWI",
+          "compiledName": "Malawi"
         },
         "geometry": {
           "type": "MultiPolygon",
@@ -263288,7 +263542,9 @@
           "fclass_se": null,
           "fclass_bd": null,
           "fclass_ua": null,
-          "filename": "MYS.geojson"
+          "filename": "MYS.geojson",
+          "compiledCode": "MYS",
+          "compiledName": "Malaysia"
         },
         "geometry": {
           "type": "MultiPolygon",
@@ -265583,7 +265839,9 @@
           "fclass_se": null,
           "fclass_bd": null,
           "fclass_ua": null,
-          "filename": "MDV.geojson"
+          "filename": "MDV.geojson",
+          "compiledCode": "MDV",
+          "compiledName": "Maldives"
         },
         "geometry": {
           "type": "MultiPolygon",
@@ -265909,7 +266167,9 @@
           "fclass_se": null,
           "fclass_bd": null,
           "fclass_ua": null,
-          "filename": "MLI.geojson"
+          "filename": "MLI.geojson",
+          "compiledCode": "MLI",
+          "compiledName": "Mali"
         },
         "geometry": {
           "type": "Polygon",
@@ -268030,7 +268290,9 @@
           "fclass_se": null,
           "fclass_bd": null,
           "fclass_ua": null,
-          "filename": "MLT.geojson"
+          "filename": "MLT.geojson",
+          "compiledCode": "MLT",
+          "compiledName": "Malta"
         },
         "geometry": {
           "type": "MultiPolygon",
@@ -268326,7 +268588,9 @@
           "fclass_se": null,
           "fclass_bd": null,
           "fclass_ua": null,
-          "filename": "MHL.geojson"
+          "filename": "MHL.geojson",
+          "compiledCode": "MHL",
+          "compiledName": "Marshall Islands"
         },
         "geometry": {
           "type": "MultiPolygon",
@@ -268802,7 +269066,9 @@
           "fclass_se": null,
           "fclass_bd": null,
           "fclass_ua": null,
-          "filename": "MRT.geojson"
+          "filename": "MRT.geojson",
+          "compiledCode": "MRT",
+          "compiledName": "Mauritania"
         },
         "geometry": {
           "type": "MultiPolygon",
@@ -270318,7 +270584,9 @@
           "fclass_se": null,
           "fclass_bd": null,
           "fclass_ua": null,
-          "filename": "MUS.geojson"
+          "filename": "MUS.geojson",
+          "compiledCode": "MUS",
+          "compiledName": "Mauritius"
         },
         "geometry": {
           "type": "Polygon",
@@ -270666,7 +270934,9 @@
           "fclass_se": null,
           "fclass_bd": null,
           "fclass_ua": null,
-          "filename": "MEX.geojson"
+          "filename": "MEX.geojson",
+          "compiledCode": "MEX",
+          "compiledName": "Mexico"
         },
         "geometry": {
           "type": "MultiPolygon",
@@ -275012,7 +275282,9 @@
           "fclass_se": null,
           "fclass_bd": null,
           "fclass_ua": null,
-          "filename": "FSM.geojson"
+          "filename": "FSM.geojson",
+          "compiledCode": "FSM",
+          "compiledName": "Micronesia"
         },
         "geometry": {
           "type": "MultiPolygon",
@@ -275454,7 +275726,9 @@
           "fclass_se": null,
           "fclass_bd": null,
           "fclass_ua": null,
-          "filename": "MDA.geojson"
+          "filename": "MDA.geojson",
+          "compiledCode": "MDA",
+          "compiledName": "Moldova"
         },
         "geometry": {
           "type": "Polygon",
@@ -276276,7 +276550,9 @@
           "fclass_se": null,
           "fclass_bd": null,
           "fclass_ua": null,
-          "filename": "MCO.geojson"
+          "filename": "MCO.geojson",
+          "compiledCode": "MCO",
+          "compiledName": "Monaco"
         },
         "geometry": {
           "type": "Polygon",
@@ -276529,7 +276805,9 @@
           "fclass_se": null,
           "fclass_bd": null,
           "fclass_ua": null,
-          "filename": "MNG.geojson"
+          "filename": "MNG.geojson",
+          "compiledCode": "MNG",
+          "compiledName": "Mongolia"
         },
         "geometry": {
           "type": "Polygon",
@@ -279702,7 +279980,9 @@
           "fclass_se": null,
           "fclass_bd": null,
           "fclass_ua": null,
-          "filename": "MNE.geojson"
+          "filename": "MNE.geojson",
+          "compiledCode": "MNE",
+          "compiledName": "Montenegro"
         },
         "geometry": {
           "type": "Polygon",
@@ -280292,7 +280572,9 @@
           "fclass_se": null,
           "fclass_bd": null,
           "fclass_ua": null,
-          "filename": "MSR.geojson"
+          "filename": "MSR.geojson",
+          "compiledCode": "MSR",
+          "compiledName": "Montserrat"
         },
         "geometry": {
           "type": "Polygon",
@@ -280549,7 +280831,9 @@
           "fclass_se": null,
           "fclass_bd": null,
           "fclass_ua": null,
-          "filename": "MAR.geojson"
+          "filename": "MAR.geojson",
+          "compiledCode": "MAR",
+          "compiledName": "Morocco"
         },
         "geometry": {
           "type": "Polygon",
@@ -282252,7 +282536,9 @@
           "fclass_se": null,
           "fclass_bd": null,
           "fclass_ua": null,
-          "filename": "MOZ.geojson"
+          "filename": "MOZ.geojson",
+          "compiledCode": "MOZ",
+          "compiledName": "Mozambique"
         },
         "geometry": {
           "type": "Polygon",
@@ -284363,7 +284649,9 @@
           "fclass_se": null,
           "fclass_bd": null,
           "fclass_ua": null,
-          "filename": "MMR.geojson"
+          "filename": "MMR.geojson",
+          "compiledCode": "MMR",
+          "compiledName": "Myanmar"
         },
         "geometry": {
           "type": "MultiPolygon",
@@ -288018,7 +288306,9 @@
           "fclass_se": "Unrecognized",
           "fclass_bd": "Unrecognized",
           "fclass_ua": "Unrecognized",
-          "filename": "CYN.geojson"
+          "filename": "CYN.geojson",
+          "compiledCode": "-99",
+          "compiledName": "N. Cyprus"
         },
         "geometry": {
           "type": "Polygon",
@@ -288435,7 +288725,9 @@
           "fclass_se": null,
           "fclass_bd": null,
           "fclass_ua": null,
-          "filename": "NAM.geojson"
+          "filename": "NAM.geojson",
+          "compiledCode": "NAM",
+          "compiledName": "Namibia"
         },
         "geometry": {
           "type": "Polygon",
@@ -289602,7 +289894,9 @@
           "fclass_se": null,
           "fclass_bd": null,
           "fclass_ua": null,
-          "filename": "NRU.geojson"
+          "filename": "NRU.geojson",
+          "compiledCode": "NRU",
+          "compiledName": "Nauru"
         },
         "geometry": {
           "type": "Polygon",
@@ -289861,7 +290155,9 @@
           "fclass_se": null,
           "fclass_bd": null,
           "fclass_ua": null,
-          "filename": "NPL.geojson"
+          "filename": "NPL.geojson",
+          "compiledCode": "NPL",
+          "compiledName": "Nepal"
         },
         "geometry": {
           "type": "Polygon",
@@ -290897,7 +291193,9 @@
           "fclass_se": null,
           "fclass_bd": null,
           "fclass_ua": null,
-          "filename": "NLD.geojson"
+          "filename": "NLD.geojson",
+          "compiledCode": "NLD",
+          "compiledName": "Netherlands"
         },
         "geometry": {
           "type": "MultiPolygon",
@@ -292213,7 +292511,9 @@
           "fclass_se": null,
           "fclass_bd": null,
           "fclass_ua": null,
-          "filename": "NCL.geojson"
+          "filename": "NCL.geojson",
+          "compiledCode": "NCL",
+          "compiledName": "New Caledonia"
         },
         "geometry": {
           "type": "MultiPolygon",
@@ -292968,7 +293268,9 @@
           "fclass_se": null,
           "fclass_bd": null,
           "fclass_ua": null,
-          "filename": "NZL.geojson"
+          "filename": "NZL.geojson",
+          "compiledCode": "NZL",
+          "compiledName": "New Zealand"
         },
         "geometry": {
           "type": "MultiPolygon",
@@ -296345,7 +296647,9 @@
           "fclass_se": null,
           "fclass_bd": null,
           "fclass_ua": null,
-          "filename": "NIC.geojson"
+          "filename": "NIC.geojson",
+          "compiledCode": "NIC",
+          "compiledName": "Nicaragua"
         },
         "geometry": {
           "type": "Polygon",
@@ -297280,7 +297584,9 @@
           "fclass_se": null,
           "fclass_bd": null,
           "fclass_ua": null,
-          "filename": "NER.geojson"
+          "filename": "NER.geojson",
+          "compiledCode": "NER",
+          "compiledName": "Niger"
         },
         "geometry": {
           "type": "Polygon",
@@ -298530,7 +298836,9 @@
           "fclass_se": null,
           "fclass_bd": null,
           "fclass_ua": null,
-          "filename": "NGA.geojson"
+          "filename": "NGA.geojson",
+          "compiledCode": "NGA",
+          "compiledName": "Nigeria"
         },
         "geometry": {
           "type": "MultiPolygon",
@@ -300215,7 +300523,9 @@
           "fclass_se": null,
           "fclass_bd": null,
           "fclass_ua": null,
-          "filename": "NIU.geojson"
+          "filename": "NIU.geojson",
+          "compiledCode": "NIU",
+          "compiledName": "Niue"
         },
         "geometry": {
           "type": "Polygon",
@@ -300472,7 +300782,9 @@
           "fclass_se": null,
           "fclass_bd": null,
           "fclass_ua": null,
-          "filename": "NFK.geojson"
+          "filename": "NFK.geojson",
+          "compiledCode": "NFK",
+          "compiledName": "Norfolk Island"
         },
         "geometry": {
           "type": "Polygon",
@@ -300810,7 +301122,9 @@
           "fclass_se": null,
           "fclass_bd": null,
           "fclass_ua": null,
-          "filename": "PRK.geojson"
+          "filename": "PRK.geojson",
+          "compiledCode": "PRK",
+          "compiledName": "North Korea"
         },
         "geometry": {
           "type": "MultiPolygon",
@@ -302076,7 +302390,9 @@
           "fclass_se": null,
           "fclass_bd": null,
           "fclass_ua": null,
-          "filename": "MKD.geojson"
+          "filename": "MKD.geojson",
+          "compiledCode": "MKD",
+          "compiledName": "North Macedonia"
         },
         "geometry": {
           "type": "Polygon",
@@ -302627,7 +302943,9 @@
           "fclass_se": null,
           "fclass_bd": null,
           "fclass_ua": null,
-          "filename": "MNP.geojson"
+          "filename": "MNP.geojson",
+          "compiledCode": "MNP",
+          "compiledName": "Northern Mariana Islands"
         },
         "geometry": {
           "type": "MultiPolygon",
@@ -303066,7 +303384,9 @@
           "fclass_se": null,
           "fclass_bd": null,
           "fclass_ua": null,
-          "filename": "NOR.geojson"
+          "filename": "NOR.geojson",
+          "compiledCode": "NOR",
+          "compiledName": "Norway"
         },
         "geometry": {
           "type": "MultiPolygon",
@@ -311360,7 +311680,9 @@
           "fclass_se": null,
           "fclass_bd": null,
           "fclass_ua": null,
-          "filename": "OMN.geojson"
+          "filename": "OMN.geojson",
+          "compiledCode": "OMN",
+          "compiledName": "Oman"
         },
         "geometry": {
           "type": "MultiPolygon",
@@ -312577,7 +312899,9 @@
           "fclass_se": null,
           "fclass_bd": null,
           "fclass_ua": null,
-          "filename": "PAK.geojson"
+          "filename": "PAK.geojson",
+          "compiledCode": "PAK",
+          "compiledName": "Pakistan"
         },
         "geometry": {
           "type": "Polygon",
@@ -315086,7 +315410,9 @@
           "fclass_se": null,
           "fclass_bd": null,
           "fclass_ua": null,
-          "filename": "PLW.geojson"
+          "filename": "PLW.geojson",
+          "compiledCode": "PLW",
+          "compiledName": "Palau"
         },
         "geometry": {
           "type": "MultiPolygon",
@@ -315414,7 +315740,9 @@
           "fclass_se": null,
           "fclass_bd": "Admin-0 country",
           "fclass_ua": null,
-          "filename": "PSE.geojson"
+          "filename": "PSE.geojson",
+          "compiledCode": "PSE",
+          "compiledName": "Palestine"
         },
         "geometry": {
           "type": "MultiPolygon",
@@ -315851,7 +316179,9 @@
           "fclass_se": null,
           "fclass_bd": null,
           "fclass_ua": null,
-          "filename": "PAN.geojson"
+          "filename": "PAN.geojson",
+          "compiledCode": "PAN",
+          "compiledName": "Panama"
         },
         "geometry": {
           "type": "MultiPolygon",
@@ -317081,7 +317411,9 @@
           "fclass_se": null,
           "fclass_bd": null,
           "fclass_ua": null,
-          "filename": "PNG.geojson"
+          "filename": "PNG.geojson",
+          "compiledCode": "PNG",
+          "compiledName": "Papua New Guinea"
         },
         "geometry": {
           "type": "MultiPolygon",
@@ -320477,7 +320809,9 @@
           "fclass_se": null,
           "fclass_bd": null,
           "fclass_ua": null,
-          "filename": "PRY.geojson"
+          "filename": "PRY.geojson",
+          "compiledCode": "PRY",
+          "compiledName": "Paraguay"
         },
         "geometry": {
           "type": "Polygon",
@@ -321737,7 +322071,9 @@
           "fclass_se": null,
           "fclass_bd": null,
           "fclass_ua": null,
-          "filename": "PER.geojson"
+          "filename": "PER.geojson",
+          "compiledCode": "PER",
+          "compiledName": "Peru"
         },
         "geometry": {
           "type": "Polygon",
@@ -324318,7 +324654,9 @@
           "fclass_se": null,
           "fclass_bd": null,
           "fclass_ua": null,
-          "filename": "PHL.geojson"
+          "filename": "PHL.geojson",
+          "compiledCode": "PHL",
+          "compiledName": "Philippines"
         },
         "geometry": {
           "type": "MultiPolygon",
@@ -329685,7 +330023,9 @@
           "fclass_se": null,
           "fclass_bd": null,
           "fclass_ua": null,
-          "filename": "PCN.geojson"
+          "filename": "PCN.geojson",
+          "compiledCode": "PCN",
+          "compiledName": "Pitcairn Islands"
         },
         "geometry": {
           "type": "Polygon",
@@ -329953,7 +330293,9 @@
           "fclass_se": null,
           "fclass_bd": null,
           "fclass_ua": null,
-          "filename": "POL.geojson"
+          "filename": "POL.geojson",
+          "compiledCode": "POL",
+          "compiledName": "Poland"
         },
         "geometry": {
           "type": "Polygon",
@@ -331444,7 +331786,9 @@
           "fclass_se": null,
           "fclass_bd": null,
           "fclass_ua": null,
-          "filename": "PRT.geojson"
+          "filename": "PRT.geojson",
+          "compiledCode": "PRT",
+          "compiledName": "Portugal"
         },
         "geometry": {
           "type": "MultiPolygon",
@@ -332763,7 +333107,9 @@
           "fclass_se": null,
           "fclass_bd": null,
           "fclass_ua": null,
-          "filename": "PRI.geojson"
+          "filename": "PRI.geojson",
+          "compiledCode": "PRI",
+          "compiledName": "Puerto Rico"
         },
         "geometry": {
           "type": "MultiPolygon",
@@ -333275,7 +333621,9 @@
           "fclass_se": null,
           "fclass_bd": null,
           "fclass_ua": null,
-          "filename": "QAT.geojson"
+          "filename": "QAT.geojson",
+          "compiledCode": "QAT",
+          "compiledName": "Qatar"
         },
         "geometry": {
           "type": "Polygon",
@@ -333643,7 +333991,9 @@
           "fclass_se": null,
           "fclass_bd": null,
           "fclass_ua": null,
-          "filename": "COG.geojson"
+          "filename": "COG.geojson",
+          "compiledCode": "COG",
+          "compiledName": "Republic of the Congo"
         },
         "geometry": {
           "type": "Polygon",
@@ -335208,7 +335558,9 @@
           "fclass_se": null,
           "fclass_bd": null,
           "fclass_ua": null,
-          "filename": "ROU.geojson"
+          "filename": "ROU.geojson",
+          "compiledCode": "ROU",
+          "compiledName": "Romania"
         },
         "geometry": {
           "type": "Polygon",
@@ -336543,7 +336895,9 @@
           "fclass_se": null,
           "fclass_bd": null,
           "fclass_ua": null,
-          "filename": "RUS.geojson"
+          "filename": "RUS.geojson",
+          "compiledCode": "RUS",
+          "compiledName": "Russia"
         },
         "geometry": {
           "type": "MultiPolygon",
@@ -366977,7 +367331,9 @@
           "fclass_se": null,
           "fclass_bd": null,
           "fclass_ua": null,
-          "filename": "RWA.geojson"
+          "filename": "RWA.geojson",
+          "compiledCode": "RWA",
+          "compiledName": "Rwanda"
         },
         "geometry": {
           "type": "Polygon",
@@ -367536,7 +367892,9 @@
           "fclass_se": null,
           "fclass_bd": null,
           "fclass_ua": null,
-          "filename": "BLM.geojson"
+          "filename": "BLM.geojson",
+          "compiledCode": "BLM",
+          "compiledName": "Saint Barthélemy"
         },
         "geometry": {
           "type": "Polygon",
@@ -367806,7 +368164,9 @@
           "fclass_se": null,
           "fclass_bd": null,
           "fclass_ua": null,
-          "filename": "SHN.geojson"
+          "filename": "SHN.geojson",
+          "compiledCode": "SHN",
+          "compiledName": "Saint Helena, Ascension and Tristan da Cunha"
         },
         "geometry": {
           "type": "MultiPolygon",
@@ -368109,7 +368469,9 @@
           "fclass_se": null,
           "fclass_bd": null,
           "fclass_ua": null,
-          "filename": "KNA.geojson"
+          "filename": "KNA.geojson",
+          "compiledCode": "KNA",
+          "compiledName": "Saint Kitts and Nevis"
         },
         "geometry": {
           "type": "MultiPolygon",
@@ -368418,7 +368780,9 @@
           "fclass_se": null,
           "fclass_bd": null,
           "fclass_ua": null,
-          "filename": "LCA.geojson"
+          "filename": "LCA.geojson",
+          "compiledCode": "LCA",
+          "compiledName": "Saint Lucia"
         },
         "geometry": {
           "type": "Polygon",
@@ -368687,7 +369051,9 @@
           "fclass_se": null,
           "fclass_bd": null,
           "fclass_ua": null,
-          "filename": "MAF.geojson"
+          "filename": "MAF.geojson",
+          "compiledCode": "MAF",
+          "compiledName": "Saint Martin"
         },
         "geometry": {
           "type": "Polygon",
@@ -368939,7 +369305,9 @@
           "fclass_se": null,
           "fclass_bd": null,
           "fclass_ua": null,
-          "filename": "SPM.geojson"
+          "filename": "SPM.geojson",
+          "compiledCode": "SPM",
+          "compiledName": "Saint Pierre and Miquelon"
         },
         "geometry": {
           "type": "MultiPolygon",
@@ -369265,7 +369633,9 @@
           "fclass_se": null,
           "fclass_bd": null,
           "fclass_ua": null,
-          "filename": "VCT.geojson"
+          "filename": "VCT.geojson",
+          "compiledCode": "VCT",
+          "compiledName": "Saint Vincent and the Grenadines"
         },
         "geometry": {
           "type": "MultiPolygon",
@@ -369696,7 +370066,9 @@
           "fclass_se": null,
           "fclass_bd": null,
           "fclass_ua": null,
-          "filename": "WSM.geojson"
+          "filename": "WSM.geojson",
+          "compiledCode": "WSM",
+          "compiledName": "Samoa"
         },
         "geometry": {
           "type": "MultiPolygon",
@@ -370036,7 +370408,9 @@
           "fclass_se": null,
           "fclass_bd": null,
           "fclass_ua": null,
-          "filename": "SMR.geojson"
+          "filename": "SMR.geojson",
+          "compiledCode": "SMR",
+          "compiledName": "San Marino"
         },
         "geometry": {
           "type": "Polygon",
@@ -370289,7 +370663,9 @@
           "fclass_se": null,
           "fclass_bd": null,
           "fclass_ua": null,
-          "filename": "STP.geojson"
+          "filename": "STP.geojson",
+          "compiledCode": "STP",
+          "compiledName": "São Tomé and Príncipe"
         },
         "geometry": {
           "type": "MultiPolygon",
@@ -370616,7 +370992,9 @@
           "fclass_se": null,
           "fclass_bd": null,
           "fclass_ua": null,
-          "filename": "SAU.geojson"
+          "filename": "SAU.geojson",
+          "compiledCode": "SAU",
+          "compiledName": "Saudi Arabia"
         },
         "geometry": {
           "type": "MultiPolygon",
@@ -372604,7 +372982,9 @@
           "fclass_se": null,
           "fclass_bd": null,
           "fclass_ua": null,
-          "filename": "SEN.geojson"
+          "filename": "SEN.geojson",
+          "compiledCode": "SEN",
+          "compiledName": "Senegal"
         },
         "geometry": {
           "type": "Polygon",
@@ -373811,7 +374191,9 @@
           "fclass_se": null,
           "fclass_bd": null,
           "fclass_ua": null,
-          "filename": "SRB.geojson"
+          "filename": "SRB.geojson",
+          "compiledCode": "SRB",
+          "compiledName": "Serbia"
         },
         "geometry": {
           "type": "Polygon",
@@ -375106,7 +375488,9 @@
           "fclass_se": null,
           "fclass_bd": null,
           "fclass_ua": null,
-          "filename": "SYC.geojson"
+          "filename": "SYC.geojson",
+          "compiledCode": "SYC",
+          "compiledName": "Seychelles"
         },
         "geometry": {
           "type": "Polygon",
@@ -375350,7 +375734,9 @@
           "fclass_se": "Unrecognized",
           "fclass_bd": "Unrecognized",
           "fclass_ua": "Unrecognized",
-          "filename": "siachenglacier.geojson"
+          "filename": "siachenglacier.geojson",
+          "compiledCode": "-99",
+          "compiledName": "Siachen Glacier"
         },
         "geometry": {
           "type": "Polygon",
@@ -375660,7 +376046,9 @@
           "fclass_se": null,
           "fclass_bd": null,
           "fclass_ua": null,
-          "filename": "SLE.geojson"
+          "filename": "SLE.geojson",
+          "compiledCode": "SLE",
+          "compiledName": "Sierra Leone"
         },
         "geometry": {
           "type": "MultiPolygon",
@@ -376398,7 +376786,9 @@
           "fclass_se": null,
           "fclass_bd": null,
           "fclass_ua": null,
-          "filename": "SGP.geojson"
+          "filename": "SGP.geojson",
+          "compiledCode": "SGP",
+          "compiledName": "Singapore"
         },
         "geometry": {
           "type": "Polygon",
@@ -376661,7 +377051,9 @@
           "fclass_se": null,
           "fclass_bd": null,
           "fclass_ua": null,
-          "filename": "SXM.geojson"
+          "filename": "SXM.geojson",
+          "compiledCode": "SXM",
+          "compiledName": "Sint Maarten"
         },
         "geometry": {
           "type": "Polygon",
@@ -376919,7 +377311,9 @@
           "fclass_se": null,
           "fclass_bd": null,
           "fclass_ua": null,
-          "filename": "SVK.geojson"
+          "filename": "SVK.geojson",
+          "compiledCode": "SVK",
+          "compiledName": "Slovakia"
         },
         "geometry": {
           "type": "Polygon",
@@ -377728,7 +378122,9 @@
           "fclass_se": null,
           "fclass_bd": null,
           "fclass_ua": null,
-          "filename": "SVN.geojson"
+          "filename": "SVN.geojson",
+          "compiledCode": "SVN",
+          "compiledName": "Slovenia"
         },
         "geometry": {
           "type": "Polygon",
@@ -378479,7 +378875,9 @@
           "fclass_se": null,
           "fclass_bd": null,
           "fclass_ua": null,
-          "filename": "SLB.geojson"
+          "filename": "SLB.geojson",
+          "compiledCode": "SLB",
+          "compiledName": "Solomon Islands"
         },
         "geometry": {
           "type": "MultiPolygon",
@@ -380132,7 +380530,9 @@
           "fclass_se": null,
           "fclass_bd": null,
           "fclass_ua": null,
-          "filename": "SOM.geojson"
+          "filename": "SOM.geojson",
+          "compiledCode": "SOM",
+          "compiledName": "Somalia"
         },
         "geometry": {
           "type": "Polygon",
@@ -380916,7 +381316,9 @@
           "fclass_se": "Unrecognized",
           "fclass_bd": "Unrecognized",
           "fclass_ua": "Unrecognized",
-          "filename": "SOL.geojson"
+          "filename": "SOL.geojson",
+          "compiledCode": "-99",
+          "compiledName": "Somaliland"
         },
         "geometry": {
           "type": "Polygon",
@@ -381476,7 +381878,9 @@
           "fclass_se": null,
           "fclass_bd": null,
           "fclass_ua": null,
-          "filename": "ZAF.geojson"
+          "filename": "ZAF.geojson",
+          "compiledCode": "ZAF",
+          "compiledName": "South Africa"
         },
         "geometry": {
           "type": "MultiPolygon",
@@ -383476,7 +383880,9 @@
           "fclass_se": null,
           "fclass_bd": null,
           "fclass_ua": null,
-          "filename": "SGS.geojson"
+          "filename": "SGS.geojson",
+          "compiledCode": "SGS",
+          "compiledName": "South Georgia"
         },
         "geometry": {
           "type": "MultiPolygon",
@@ -383962,7 +384368,9 @@
           "fclass_se": null,
           "fclass_bd": null,
           "fclass_ua": null,
-          "filename": "KOR.geojson"
+          "filename": "KOR.geojson",
+          "compiledCode": "KOR",
+          "compiledName": "South Korea"
         },
         "geometry": {
           "type": "MultiPolygon",
@@ -385274,7 +385682,9 @@
           "fclass_se": null,
           "fclass_bd": null,
           "fclass_ua": null,
-          "filename": "SSD.geojson"
+          "filename": "SSD.geojson",
+          "compiledCode": "SSD",
+          "compiledName": "South Sudan"
         },
         "geometry": {
           "type": "Polygon",
@@ -386811,7 +387221,9 @@
           "fclass_se": null,
           "fclass_bd": null,
           "fclass_ua": null,
-          "filename": "ESP.geojson"
+          "filename": "ESP.geojson",
+          "compiledCode": "ESP",
+          "compiledName": "Spain"
         },
         "geometry": {
           "type": "MultiPolygon",
@@ -389234,7 +389646,9 @@
           "fclass_se": null,
           "fclass_bd": null,
           "fclass_ua": null,
-          "filename": "LKA.geojson"
+          "filename": "LKA.geojson",
+          "compiledCode": "LKA",
+          "compiledName": "Sri Lanka"
         },
         "geometry": {
           "type": "MultiPolygon",
@@ -389845,7 +390259,9 @@
           "fclass_se": null,
           "fclass_bd": null,
           "fclass_ua": null,
-          "filename": "SDN.geojson"
+          "filename": "SDN.geojson",
+          "compiledCode": "SDN",
+          "compiledName": "Sudan"
         },
         "geometry": {
           "type": "Polygon",
@@ -391863,7 +392279,9 @@
           "fclass_se": null,
           "fclass_bd": null,
           "fclass_ua": null,
-          "filename": "SUR.geojson"
+          "filename": "SUR.geojson",
+          "compiledCode": "SUR",
+          "compiledName": "Suriname"
         },
         "geometry": {
           "type": "Polygon",
@@ -392868,7 +393286,9 @@
           "fclass_se": null,
           "fclass_bd": null,
           "fclass_ua": null,
-          "filename": "SWE.geojson"
+          "filename": "SWE.geojson",
+          "compiledCode": "SWE",
+          "compiledName": "Sweden"
         },
         "geometry": {
           "type": "MultiPolygon",
@@ -395498,7 +395918,9 @@
           "fclass_se": null,
           "fclass_bd": null,
           "fclass_ua": null,
-          "filename": "CHE.geojson"
+          "filename": "CHE.geojson",
+          "compiledCode": "CHE",
+          "compiledName": "Switzerland"
         },
         "geometry": {
           "type": "Polygon",
@@ -396476,7 +396898,9 @@
           "fclass_se": null,
           "fclass_bd": null,
           "fclass_ua": null,
-          "filename": "SYR.geojson"
+          "filename": "SYR.geojson",
+          "compiledCode": "SYR",
+          "compiledName": "Syria"
         },
         "geometry": {
           "type": "Polygon",
@@ -397395,7 +397819,9 @@
           "fclass_se": null,
           "fclass_bd": "Admin-1 states provinces",
           "fclass_ua": null,
-          "filename": "TWN.geojson"
+          "filename": "TWN.geojson",
+          "compiledCode": "TWN",
+          "compiledName": "Taiwan"
         },
         "geometry": {
           "type": "MultiPolygon",
@@ -397905,7 +398331,9 @@
           "fclass_se": null,
           "fclass_bd": null,
           "fclass_ua": null,
-          "filename": "TJK.geojson"
+          "filename": "TJK.geojson",
+          "compiledCode": "TJK",
+          "compiledName": "Tajikistan"
         },
         "geometry": {
           "type": "MultiPolygon",
@@ -399626,7 +400054,9 @@
           "fclass_se": null,
           "fclass_bd": null,
           "fclass_ua": null,
-          "filename": "TZA.geojson"
+          "filename": "TZA.geojson",
+          "compiledCode": "TZA",
+          "compiledName": "Tanzania"
         },
         "geometry": {
           "type": "MultiPolygon",
@@ -401376,7 +401806,9 @@
           "fclass_se": null,
           "fclass_bd": null,
           "fclass_ua": null,
-          "filename": "THA.geojson"
+          "filename": "THA.geojson",
+          "compiledCode": "THA",
+          "compiledName": "Thailand"
         },
         "geometry": {
           "type": "MultiPolygon",
@@ -403957,7 +404389,9 @@
           "fclass_se": null,
           "fclass_bd": null,
           "fclass_ua": null,
-          "filename": "TLS.geojson"
+          "filename": "TLS.geojson",
+          "compiledCode": "TLS",
+          "compiledName": "Timor-Leste"
         },
         "geometry": {
           "type": "MultiPolygon",
@@ -404476,7 +404910,9 @@
           "fclass_se": null,
           "fclass_bd": null,
           "fclass_ua": null,
-          "filename": "TGO.geojson"
+          "filename": "TGO.geojson",
+          "compiledCode": "TGO",
+          "compiledName": "Togo"
         },
         "geometry": {
           "type": "Polygon",
@@ -405262,7 +405698,9 @@
           "fclass_se": null,
           "fclass_bd": null,
           "fclass_ua": null,
-          "filename": "TON.geojson"
+          "filename": "TON.geojson",
+          "compiledCode": "TON",
+          "compiledName": "Tonga"
         },
         "geometry": {
           "type": "MultiPolygon",
@@ -405623,7 +406061,9 @@
           "fclass_se": null,
           "fclass_bd": null,
           "fclass_ua": null,
-          "filename": "TTO.geojson"
+          "filename": "TTO.geojson",
+          "compiledCode": "TTO",
+          "compiledName": "Trinidad and Tobago"
         },
         "geometry": {
           "type": "MultiPolygon",
@@ -406008,7 +406448,9 @@
           "fclass_se": null,
           "fclass_bd": null,
           "fclass_ua": null,
-          "filename": "TUN.geojson"
+          "filename": "TUN.geojson",
+          "compiledCode": "TUN",
+          "compiledName": "Tunisia"
         },
         "geometry": {
           "type": "MultiPolygon",
@@ -406996,7 +407438,9 @@
           "fclass_se": null,
           "fclass_bd": null,
           "fclass_ua": null,
-          "filename": "TUR.geojson"
+          "filename": "TUR.geojson",
+          "compiledCode": "TUR",
+          "compiledName": "Turkey"
         },
         "geometry": {
           "type": "MultiPolygon",
@@ -409482,7 +409926,9 @@
           "fclass_se": null,
           "fclass_bd": null,
           "fclass_ua": null,
-          "filename": "TKM.geojson"
+          "filename": "TKM.geojson",
+          "compiledCode": "TKM",
+          "compiledName": "Turkmenistan"
         },
         "geometry": {
           "type": "MultiPolygon",
@@ -411443,7 +411889,9 @@
           "fclass_se": null,
           "fclass_bd": null,
           "fclass_ua": null,
-          "filename": "TCA.geojson"
+          "filename": "TCA.geojson",
+          "compiledCode": "TCA",
+          "compiledName": "Turks and Caicos Islands"
         },
         "geometry": {
           "type": "MultiPolygon",
@@ -411796,7 +412244,9 @@
           "fclass_se": null,
           "fclass_bd": null,
           "fclass_ua": null,
-          "filename": "TUV.geojson"
+          "filename": "TUV.geojson",
+          "compiledCode": "TUV",
+          "compiledName": "Tuvalu"
         },
         "geometry": {
           "type": "Polygon",
@@ -412067,7 +412517,9 @@
           "fclass_se": null,
           "fclass_bd": null,
           "fclass_ua": null,
-          "filename": "UGA.geojson"
+          "filename": "UGA.geojson",
+          "compiledCode": "UGA",
+          "compiledName": "Uganda"
         },
         "geometry": {
           "type": "Polygon",
@@ -413018,7 +413470,9 @@
           "fclass_se": null,
           "fclass_bd": null,
           "fclass_ua": null,
-          "filename": "UKR.geojson"
+          "filename": "UKR.geojson",
+          "compiledCode": "UKR",
+          "compiledName": "Ukraine"
         },
         "geometry": {
           "type": "MultiPolygon",
@@ -415795,7 +416249,9 @@
           "fclass_se": null,
           "fclass_bd": null,
           "fclass_ua": null,
-          "filename": "ARE.geojson"
+          "filename": "ARE.geojson",
+          "compiledCode": "ARE",
+          "compiledName": "United Arab Emirates"
         },
         "geometry": {
           "type": "MultiPolygon",
@@ -416773,7 +417229,9 @@
           "fclass_se": null,
           "fclass_bd": null,
           "fclass_ua": null,
-          "filename": "GBR.geojson"
+          "filename": "GBR.geojson",
+          "compiledCode": "GBR",
+          "compiledName": "United Kingdom"
         },
         "geometry": {
           "type": "MultiPolygon",
@@ -421035,7 +421493,9 @@
           "fclass_se": null,
           "fclass_bd": null,
           "fclass_ua": null,
-          "filename": "USA.geojson"
+          "filename": "USA.geojson",
+          "compiledCode": "USA",
+          "compiledName": "United States"
         },
         "geometry": {
           "type": "MultiPolygon",
@@ -444818,7 +445278,9 @@
           "fclass_se": null,
           "fclass_bd": null,
           "fclass_ua": null,
-          "filename": "VIR.geojson"
+          "filename": "VIR.geojson",
+          "compiledCode": "VIR",
+          "compiledName": "United States Virgin Islands"
         },
         "geometry": {
           "type": "MultiPolygon",
@@ -445131,7 +445593,9 @@
           "fclass_se": null,
           "fclass_bd": null,
           "fclass_ua": null,
-          "filename": "URY.geojson"
+          "filename": "URY.geojson",
+          "compiledCode": "URY",
+          "compiledName": "Uruguay"
         },
         "geometry": {
           "type": "Polygon",
@@ -445935,7 +446399,9 @@
           "fclass_se": null,
           "fclass_bd": null,
           "fclass_ua": null,
-          "filename": "UZB.geojson"
+          "filename": "UZB.geojson",
+          "compiledCode": "UZB",
+          "compiledName": "Uzbekistan"
         },
         "geometry": {
           "type": "MultiPolygon",
@@ -448510,7 +448976,9 @@
           "fclass_se": null,
           "fclass_bd": null,
           "fclass_ua": null,
-          "filename": "VUT.geojson"
+          "filename": "VUT.geojson",
+          "compiledCode": "VUT",
+          "compiledName": "Vanuatu"
         },
         "geometry": {
           "type": "MultiPolygon",
@@ -449536,7 +450004,9 @@
           "fclass_se": null,
           "fclass_bd": null,
           "fclass_ua": null,
-          "filename": "VAT.geojson"
+          "filename": "VAT.geojson",
+          "compiledCode": "VAT",
+          "compiledName": "Vatican City"
         },
         "geometry": {
           "type": "Polygon",
@@ -449789,7 +450259,9 @@
           "fclass_se": null,
           "fclass_bd": null,
           "fclass_ua": null,
-          "filename": "VEN.geojson"
+          "filename": "VEN.geojson",
+          "compiledCode": "VEN",
+          "compiledName": "Venezuela"
         },
         "geometry": {
           "type": "MultiPolygon",
@@ -452304,7 +452776,9 @@
           "fclass_se": null,
           "fclass_bd": null,
           "fclass_ua": null,
-          "filename": "VNM.geojson"
+          "filename": "VNM.geojson",
+          "compiledCode": "VNM",
+          "compiledName": "Vietnam"
         },
         "geometry": {
           "type": "MultiPolygon",
@@ -455012,7 +455486,9 @@
           "fclass_se": null,
           "fclass_bd": null,
           "fclass_ua": null,
-          "filename": "WLF.geojson"
+          "filename": "WLF.geojson",
+          "compiledCode": "WLF",
+          "compiledName": "Wallis and Futuna"
         },
         "geometry": {
           "type": "MultiPolygon",
@@ -455320,7 +455796,9 @@
           "fclass_se": null,
           "fclass_bd": null,
           "fclass_ua": null,
-          "filename": "ESH.geojson"
+          "filename": "ESH.geojson",
+          "compiledCode": "ESH",
+          "compiledName": "Western Sahara"
         },
         "geometry": {
           "type": "Polygon",
@@ -456463,7 +456941,9 @@
           "fclass_se": null,
           "fclass_bd": null,
           "fclass_ua": null,
-          "filename": "YEM.geojson"
+          "filename": "YEM.geojson",
+          "compiledCode": "YEM",
+          "compiledName": "Yemen"
         },
         "geometry": {
           "type": "MultiPolygon",
@@ -457613,7 +458093,9 @@
           "fclass_se": null,
           "fclass_bd": null,
           "fclass_ua": null,
-          "filename": "ZMB.geojson"
+          "filename": "ZMB.geojson",
+          "compiledCode": "ZMB",
+          "compiledName": "Zambia"
         },
         "geometry": {
           "type": "Polygon",
@@ -459363,7 +459845,9 @@
           "fclass_se": null,
           "fclass_bd": null,
           "fclass_ua": null,
-          "filename": "ZWE.geojson"
+          "filename": "ZWE.geojson",
+          "compiledCode": "ZWE",
+          "compiledName": "Zimbabwe"
         },
         "geometry": {
           "type": "Polygon",

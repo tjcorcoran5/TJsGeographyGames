@@ -1,11 +1,18 @@
 import { findCountryMatch, loadCountries, loadCountryGeoJson } from "../data/countryData.js";
-import { featureToPattersonPath, getPattersonBounds, MAP_VIEWBOX, projectPatterson } from "../map/pattersonProjection.js";
+import { createCountryLabel, updateCountryLabels } from "../map/countryLabels.js";
+import { featureToPattersonPath, getInitialMapTransform, getPattersonBounds, MAP_VIEWBOX } from "../map/pattersonProjection.js";
 
 const VIEWBOX = MAP_VIEWBOX;
 const MAX_ZOOM = 45;
-const GAME_ID = "country-name-typing";
-
 export async function mountCountryTypingGame(stage) {
+  return mountCountryTypingGameWithScope(stage, { scope: "main", gameId: "country-name-typing" });
+}
+
+export async function mountExtendedCountryTypingGame(stage) {
+  return mountCountryTypingGameWithScope(stage, { scope: "mapped", gameId: "extended-country-name-typing" });
+}
+
+async function mountCountryTypingGameWithScope(stage, options) {
   stage.innerHTML = `
     <section class="map-game country-typing-game">
       <div class="map-canvas" data-map-canvas>
@@ -28,17 +35,17 @@ export async function mountCountryTypingGame(stage) {
   `;
 
   const [countries, geoJson] = await Promise.all([
-    loadCountries({ scope: "main", refresh: true }).catch(() => []),
-    loadCountryGeoJson({ interactiveScope: "main" })
+    loadCountries({ scope: options.scope, refresh: true }).catch(() => []),
+    loadCountryGeoJson({ interactiveScope: options.scope })
   ]);
 
-  const game = new CountryTypingGame(stage, geoJson, countries);
+  const game = new CountryTypingGame(stage, geoJson, countries, options.gameId);
   game.mount();
   return () => game.dispose();
 }
 
 class CountryTypingGame {
-  constructor(stage, geoJson, countries) {
+  constructor(stage, geoJson, countries, gameId) {
     this.stage = stage;
     this.geoJson = geoJson;
     this.countries = countries;
@@ -53,6 +60,7 @@ class CountryTypingGame {
     this.momentumFrame = null;
     this.startedAt = Date.now();
     this.timerId = null;
+    this.gameId = gameId;
 
     this.els = {
       score: stage.querySelector("[data-score]"),
@@ -71,7 +79,7 @@ class CountryTypingGame {
     this.onPointerUp = this.handlePointerUp.bind(this);
     this.onSubmit = this.handleSubmit.bind(this);
     this.onGiveUp = this.handleGiveUp.bind(this);
-    this.onRetry = () => navigateToGame();
+    this.onRetry = () => navigateToGame(this.gameId);
     this.onHub = () => navigateToHub();
   }
 
@@ -249,7 +257,7 @@ class CountryTypingGame {
       </section>
     `;
     overlay.querySelector("[data-retry]").addEventListener("click", () => {
-      navigateToGame();
+      navigateToGame(this.gameId);
     });
     overlay.querySelector("[data-hub]").addEventListener("click", () => {
       navigateToHub();
@@ -350,24 +358,12 @@ class CountryTypingGame {
   }
 
   centerInitialView() {
-    const landHeight = this.mapBounds.maxY - this.mapBounds.minY;
-    this.transform.y = (VIEWBOX.height - landHeight) / 2 - this.mapBounds.minY;
+    this.transform = getInitialMapTransform(this.mapBounds);
     this.applyTransform();
   }
 
   updateLabels() {
-    const visibleLabels = [];
-    this.content.querySelectorAll(".typing-label").forEach((label) => {
-      const minScale = Number(label.dataset.minScale || 1);
-      const isVisible = label.dataset.revealed === "true" && this.transform.scale >= minScale;
-      label.classList.toggle("label-visible", isVisible);
-      label.setAttribute("font-size", String(clamp(8 / this.transform.scale, 0.85, 8)));
-      label.setAttribute("stroke-width", String(clamp(2.8 / this.transform.scale, 0.28, 2.8)));
-      label.setAttribute("x", label.dataset.baseX);
-      label.setAttribute("y", label.dataset.baseY);
-      if (isVisible) visibleLabels.push(label);
-    });
-    resolveLabelCollisions(visibleLabels, this.transform);
+    updateCountryLabels(this.content, this.transform);
   }
 }
 
@@ -386,120 +382,6 @@ function normalizeGuess(value) {
     .replace(/^the\s+/, "")
     .replace(/&/g, "and")
     .replace(/[^a-z0-9]+/g, "");
-}
-
-function createCountryLabel(country, feature) {
-  const label = document.createElementNS("http://www.w3.org/2000/svg", "text");
-  const metrics = getFeatureLabelMetrics(feature);
-  label.setAttribute("x", metrics.x.toFixed(2));
-  label.setAttribute("y", metrics.y.toFixed(2));
-  label.setAttribute("text-anchor", "middle");
-  label.setAttribute("dominant-baseline", "central");
-  label.setAttribute("class", "typing-label");
-  label.dataset.revealed = "false";
-  label.dataset.minScale = String(getLabelMinScale(metrics.width, metrics.height));
-  label.dataset.baseX = metrics.x.toFixed(2);
-  label.dataset.baseY = metrics.y.toFixed(2);
-  label.dataset.labelPriority = String(metrics.width * metrics.height);
-  label.textContent = country.name;
-  return label;
-}
-
-function resolveLabelCollisions(labels, transform) {
-  const placed = [];
-  const visibleLabels = labels
-    .map((label) => ({ label, box: getLabelBox(label, transform, 0) }))
-    .filter((entry) => isBoxNearView(entry.box))
-    .sort((a, b) => Number(b.label.dataset.labelPriority || 0) - Number(a.label.dataset.labelPriority || 0));
-
-  visibleLabels.forEach(({ label }) => {
-    const offsets = [0, -12, 12, -24, 24, -38, 38, -54, 54];
-    let selectedOffset = offsets[offsets.length - 1];
-    let selectedBox = getLabelBox(label, transform, selectedOffset);
-
-    for (const offset of offsets) {
-      const box = getLabelBox(label, transform, offset);
-      if (!placed.some((placedBox) => boxesOverlap(box, placedBox))) {
-        selectedOffset = offset;
-        selectedBox = box;
-        break;
-      }
-    }
-
-    label.setAttribute("y", String(Number(label.dataset.baseY) + selectedOffset / transform.scale));
-    placed.push(selectedBox);
-  });
-}
-
-function getLabelBox(label, transform, yOffset) {
-  const textLength = label.textContent.length;
-  const width = clamp(textLength * 4.4, 18, 150);
-  const height = 10;
-  const x = (Number(label.dataset.baseX) + Number(label.dataset.tileOffset || 0)) * transform.scale + transform.x;
-  const y = Number(label.dataset.baseY) * transform.scale + transform.y + yOffset;
-  return {
-    left: x - width / 2 - 3,
-    right: x + width / 2 + 3,
-    top: y - height / 2 - 2,
-    bottom: y + height / 2 + 2
-  };
-}
-
-function isBoxNearView(box) {
-  return box.right >= -80 && box.left <= VIEWBOX.width + 80 && box.bottom >= -50 && box.top <= VIEWBOX.height + 50;
-}
-
-function boxesOverlap(a, b) {
-  return a.left < b.right && a.right > b.left && a.top < b.bottom && a.bottom > b.top;
-}
-
-function getFeatureLabelMetrics(feature) {
-  const rings = getPolygonRings(feature.geometry);
-  const best = rings
-    .map((ring) => {
-      const points = ring.map(([lon, lat]) => projectPatterson(lon, lat));
-      const bounds = points.reduce(
-        (next, point) => ({
-          minX: Math.min(next.minX, point.x),
-          maxX: Math.max(next.maxX, point.x),
-          minY: Math.min(next.minY, point.y),
-          maxY: Math.max(next.maxY, point.y)
-        }),
-        { minX: Infinity, maxX: -Infinity, minY: Infinity, maxY: -Infinity }
-      );
-      return {
-        ...bounds,
-        area: Math.max(0, bounds.maxX - bounds.minX) * Math.max(0, bounds.maxY - bounds.minY)
-      };
-    })
-    .sort((a, b) => b.area - a.area)[0];
-
-  if (!best) return { x: VIEWBOX.width / 2, y: VIEWBOX.height / 2, width: 0, height: 0 };
-  const labelLon = Number(feature.properties?.label_x);
-  const labelLat = Number(feature.properties?.label_y);
-  const labelPoint = Number.isFinite(labelLon) && Number.isFinite(labelLat) ? projectPatterson(labelLon, labelLat) : null;
-  return {
-    x: labelPoint?.x ?? (best.minX + best.maxX) / 2,
-    y: labelPoint?.y ?? (best.minY + best.maxY) / 2,
-    width: best.maxX - best.minX,
-    height: best.maxY - best.minY
-  };
-}
-
-function getPolygonRings(geometry) {
-  if (!geometry) return [];
-  if (geometry.type === "Polygon") return geometry.coordinates;
-  if (geometry.type === "MultiPolygon") return geometry.coordinates.flat();
-  return [];
-}
-
-function getLabelMinScale(width, height) {
-  const size = Math.max(width, height);
-  if (size >= 55) return 1;
-  if (size >= 28) return 1.8;
-  if (size >= 14) return 3.2;
-  if (size >= 7) return 6;
-  return 10;
 }
 
 function getGeoJsonProjectedBounds(geoJson) {
@@ -525,8 +407,8 @@ function cssEscape(value) {
   return String(value).replaceAll("\"", "\\\"");
 }
 
-function navigateToGame() {
-  window.dispatchEvent(new CustomEvent("geo:navigate", { detail: { view: "game", gameId: GAME_ID } }));
+function navigateToGame(gameId) {
+  window.dispatchEvent(new CustomEvent("geo:navigate", { detail: { view: "game", gameId } }));
 }
 
 function navigateToHub() {

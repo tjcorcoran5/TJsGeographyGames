@@ -1,5 +1,6 @@
 import { findCountryMatch, loadCountries, loadCountryGeoJson } from "../data/countryData.js";
-import { featureToPattersonPath, getPattersonBounds, MAP_VIEWBOX } from "../map/pattersonProjection.js";
+import { createCountryLabel, updateCountryLabels } from "../map/countryLabels.js";
+import { featureToPattersonPath, getInitialMapTransform, getPattersonBounds, MAP_VIEWBOX } from "../map/pattersonProjection.js";
 
 const VIEWBOX = MAP_VIEWBOX;
 const MAX_ZOOM = 45;
@@ -20,6 +21,15 @@ export async function mountCountryMapGame(stage) {
     promptMode: "country",
     intro: "Select the named country on the map.",
     hint: "Scroll to zoom. Drag to pan. Click the named country."
+  });
+}
+
+export async function mountCapitalMapGame(stage) {
+  return mountMapPromptGame(stage, {
+    ariaLabel: "Capital city map game",
+    promptMode: "capital",
+    intro: "Select the country whose capital city is shown.",
+    hint: "Scroll to zoom. Drag to pan. Click the country with the named capital."
   });
 }
 
@@ -63,7 +73,9 @@ class FlagMapGame {
   constructor(stage, geoJson, countries, config) {
     this.stage = stage;
     this.geoJson = geoJson;
-    this.countries = shuffle(countries.filter((country) => country.flag));
+    this.countries = shuffle(
+      countries.filter((country) => (config.promptMode === "capital" ? country.capital?.length : country.flag))
+    );
     this.config = config;
     this.remaining = [...this.countries];
     this.correct = new Set();
@@ -79,6 +91,7 @@ class FlagMapGame {
     this.startedAt = Date.now();
     this.timerId = null;
     this.isFinished = false;
+    this.countryFeatures = new Map();
 
     this.els = {
       score: stage.querySelector("[data-score]"),
@@ -88,6 +101,7 @@ class FlagMapGame {
       flag: stage.querySelector("[data-flag]"),
       prompt: stage.querySelector("[data-prompt]"),
       feedback: stage.querySelector("[data-feedback]"),
+      actions: stage.querySelector(".flag-game-actions"),
       skip: stage.querySelector("[data-skip]"),
       giveUp: stage.querySelector("[data-give-up]")
     };
@@ -131,9 +145,15 @@ class FlagMapGame {
   drawCountries() {
     const fragment = document.createDocumentFragment();
 
+    this.countries.forEach((country) => {
+      const feature = this.findFeatureForCountry(country);
+      if (feature) this.countryFeatures.set(getCountryKey(country), feature);
+    });
+
     [-VIEWBOX.width, 0, VIEWBOX.width].forEach((offset) => {
       const tile = document.createElementNS("http://www.w3.org/2000/svg", "g");
       tile.setAttribute("transform", `translate(${offset} 0)`);
+      tile.dataset.tileOffset = String(offset);
 
       this.geoJson.features.forEach((feature, index) => {
         if (!feature.geometry) return;
@@ -147,6 +167,15 @@ class FlagMapGame {
         path.dataset.countryId = id;
         path.style.setProperty("--country-color", "#d8e4df");
         tile.append(path);
+      });
+
+      this.countries.forEach((country) => {
+        const feature = this.countryFeatures.get(getCountryKey(country));
+        if (!feature) return;
+        const label = createCountryLabel(country, feature);
+        label.dataset.countryId = getFeatureId(feature.properties);
+        label.dataset.tileOffset = String(offset);
+        tile.append(label);
       });
 
       fragment.append(tile);
@@ -166,10 +195,17 @@ class FlagMapGame {
     this.acceptingAnswer = true;
     this.els.flag.src = this.current.flag;
     this.els.flag.alt = `${this.current.name} flag`;
-    fitFlagImage(this.els.flag);
-    this.els.prompt.textContent = this.config.promptMode === "country" ? this.current.name : "Which country uses this flag?";
-    this.els.feedback.textContent =
-      this.config.promptMode === "country" ? "Select this country on the map." : "Select the matching country on the map.";
+    this.els.flagFrame.hidden = this.config.promptMode === "capital";
+    if (this.config.promptMode !== "capital") fitFlagImage(this.els.flag);
+
+    if (this.config.promptMode === "capital") {
+      this.els.prompt.textContent = this.current.capital.join(" / ");
+      this.els.feedback.textContent = "Select the country with this capital city.";
+    } else {
+      this.els.prompt.textContent = this.config.promptMode === "country" ? this.current.name : "Which country uses this flag?";
+      this.els.feedback.textContent =
+        this.config.promptMode === "country" ? "Select this country on the map." : "Select the matching country on the map.";
+    }
   }
 
   handleCountryClick(path) {
@@ -183,7 +219,7 @@ class FlagMapGame {
     if (selectedCountry.code === this.current.code || selectedCountry.name === this.current.name) {
       this.acceptingAnswer = false;
       this.correct.add(this.current.code);
-      this.markCountry(path.dataset.countryId, "correct");
+      this.markCountry(path.dataset.countryId, "correct", this.config.promptMode !== "country");
       this.els.score.textContent = String(this.correct.size);
       this.els.feedback.textContent = `Correct: ${this.current.name}`;
       window.setTimeout(() => this.nextQuestion(), 450);
@@ -209,9 +245,11 @@ class FlagMapGame {
 
   giveUp() {
     if (this.isFinished) return;
-    [this.current, ...this.remaining].filter(Boolean).forEach((country) => {
-      this.markCountry(this.getCountryMapId(country), "wrong");
+    this.countries.forEach((country) => {
+      const status = this.correct.has(country.code) ? "correct" : "wrong";
+      this.markCountry(this.getCountryMapId(country), status, this.config.promptMode !== "country", false);
     });
+    this.updateLabels();
     this.finishGame(true);
   }
 
@@ -227,6 +265,14 @@ class FlagMapGame {
     this.els.flagFrame.replaceChildren();
     this.els.skip.disabled = true;
     this.els.giveUp.disabled = true;
+    if (gaveUp) {
+      const returnButton = document.createElement("button");
+      returnButton.className = "text-button primary";
+      returnButton.type = "button";
+      returnButton.textContent = "Return to hub";
+      returnButton.addEventListener("click", navigateToHub, { once: true });
+      this.els.actions.replaceChildren(returnButton);
+    }
   }
 
   updateTimer() {
@@ -237,11 +283,18 @@ class FlagMapGame {
     return this.els.timer.textContent;
   }
 
-  markCountry(countryId, status) {
+  markCountry(countryId, status, revealLabel = false, refreshLabels = true) {
     this.content.querySelectorAll(`.map-country[data-country-id="${cssEscape(countryId)}"]`).forEach((path) => {
       path.classList.remove("selected", "answer-flash");
       path.classList.add(status === "correct" ? "answer-correct" : "answer-wrong");
     });
+    if (revealLabel) {
+      this.content.querySelectorAll(`.typing-label[data-country-id="${cssEscape(countryId)}"]`).forEach((label) => {
+        label.dataset.revealed = "true";
+        label.classList.toggle("label-missed", status === "wrong");
+      });
+      if (refreshLabels) this.updateLabels();
+    }
   }
 
   flashCountry(countryId) {
@@ -252,12 +305,16 @@ class FlagMapGame {
   }
 
   getCountryMapId(country) {
-    const feature = this.geoJson.features.find((candidate) => {
+    const feature = this.countryFeatures.get(getCountryKey(country)) || this.findFeatureForCountry(country);
+
+    return feature ? getFeatureId(feature.properties) : country.code;
+  }
+
+  findFeatureForCountry(country) {
+    return this.geoJson.features.find((candidate) => {
       const match = findCountryMatch(candidate.properties, [country]);
       return match?.code === country.code || match?.name === country.name;
     });
-
-    return feature ? getFeatureId(feature.properties) : country.code;
   }
 
   handleWheel(event) {
@@ -344,6 +401,7 @@ class FlagMapGame {
   applyTransform() {
     this.constrainTransform();
     this.content.setAttribute("transform", `translate(${this.transform.x} ${this.transform.y}) scale(${this.transform.scale})`);
+    this.updateLabels();
   }
 
   constrainTransform() {
@@ -359,9 +417,12 @@ class FlagMapGame {
   }
 
   centerInitialView() {
-    const landHeight = this.mapBounds.maxY - this.mapBounds.minY;
-    this.transform.y = (VIEWBOX.height - landHeight) / 2 - this.mapBounds.minY;
+    this.transform = getInitialMapTransform(this.mapBounds);
     this.applyTransform();
+  }
+
+  updateLabels() {
+    updateCountryLabels(this.content, this.transform);
   }
 }
 
@@ -373,7 +434,7 @@ function buildQuestionPool(allCountries, mainCountries, geoJson) {
     .filter((feature) => MAIN_GEO_TYPES.has(feature.properties.type))
     .forEach((feature) => {
       const match = findCountryMatch(feature.properties, allCountries);
-      if (match?.flag) byCode.set(match.code, match);
+      if (match) byCode.set(match.code, match);
     });
 
   return [...byCode.values()];
@@ -385,6 +446,10 @@ function getGeoJsonProjectedBounds(geoJson) {
 
 function getFeatureId(properties) {
   return [properties.adm0_a3, properties.iso_a3, properties.brk_a3, properties.gu_a3, properties.name, properties.admin].find(isUsableId);
+}
+
+function getCountryKey(country) {
+  return country.code || String(country.name || "").toLowerCase().replace(/[^a-z0-9]+/g, "");
 }
 
 function isUsableId(value) {
@@ -423,4 +488,8 @@ function fitFlagImage(img) {
 
   if (img.complete) applyFit();
   else img.addEventListener("load", applyFit, { once: true });
+}
+
+function navigateToHub() {
+  window.dispatchEvent(new CustomEvent("geo:navigate", { detail: { view: "hub" } }));
 }

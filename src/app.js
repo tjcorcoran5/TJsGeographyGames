@@ -21,78 +21,61 @@ function renderHub() {
   const main = document.createElement("main");
   main.className = "hub";
   main.innerHTML = `
-    <section class="hub-heading">
-      <h1>Geography Games</h1>
-      <p>Choose a section, then open a map, globe, quiz, or development tool.</p>
-    </section>
-    <section class="game-grid" aria-label="Geography game sections"></section>
+    <div class="hub-game-groups" data-game-groups></div>
   `;
 
-  const grid = main.querySelector(".game-grid");
+  const groups = main.querySelector("[data-game-groups]");
   categories.filter(shouldShowCategory).forEach((category) => {
-    const card = document.createElement("button");
-    card.type = "button";
-    card.className = "game-card available";
-    card.innerHTML = `
-      <span class="badge">${category.developerOnly ? "Developer" : "Section"}</span>
-      <span>
-        <h2>${category.title}</h2>
+    const categoryGames = games
+      .filter((game) => game.category === category.id && shouldShowGame(game))
+      .sort((a, b) => (a.order ?? Number.MAX_SAFE_INTEGER) - (b.order ?? Number.MAX_SAFE_INTEGER));
+    if (!categoryGames.length) return;
+    const section = document.createElement("section");
+    section.className = "hub-game-group";
+    section.setAttribute("aria-labelledby", `hub-${category.id}-heading`);
+    section.innerHTML = `
+      <div class="hub-group-heading">
+        <h2 id="hub-${category.id}-heading">${category.title}</h2>
         <p>${category.description}</p>
-      </span>
+      </div>
+      <div class="game-grid"></div>
     `;
-    card.addEventListener("click", () => renderCategory(category.id));
-
-    grid.append(card);
+    const grid = section.querySelector(".game-grid");
+    categoryGames.forEach((game) => grid.append(createGameCard(game)));
+    groups.append(section);
   });
 
   shell.append(main);
   setView(shell);
 }
 
-function renderCategory(categoryId) {
-  const category = categories.find((candidate) => candidate.id === categoryId);
-  if (!category || !shouldShowCategory(category)) {
-    renderHub();
-    return;
-  }
-
-  const shell = document.createElement("div");
-  shell.className = "app-shell";
-  shell.append(createTopbar({ title: category.title, showHome: true, onHome: renderHub }));
-
-  const main = document.createElement("main");
-  main.className = "hub";
-  main.innerHTML = `
-    <section class="hub-heading">
-      <h1>${category.title}</h1>
-      <p>${category.description}</p>
-    </section>
-    <section class="game-grid" aria-label="${category.title} apps"></section>
+function createGameCard(game) {
+  const card = document.createElement("button");
+  const kind = getGameKind(game);
+  card.type = "button";
+  card.className = `game-card ${game.enabled ? "available" : "disabled"}`;
+  card.disabled = !game.enabled;
+  card.innerHTML = `
+    <span class="badge badge-${kind.id}">${kind.label}</span>
+    <span>
+      <h2>${game.title}</h2>
+      <p>${game.description}</p>
+    </span>
   `;
+  if (game.enabled) card.addEventListener("click", () => renderGame(game.id));
+  return card;
+}
 
-  const grid = main.querySelector(".game-grid");
-  games.filter((game) => game.category === categoryId && shouldShowGame(game)).forEach((game) => {
-    const card = document.createElement("button");
-    card.type = "button";
-    card.className = `game-card ${game.enabled ? "available" : "disabled"}`;
-    card.disabled = !game.enabled;
-    card.innerHTML = `
-      <span class="badge">${game.developerOnly ? "Developer" : game.enabled ? "Playable" : "Planned"}</span>
-      <span>
-        <h2>${game.title}</h2>
-        <p>${game.description}</p>
-      </span>
-    `;
-
-    if (game.enabled) {
-      card.addEventListener("click", () => renderGame(game.id));
-    }
-
-    grid.append(card);
-  });
-
-  shell.append(main);
-  setView(shell);
+function getGameKind(game) {
+  if (game.developerOnly) return { id: "developer", label: "Developer" };
+  const kinds = {
+    "Interactive Maps": { id: "interactive", label: "Interactive Maps" },
+    Flags: { id: "flag", label: "Flags" },
+    "Country Names": { id: "country", label: "Country Names" },
+    "Capital Cities": { id: "capital", label: "Capital Cities" },
+    "Country Outlines": { id: "outline", label: "Country Outlines" }
+  };
+  return kinds[game.section] || { id: "interactive", label: game.section || "Game" };
 }
 
 function shouldShowCategory(category) {
@@ -143,10 +126,6 @@ window.addEventListener("geo:navigate", (event) => {
   const detail = event.detail || {};
   if (detail.view === "hub") {
     renderHub();
-    return;
-  }
-  if (detail.view === "category") {
-    renderCategory(detail.categoryId);
     return;
   }
   if (detail.view === "game") {

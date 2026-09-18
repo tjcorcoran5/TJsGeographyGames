@@ -78,7 +78,13 @@ async function loadCompiledDataset(state, els) {
 
 async function syncRest(state, els) {
   setStatus(els, "Syncing REST Countries...");
-  state.restCountries = await loadRemoteCountries();
+  try {
+    state.restCountries = await loadRemoteCountries();
+  } catch (error) {
+    console.error(error);
+    setStatus(els, `REST Countries sync failed: ${error.message || "Unknown error"}`);
+    return;
+  }
 
   const existingByCode = new Map(state.compiledCountries.map((country) => [country.code, country]));
   state.restCountries.forEach((restCountry) => {
@@ -107,12 +113,13 @@ async function syncRest(state, els) {
 
 async function syncGeo(state, els) {
   setStatus(els, "Syncing GeoJSON...");
-  const response = await fetch("./assets/country-outlines.geo.json");
+  const response = await fetch("/api/dev/country-outlines");
   if (!response.ok) {
-    setStatus(els, "country-outlines.geo.json was not found. Existing embedded GeoJSON was kept.");
+    setStatus(els, "GeoJSON sync failed. Run with node dev-server.mjs.");
     return;
   }
-  const geoJson = await response.json();
+  const payload = await response.json();
+  const geoJson = payload.geoJson;
   state.geoFeatures = geoJson.features || [];
 
   state.compiledCountries = state.compiledCountries.map((country) => {
@@ -135,7 +142,7 @@ async function syncGeo(state, els) {
 
   state.dirty = true;
   renderDataset(state, els);
-  setStatus(els, "GeoJSON synced.");
+  setStatus(els, `GeoJSON synced from ${payload.source}.`);
 }
 
 async function saveDataset(state, els) {
