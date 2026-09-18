@@ -118,7 +118,7 @@ async function renderGame(gameId) {
 
   const screen = document.createElement("div");
   screen.className = "game-screen";
-  screen.append(createTopbar({ title: game.title, showHome: true, onHome: () => renderCategory(game.category) }));
+  screen.append(createTopbar({ title: game.title, showHome: true, onHome: renderHub }));
 
   const stage = document.createElement("main");
   stage.className = "game-stage";

@@ -1,6 +1,7 @@
 import { loadCountries, loadCountryGeoJson } from "../data/countryData.js";
+import { featureToPattersonPath, MAP_VIEWBOX } from "../map/pattersonProjection.js";
 
-const VIEWBOX = { width: 1000, height: 520 };
+const VIEWBOX = MAP_VIEWBOX;
 const GAME_ID = "flag-name-typing";
 
 export async function mountFlagTypingGame(stage) {
@@ -259,7 +260,7 @@ function drawStaticMap(svg, geoJson) {
   geoJson.features.forEach((feature) => {
     if (!feature.geometry) return;
     const path = document.createElementNS("http://www.w3.org/2000/svg", "path");
-    path.setAttribute("d", featureToPath(feature));
+    path.setAttribute("d", featureToPattersonPath(feature));
     path.setAttribute("class", "map-country static-map-country");
     fragment.append(path);
   });
@@ -289,33 +290,6 @@ function normalizeGuess(value) {
 
 function formatCountryDetail(country) {
   return [country.region, country.capital?.[0]].filter(Boolean).join(" / ");
-}
-
-function featureToPath(feature) {
-  if (feature.geometry.type === "Polygon") return polygonToPath(feature.geometry.coordinates);
-  if (feature.geometry.type === "MultiPolygon") return feature.geometry.coordinates.map(polygonToPath).join(" ");
-  return "";
-}
-
-function polygonToPath(rings) {
-  return rings
-    .map((ring) => {
-      const commands = ring.map(([lon, lat], index) => {
-        const point = project(lon, lat);
-        return `${index === 0 ? "M" : "L"}${point.x.toFixed(2)} ${point.y.toFixed(2)}`;
-      });
-      return `${commands.join(" ")} Z`;
-    })
-    .join(" ");
-}
-
-function project(lon, lat) {
-  const x = ((lon + 180) / 360) * VIEWBOX.width;
-  const clippedLat = clamp(lat, -85, 85);
-  const latRad = (clippedLat * Math.PI) / 180;
-  const mercator = Math.log(Math.tan(Math.PI / 4 + latRad / 2));
-  const y = VIEWBOX.height / 2 - (VIEWBOX.width * mercator) / (2 * Math.PI);
-  return { x, y };
 }
 
 function fitFlagImage(img) {

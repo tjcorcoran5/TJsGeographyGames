@@ -183,8 +183,12 @@ button {
 
 .game-screen {
   display: grid;
-  grid-template-rows: auto 1fr;
+  grid-template-rows: auto minmax(0, 1fr);
+  height: 100vh;
+  height: 100dvh;
   min-height: 100vh;
+  min-height: 100dvh;
+  overflow: hidden;
 }
 
 .game-header {
@@ -194,7 +198,8 @@ button {
 
 .game-stage {
   position: relative;
-  min-height: calc(100vh - 4rem);
+  min-width: 0;
+  min-height: 0;
   overflow: hidden;
 }
 
@@ -213,6 +218,8 @@ button {
 
 .globe-canvas canvas {
   display: block;
+  width: 100%;
+  height: 100%;
 }
 
 .world-map-svg {
@@ -481,6 +488,27 @@ button {
   background: var(--panel-soft);
   color: var(--accent-strong);
   font-weight: 800;
+}
+
+.flag-game-status,
+.flag-game-actions {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+}
+
+.flag-game-timer {
+  border-radius: 999px;
+  padding: 0.25rem 0.65rem;
+  background: var(--panel-soft);
+  color: var(--accent-strong);
+  font-variant-numeric: tabular-nums;
+  font-weight: 800;
+}
+
+.flag-game-actions .text-button {
+  flex: 1;
 }
 
 .flag-game-card {

@@ -1,6 +1,7 @@
 import { findCountryMatch, loadCountries, loadCountryGeoJson } from "../data/countryData.js";
+import { featureToPattersonPath, getPattersonBounds, MAP_VIEWBOX } from "../map/pattersonProjection.js";
 
-const VIEWBOX = { width: 1000, height: 520 };
+const VIEWBOX = MAP_VIEWBOX;
 const MAX_ZOOM = 45;
 const MAIN_GEO_TYPES = new Set(["Sovereign country", "Country", "Disputed"]);
 
@@ -29,13 +30,19 @@ async function mountMapPromptGame(stage, config) {
         <svg class="world-map-svg" viewBox="0 0 ${VIEWBOX.width} ${VIEWBOX.height}" role="img" aria-label="${config.ariaLabel}"></svg>
       </div>
       <aside class="flag-game-panel">
-        <div class="flag-game-score"><span data-score>0</span> / <span data-total>0</span></div>
+        <div class="flag-game-status">
+          <div class="flag-game-score"><span data-score>0</span> / <span data-total>0</span></div>
+          <div class="flag-game-timer" aria-label="Elapsed time" data-timer>00:00</div>
+        </div>
         <div class="flag-game-card">
           <div class="flag-game-frame"><img data-flag alt="" /></div>
           <h2 data-prompt>Loading...</h2>
           <p data-feedback>${config.intro}</p>
         </div>
-        <button class="text-button" type="button" data-skip>Skip</button>
+        <div class="flag-game-actions">
+          <button class="text-button" type="button" data-skip>Skip</button>
+          <button class="text-button" type="button" data-give-up>Give up</button>
+        </div>
       </aside>
       <div class="globe-hint">${config.hint}</div>
     </section>
@@ -69,14 +76,20 @@ class FlagMapGame {
     this.drag = { active: false, moved: false, x: 0, y: 0, target: null };
     this.velocity = { x: 0, y: 0 };
     this.momentumFrame = null;
+    this.startedAt = Date.now();
+    this.timerId = null;
+    this.isFinished = false;
 
     this.els = {
       score: stage.querySelector("[data-score]"),
       total: stage.querySelector("[data-total]"),
+      timer: stage.querySelector("[data-timer]"),
+      flagFrame: stage.querySelector(".flag-game-frame"),
       flag: stage.querySelector("[data-flag]"),
       prompt: stage.querySelector("[data-prompt]"),
       feedback: stage.querySelector("[data-feedback]"),
-      skip: stage.querySelector("[data-skip]")
+      skip: stage.querySelector("[data-skip]"),
+      giveUp: stage.querySelector("[data-give-up]")
     };
 
     this.onWheel = this.handleWheel.bind(this);
@@ -84,6 +97,7 @@ class FlagMapGame {
     this.onPointerMove = this.handlePointerMove.bind(this);
     this.onPointerUp = this.handlePointerUp.bind(this);
     this.onSkip = this.skipCurrent.bind(this);
+    this.onGiveUp = this.giveUp.bind(this);
   }
 
   mount() {
@@ -95,17 +109,23 @@ class FlagMapGame {
     window.addEventListener("pointermove", this.onPointerMove);
     window.addEventListener("pointerup", this.onPointerUp);
     this.els.skip.addEventListener("click", this.onSkip);
+    this.els.giveUp.addEventListener("click", this.onGiveUp);
     this.els.total.textContent = String(this.countries.length);
+    this.startedAt = Date.now();
+    this.updateTimer();
+    this.timerId = window.setInterval(() => this.updateTimer(), 1000);
     this.nextQuestion();
   }
 
   dispose() {
     cancelAnimationFrame(this.momentumFrame);
+    clearInterval(this.timerId);
     this.svg.removeEventListener("wheel", this.onWheel);
     this.svg.removeEventListener("pointerdown", this.onPointerDown);
     window.removeEventListener("pointermove", this.onPointerMove);
     window.removeEventListener("pointerup", this.onPointerUp);
     this.els.skip.removeEventListener("click", this.onSkip);
+    this.els.giveUp.removeEventListener("click", this.onGiveUp);
   }
 
   drawCountries() {
@@ -120,7 +140,7 @@ class FlagMapGame {
 
         const id = getFeatureId(feature.properties);
         const path = document.createElementNS("http://www.w3.org/2000/svg", "path");
-        path.setAttribute("d", featureToPath(feature));
+        path.setAttribute("d", featureToPattersonPath(feature));
         path.setAttribute("class", "map-country flag-answer-country");
         if (!feature.properties.isInteractive) path.classList.add("non-interactive");
         path.dataset.countryIndex = String(index);
@@ -136,11 +156,9 @@ class FlagMapGame {
   }
 
   nextQuestion() {
+    if (this.isFinished) return;
     if (!this.remaining.length) {
-      this.current = null;
-      this.els.prompt.textContent = "Finished";
-      this.els.feedback.textContent = "Nice work. You completed the round.";
-      this.els.flag.removeAttribute("src");
+      this.finishGame(false);
       return;
     }
 
@@ -183,10 +201,40 @@ class FlagMapGame {
   }
 
   skipCurrent() {
-    if (!this.current) return;
+    if (!this.current || this.isFinished) return;
     this.remaining.push(this.current);
     this.els.feedback.textContent = `Skipped ${this.current.name}. It will come back later.`;
     this.nextQuestion();
+  }
+
+  giveUp() {
+    if (this.isFinished) return;
+    [this.current, ...this.remaining].filter(Boolean).forEach((country) => {
+      this.markCountry(this.getCountryMapId(country), "wrong");
+    });
+    this.finishGame(true);
+  }
+
+  finishGame(gaveUp) {
+    this.isFinished = true;
+    this.acceptingAnswer = false;
+    this.current = null;
+    this.remaining = [];
+    clearInterval(this.timerId);
+    const elapsed = this.updateTimer();
+    this.els.prompt.textContent = gaveUp ? "Round ended" : "Finished";
+    this.els.feedback.textContent = `${this.correct.size} of ${this.countries.length} correct in ${elapsed}.`;
+    this.els.flagFrame.replaceChildren();
+    this.els.skip.disabled = true;
+    this.els.giveUp.disabled = true;
+  }
+
+  updateTimer() {
+    const elapsed = Math.floor((Date.now() - this.startedAt) / 1000);
+    const minutes = String(Math.floor(elapsed / 60)).padStart(2, "0");
+    const seconds = String(elapsed % 60).padStart(2, "0");
+    this.els.timer.textContent = `${minutes}:${seconds}`;
+    return this.els.timer.textContent;
   }
 
   markCountry(countryId, status) {
@@ -273,11 +321,11 @@ class FlagMapGame {
   }
 
   clientToViewBox(clientX, clientY) {
-    const rect = this.svg.getBoundingClientRect();
-    return {
-      x: ((clientX - rect.left) / rect.width) * VIEWBOX.width,
-      y: ((clientY - rect.top) / rect.height) * VIEWBOX.height
-    };
+    const point = this.svg.createSVGPoint();
+    point.x = clientX;
+    point.y = clientY;
+    const viewBoxPoint = point.matrixTransform(this.svg.getScreenCTM().inverse());
+    return { x: viewBoxPoint.x, y: viewBoxPoint.y };
   }
 
   startMomentum() {
@@ -331,52 +379,8 @@ function buildQuestionPool(allCountries, mainCountries, geoJson) {
   return [...byCode.values()];
 }
 
-function featureToPath(feature) {
-  if (feature.geometry.type === "Polygon") return polygonToPath(feature.geometry.coordinates);
-  if (feature.geometry.type === "MultiPolygon") return feature.geometry.coordinates.map(polygonToPath).join(" ");
-  return "";
-}
-
-function polygonToPath(rings) {
-  return rings
-    .map((ring) => {
-      const commands = ring.map(([lon, lat], index) => {
-        const point = project(lon, lat);
-        return `${index === 0 ? "M" : "L"}${point.x.toFixed(2)} ${point.y.toFixed(2)}`;
-      });
-      return `${commands.join(" ")} Z`;
-    })
-    .join(" ");
-}
-
-function project(lon, lat) {
-  const x = ((lon + 180) / 360) * VIEWBOX.width;
-  const clippedLat = clamp(lat, -85, 85);
-  const latRad = (clippedLat * Math.PI) / 180;
-  const mercator = Math.log(Math.tan(Math.PI / 4 + latRad / 2));
-  const y = VIEWBOX.height / 2 - (VIEWBOX.width * mercator) / (2 * Math.PI);
-  return { x, y };
-}
-
 function getGeoJsonProjectedBounds(geoJson) {
-  const bounds = { minY: Infinity, maxY: -Infinity };
-  geoJson.features.forEach((feature) => {
-    visitCoordinates(feature.geometry?.coordinates, ([lon, lat]) => {
-      const point = project(lon, lat);
-      bounds.minY = Math.min(bounds.minY, point.y);
-      bounds.maxY = Math.max(bounds.maxY, point.y);
-    });
-  });
-  return Number.isFinite(bounds.minY) ? bounds : { minY: 0, maxY: VIEWBOX.height };
-}
-
-function visitCoordinates(coordinates, visitor) {
-  if (!coordinates) return;
-  if (typeof coordinates[0] === "number") {
-    visitor(coordinates);
-    return;
-  }
-  coordinates.forEach((child) => visitCoordinates(child, visitor));
+  return getPattersonBounds(geoJson);
 }
 
 function getFeatureId(properties) {

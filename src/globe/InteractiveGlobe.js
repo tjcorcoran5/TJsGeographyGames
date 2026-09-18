@@ -8,7 +8,6 @@ export class InteractiveGlobe {
     this.onCountrySelected = onCountrySelected;
     this.radius = 5;
     this.maxLat = 1.4;
-    this.minFOV = 0.5;
     this.maxFOV = 40;
     this.inertia = { lon: 0, lat: 0 };
     this.isDragging = false;
@@ -17,6 +16,7 @@ export class InteractiveGlobe {
     this.dragCurrentVec = new THREE.Vector3();
     this.selectedCountry = null;
     this.animationId = null;
+    this.hasInitialCameraFit = false;
 
     this.scene = new THREE.Scene();
     this.renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
@@ -45,6 +45,8 @@ export class InteractiveGlobe {
     this.controls.minDistance = this.radius * 1.2;
     this.controls.maxDistance = this.radius * 3.5;
     this.controls.target.set(0, 0, 0);
+    this.camera.lookAt(this.controls.target);
+    this.controls.update();
 
     this.interactionSphere = new THREE.Mesh(
       new THREE.SphereGeometry(this.radius, 64, 64),
@@ -299,29 +301,38 @@ export class InteractiveGlobe {
   }
 
   resize() {
-    const width = this.container.clientWidth || 1;
-    const height = this.container.clientHeight || 1;
+    const bounds = this.container.getBoundingClientRect();
+    const width = Math.max(1, Math.round(bounds.width));
+    const height = Math.max(1, Math.round(bounds.height));
+    this.renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2));
     this.renderer.setSize(width, height, false);
     this.camera.aspect = width / height;
     this.camera.updateProjectionMatrix();
+    this.fitCameraToGlobe();
   }
 
-  updateCameraFOV() {
-    const distance = this.camera.position.length();
-    const t = THREE.MathUtils.clamp(
-      (distance - this.controls.minDistance) / (this.controls.maxDistance - this.controls.minDistance),
-      0,
-      1
-    );
+  fitCameraToGlobe() {
+    const verticalFov = THREE.MathUtils.degToRad(this.maxFOV);
+    const horizontalFov = 2 * Math.atan(Math.tan(verticalFov / 2) * this.camera.aspect);
+    const limitingFov = Math.min(verticalFov, horizontalFov);
+    const fittedDistance = (this.radius * 1.08) / Math.sin(limitingFov / 2);
 
-    this.camera.fov = THREE.MathUtils.lerp(this.minFOV, this.maxFOV, t);
-    this.camera.updateProjectionMatrix();
+    this.controls.maxDistance = Math.max(this.radius * 3.5, fittedDistance * 1.25);
+    if (!this.hasInitialCameraFit) {
+      this.camera.position.set(0, 0, fittedDistance);
+      this.hasInitialCameraFit = true;
+    } else if (this.camera.position.length() < fittedDistance) {
+      this.camera.position.setLength(fittedDistance);
+    }
+
+    this.controls.target.set(0, 0, 0);
+    this.camera.lookAt(this.controls.target);
+    this.controls.update();
   }
 
   animate() {
     this.animationId = requestAnimationFrame(() => this.animate());
     this.controls.update();
-    this.updateCameraFOV();
 
     if (!this.isDragging) {
       const speedSq = this.inertia.lon * this.inertia.lon + this.inertia.lat * this.inertia.lat;

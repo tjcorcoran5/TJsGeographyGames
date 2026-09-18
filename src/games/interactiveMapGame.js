@@ -1,7 +1,8 @@
 import { emptyCountryPanelText, renderCountryPanel } from "../components/countryPanel.js";
 import { findCountryMatch, loadCountries, loadCountryGeoJson } from "../data/countryData.js";
+import { featureToPattersonPath, getPattersonBounds, MAP_VIEWBOX } from "../map/pattersonProjection.js";
 
-const VIEWBOX = { width: 1000, height: 520 };
+const VIEWBOX = MAP_VIEWBOX;
 const MAX_ZOOM = 60;
 
 export async function mountInteractiveMapGame(stage) {
@@ -87,7 +88,7 @@ class InteractiveMap {
         if (!feature.geometry) return;
 
         const path = document.createElementNS("http://www.w3.org/2000/svg", "path");
-        path.setAttribute("d", featureToPath(feature));
+        path.setAttribute("d", featureToPattersonPath(feature));
         path.setAttribute("class", "map-country");
         if (!feature.properties.isInteractive) path.classList.add("non-interactive");
         path.dataset.countryIndex = String(index);
@@ -182,11 +183,11 @@ class InteractiveMap {
   }
 
   clientToViewBox(clientX, clientY) {
-    const rect = this.svg.getBoundingClientRect();
-    return {
-      x: ((clientX - rect.left) / rect.width) * VIEWBOX.width,
-      y: ((clientY - rect.top) / rect.height) * VIEWBOX.height
-    };
+    const point = this.svg.createSVGPoint();
+    point.x = clientX;
+    point.y = clientY;
+    const viewBoxPoint = point.matrixTransform(this.svg.getScreenCTM().inverse());
+    return { x: viewBoxPoint.x, y: viewBoxPoint.y };
   }
 
   startMomentum() {
@@ -234,67 +235,8 @@ class InteractiveMap {
   }
 }
 
-function featureToPath(feature) {
-  if (feature.geometry.type === "Polygon") {
-    return polygonToPath(feature.geometry.coordinates);
-  }
-
-  if (feature.geometry.type === "MultiPolygon") {
-    return feature.geometry.coordinates.map(polygonToPath).join(" ");
-  }
-
-  return "";
-}
-
-function polygonToPath(rings) {
-  return rings
-    .map((ring) => {
-      const commands = ring.map(([lon, lat], index) => {
-        const point = project(lon, lat);
-        return `${index === 0 ? "M" : "L"}${point.x.toFixed(2)} ${point.y.toFixed(2)}`;
-      });
-      return `${commands.join(" ")} Z`;
-    })
-    .join(" ");
-}
-
-function project(lon, lat) {
-  const x = ((lon + 180) / 360) * VIEWBOX.width;
-  const clippedLat = clamp(lat, -85, 85);
-  const latRad = (clippedLat * Math.PI) / 180;
-  const mercator = Math.log(Math.tan(Math.PI / 4 + latRad / 2));
-  const y = VIEWBOX.height / 2 - (VIEWBOX.width * mercator) / (2 * Math.PI);
-  return { x, y };
-}
-
 function getGeoJsonProjectedBounds(geoJson) {
-  const bounds = { minX: Infinity, maxX: -Infinity, minY: Infinity, maxY: -Infinity };
-
-  geoJson.features.forEach((feature) => {
-    visitCoordinates(feature.geometry?.coordinates, ([lon, lat]) => {
-      const point = project(lon, lat);
-      bounds.minX = Math.min(bounds.minX, point.x);
-      bounds.maxX = Math.max(bounds.maxX, point.x);
-      bounds.minY = Math.min(bounds.minY, point.y);
-      bounds.maxY = Math.max(bounds.maxY, point.y);
-    });
-  });
-
-  if (!Number.isFinite(bounds.minY)) {
-    return { minX: 0, maxX: VIEWBOX.width, minY: 0, maxY: VIEWBOX.height };
-  }
-
-  return bounds;
-}
-
-function visitCoordinates(coordinates, visitor) {
-  if (!coordinates) return;
-  if (typeof coordinates[0] === "number") {
-    visitor(coordinates);
-    return;
-  }
-
-  coordinates.forEach((child) => visitCoordinates(child, visitor));
+  return getPattersonBounds(geoJson);
 }
 
 function clamp(value, min, max) {
