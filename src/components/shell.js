@@ -1,4 +1,4 @@
-export function createTopbar({ title = "Geography Games", showHome = true, onHome } = {}) {
+export function createTopbar({ title = "TJ's Geography Games", showHome = true, onHome } = {}) {
   const header = document.createElement("header");
   header.className = "topbar game-header";
   header.innerHTML = `
